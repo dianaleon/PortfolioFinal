@@ -5,36 +5,94 @@
 	 android:orientation="vertical" >
 	
 	
-	<LinearLayout android:orientation="vertical" 
+	<LinearLayout 
+	    android:id="@+id/header"
+	    android:orientation="vertical" 
 	    android:layout_width="fill_parent"
-	    android:layout_height="120dp"
+	    android:layout_height="0dip"
+	    android:layout_weight="0.3"
 	    style="@style/customHeaderTitleSubtitle"
 	    android:background="@drawable/gradient_gold" />
-
-
+	
 	<LinearLayout
+	    android:id="@+id/body"
+	    android:orientation="vertical" 
 	    android:layout_width="match_parent"
-	    android:layout_height="380dp"
-	    android:background="#000"
-	    android:gravity="center_vertical"
+	    android:layout_height="0dip"
+	    android:layout_weight="0.6"
+		android:background="#000"
+		android:gravity="top">	
+
+		<LinearLayout
+		    android:id="@+id/menu"
+		    android:layout_width="match_parent"
+		    android:layout_height="0dip"
+	    	android:layout_weight="0.6"
+		    android:background="#000"
+		    android:gravity="top"
+		    android:orientation="vertical"
+		    android:visibility="invisible" >
+	
+		    <TextView
+			    android:id="@+id/textPageLink1"
+			    android:layout_width="fill_parent"
+			    android:layout_height="50dp"
+			    android:layout_gravity="center_horizontal"
+			    android:layout_gravity="top"
+			    android:textColor="#FFF"
+			    android:background="@drawable/gradient_gold"
+			    android:text=@strings/itemMenu1 />
+			
+			<TextView
+			    android:id="@+id/imagePageLink2"
+			    android:layout_width="fill_parent"
+			    android:layout_height="50dp"
+			    android:layout_gravity="center_horizontal"
+			    android:layout_gravity="top"
+			    android:textColor="#FFF"
+			    android:background="#000"
+			    android:text=@strings/itemMenu2 />
+			<TextView
+			    android:id="@+id/contactPageLink3"
+			    android:layout_width="fill_parent"
+			    android:layout_height="50dp"
+			    android:layout_gravity="center_horizontal"
+			    android:layout_gravity="top"
+			    android:textColor="#FFF"
+			    android:background="#000"
+			    android:text=@strings/itemMenu3 />
+			<TextView
+			    android:id="@+id/socialPageLink4"
+			    android:layout_width="fill_parent"
+			    android:layout_height="50dp"
+			    android:layout_gravity="center_horizontal"
+			    android:layout_gravity="top"
+			    android:background="#000"
+			    android:textColor="#FFF"
+			    android:text=@strings/itemMenu4 />
+	
+		</LinearLayout> 
+
+	</LinearLayout> 
+	
+	<LinearLayout
+	    style="@style/customHeaderTitleSubtitle"
+	    android:layout_width="fill_parent"
+	    android:layout_height="0dip"
+	    android:layout_gravity="bottom"
+	    android:layout_weight="0.1"
+	    android:background="@drawable/gradient_gold"
 	    android:orientation="vertical" >
 
-		<TextView
-		    android:id="@+id/textView1"
-		    android:layout_width="192dp"
-		    android:layout_height="247dp"
-		    android:layout_gravity="center_horizontal"
-		    android:text="TextView" />
-
+	    <Button
+	        android:id="@+id/buttonMenu"
+	        android:layout_width="46dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:layout_weight="1"
+	        android:background="@drawable/menu" />
+	    
 	</LinearLayout>
 
-	<LinearLayout android:orientation="vertical" 
-	    android:layout_width="fill_parent"
-	    android:layout_height="40dp"
-	    style="@style/customHeaderTitleSubtitle"
-	    android:background="@drawable/gradient_gold"
-	    android:layout_gravity="bottom" >
-	</LinearLayout>
-
-</LinearLayout>
+</LinearLayout> 
 
