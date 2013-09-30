@@ -1,0 +1,26 @@
+<resources>
+ 	<style name="AppBaseTheme" >
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="customHeaderTitleSubtitle">
+        <item name="android:background">#B99C5E</item>
+         <item name="android:layout_height">120dip</item>
+   
+    </style>
+    <style name="customFooterLinkMenu">
+        <item name="android:background">#c2c2c2</item>
+         <item name="android:layout_height">50dip</item>
+   
+    </style>
+    
+
+</resources>
