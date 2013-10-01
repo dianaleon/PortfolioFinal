@@ -70,4 +70,9 @@ public class MainActivity extends Activity implements IPortfolioListener{
 		imageView.setImageBitmap(bitmap);
 	}
 
+	@Override
+	public void errorGetPortfolio() {
+		System.out.println("ads");
+	}
+
 }

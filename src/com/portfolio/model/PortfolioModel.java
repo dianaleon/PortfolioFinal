@@ -46,6 +46,11 @@ public class PortfolioModel {
 						PortfolioModel.instance.portfolio = portfolio;
 						callback.onPortfolioReady();
 					}
+					
+					@Override
+					public void errorRequest(Message msg) {
+						callback.errorGetPortfolio();
+					}
 				});
 		task.exec();
 	}

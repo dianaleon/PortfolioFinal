@@ -1,5 +1,6 @@
 package com.portfolio.asyncTask;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Handler;
 
@@ -7,20 +8,31 @@ import com.portfolio.connection.ConnectionPool;
 import com.portfolio.connection.MyAsyncTask;
 import com.portfolio.handler.AsyncTaskHandler;
 
-public class GetMediaAsyncTask extends MyAsyncTask{
-	
+public class GetMediaAsyncTask extends MyAsyncTask {
+
 	private static String TAG = GetMediaAsyncTask.class.getSimpleName();
-	 
+
 	private Handler handler;
 	private String url;
 	private String name;
 	private String path;
-	
-	public GetMediaAsyncTask(Context ctx, Handler handler, String url, String name) {
+
+	public GetMediaAsyncTask(Context ctx, Handler handler, String url,
+			String name) {
 		super(ctx);
 		this.handler = handler;
 		this.url = url;
 		this.name = name;
+	}
+
+	@Override
+	protected void onPreExecute() {
+		super.onPreExecute();
+		// Showing the progress dialog before starting process
+		progress = new ProgressDialog(_context);
+		progress.setMessage("Cargando");
+		progress.setCancelable(false);
+		progress.show();
 	}
 
 	@Override
@@ -29,18 +41,19 @@ public class GetMediaAsyncTask extends MyAsyncTask{
 			ConnectionPool pool = ConnectionPool.getInstanced(_context);
 			path = pool.downloadFromURL(url, name);
 		} catch (Exception e) {
-			return AsyncTaskHandler.ERRORREQUEST; 
+			return AsyncTaskHandler.ERRORREQUEST;
 		}
 		return AsyncTaskHandler.ACEPTREQUEST;
 	}
-	
+
 	@Override
 	protected void onPostExecute(Integer result) {
 		android.os.Message msg = new android.os.Message();
 		msg.what = result;
-		if(result == AsyncTaskHandler.ACEPTREQUEST){
+		if (result == AsyncTaskHandler.ACEPTREQUEST) {
 			msg.obj = path;
 		}
+		progress.dismiss();
 		handler.sendMessage(msg);
 	}
 }

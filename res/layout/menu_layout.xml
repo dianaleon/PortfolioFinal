@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.portfolio.components.menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="0.6"
+    android:background="#000"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:visibility="invisible" >
+
+    <TextView
+        android:id="@+id/textPageLink1"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal|top"
+        android:background="@drawable/gradient_gold"
+        android:text="itemMenu1"
+        android:textColor="#FFF" />
+
+    <TextView
+        android:id="@+id/imagePageLink2"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal|top"
+        android:background="#000"
+        android:text="itemMenu2"
+        android:textColor="#FFF" />
+
+    <TextView
+        android:id="@+id/contactPageLink3"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal|top"
+        android:background="#000"
+        android:text="itemMenu3"
+        android:textColor="#FFF" />
+
+    <TextView
+        android:id="@+id/socialPageLink4"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal|top"
+        android:background="#000"
+        android:text="itemMenu4"
+        android:textColor="#FFF" />
+
+</com.portfolio.components.menu>

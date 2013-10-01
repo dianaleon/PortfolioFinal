@@ -1,5 +1,6 @@
 package com.portfolio.connection;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -10,6 +11,7 @@ public abstract class MyAsyncTask extends AsyncTask<Integer, Integer, Integer> {
 	protected boolean error = false;
 	protected int typeError = 0;
 	 
+    protected ProgressDialog progress;
 
 	public boolean getError() {
 		return error;
