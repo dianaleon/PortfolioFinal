@@ -8,17 +8,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.portfolio.model.entities.component.ImageObject;
+import com.portfolio.model.entities.component.TextObject;
 import com.portfolio.model.interfaces.IPage;
-import com.portfolio.model.interfaces.IPhotoGaleryPage;
+import com.portfolio.model.interfaces.IPhotosGridPage;
 import com.portfolio.model.interfaces.component.IPageObject;
 
-public class PhotoGaleryPage extends Page implements IPhotoGaleryPage {
+public class PhotosGridPage extends Page implements IPhotosGridPage {
 
 	private List<IPageObject> objects;
 
-	public PhotoGaleryPage(Type type, JSONObject jsonObject) {
+	public PhotosGridPage(Type type, JSONObject jsonObject) {
 		this.type = type;
-		this.type.setTypeValue(IPage.type_photo_galery);
+		this.type.setTypeValue(IPage.type_photos_grid);
 		this.objects= new ArrayList<IPageObject>();
 		try {
 			JSONArray data = jsonObject.getJSONArray("data");

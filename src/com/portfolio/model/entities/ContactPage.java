@@ -15,15 +15,17 @@ public class ContactPage extends Page implements IContactPage {
 
 	public List<ContactItem> items;
 
-	public ContactPage(JSONObject jsonObject) {
-		this.type = IPage.type_contact;
+	public ContactPage(Type type, JSONObject jsonObject) {
+		this.type = type;
+		this.type.setTypeValue(IPage.type_contact);
 		this.items = new ArrayList<ContactItem>();
 		try {
 			JSONArray data = jsonObject.getJSONArray("data");
 			for (int index = 0; index < data.length(); index++) {
 				JSONObject object = data.getJSONObject(index);
 				ContactItem contactItem = new ContactItem();
-				contactItem.setType(object.getString("code"));
+				contactItem.setCode(object.getString("code"));
+				contactItem.setCode(object.getString("text"));
 				contactItem.setValue(object.getString("value"));
 				this.items.add(contactItem);
 			}

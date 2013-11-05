@@ -12,8 +12,9 @@ public class TextPage extends Page implements ITextPage {
 
 	private String text;
 	
-	public TextPage(JSONObject jsonObject) {
-		this.type = IPage.type_text;
+	public TextPage(Type type, JSONObject jsonObject) {
+		this.type = type;
+		this.type.setTypeValue(IPage.type_text);
 		try {
 			JSONArray data = jsonObject.getJSONArray("data");
 			for (int index = 0; index < data.length(); index++) {

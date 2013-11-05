@@ -2,19 +2,28 @@ package com.portfolio.model.adapter;
 
 public class ContactItem {
 
-	private String type;
+	private String code;
+	private String text;
 	private String value;
 	
 	public ContactItem() {
 		
 	}
 
-	public String getType() {
-		return type;
+	public String getCode() {
+		return code;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
 	}
 
 	public String getValue() {

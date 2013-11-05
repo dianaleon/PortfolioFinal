@@ -15,8 +15,9 @@ public class NetworkPage extends Page implements INetworkPage {
 
 	private List<NetworkItem> items;
 
-	public NetworkPage(JSONObject jsonObject) {
-		this.type = IPage.type_network;
+	public NetworkPage(Type type, JSONObject jsonObject) {
+		this.type = type;
+		this.type.setTypeValue(IPage.type_network);
 		this.items = new ArrayList<NetworkItem>();
 		try {
 			JSONArray data = jsonObject.getJSONArray("data");
@@ -25,6 +26,9 @@ public class NetworkPage extends Page implements INetworkPage {
 				NetworkItem networkItem = new NetworkItem();
 				networkItem.setNetwork(object.getString("code"));
 				networkItem.setUrl(object.getString("value"));
+				if (object.has("icon")) {
+					networkItem.setIcon(object.getString("icon"));
+				}
 				this.items.add(networkItem);
 			}
 		} catch (JSONException e) {

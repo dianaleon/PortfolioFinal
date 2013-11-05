@@ -4,6 +4,7 @@ public class NetworkItem {
 
 	private String network;
 	private String url;
+	private String icon;
 	
 	public NetworkItem() {
 		
@@ -20,5 +21,13 @@ public class NetworkItem {
 	}
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
 	}
 }

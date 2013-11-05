@@ -23,6 +23,7 @@ import android.util.Log;
 import com.portfolio.connection.ConnectionPool;
 import com.portfolio.connection.MyAsyncTask;
 import com.portfolio.handler.AsyncTaskHandler;
+import com.portfolio.model.entities.Client;
 import com.portfolio.model.entities.Portfolio;
 import com.portfolio.utils.FileHelper;
 
@@ -69,14 +70,14 @@ public class GetPortfolioAsyncTask extends MyAsyncTask {
 			} else {
 				ConnectionPool pool = ConnectionPool.getInstanced(_context);
 				JSONObject result = pool.request("", param);
-				String update = result.getString("update");
+				Client client = new Client(result.getJSONObject("client"));
 				String previousUpdate = getJSONUpdate();
-				long newUpdate = Long.parseLong(update);
+				long newUpdate = client.getUpdate();
 				long preUpdate = Long.parseLong(previousUpdate);
 				if (newUpdate > preUpdate) {
 					response = new Portfolio(result);
-					String path = writeFileJSON(update, result.toString());
-					updateJSONUpdate(update, path);
+					String path = writeFileJSON(String.valueOf(client.getUpdate()), result.toString());
+					updateJSONUpdate(String.valueOf(client.getUpdate()), path);
 				} else {
 					String path = getJSONPath();
 					String jsonOld = readFileJSON(path);

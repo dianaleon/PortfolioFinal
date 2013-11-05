@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.portfolio.model.interfaces.component.IPageObject;
 
-public interface IPhotoGaleryPage extends IPage {
+public interface IPhotoTxtGridListPage extends IPage {
 
 	public List<IPageObject> getObjects();
 

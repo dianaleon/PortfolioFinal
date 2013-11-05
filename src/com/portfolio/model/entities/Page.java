@@ -5,13 +5,13 @@ import com.portfolio.model.interfaces.IPage;
 
 public abstract class  Page extends CustomThemeWindow implements IPage {
 
-	protected int type;
+	protected Type type;
 	protected String name;
 	protected String iconURL;
 	protected int pos;
 	
 	@Override
-	public int getType() {
+	public Type getType() {
 		return type;
 	}
 

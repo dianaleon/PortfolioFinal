@@ -45,7 +45,7 @@ public class MainActivity extends Activity implements IPortfolioListener{
 		int pagesCount = portfolioModel.getNumberPages();
 		List<String> names = portfolioModel.getPagesName();
 		IPage pageNum1 = portfolioModel.getPageInfo(1);
-		switch (pageNum1.getType()) {
+		switch (pageNum1.getType().getTypeValue()) {
 			case IPage.type_text:
 				ITextPage textPage = (ITextPage) pageNum1;
 				Intent intent = new Intent(MainActivity.this, TextActivity.class);
@@ -54,8 +54,8 @@ public class MainActivity extends Activity implements IPortfolioListener{
 				break;
 			case IPage.type_photo_galery:
 				IPhotoGaleryPage photoPage = (IPhotoGaleryPage) pageNum1;
-				String url = photoPage.getImagesUrl().get(0);
-				portfolioModel.getMedia(this, url);
+//				String url = photoPage.getImagesUrl().get(0);
+//				portfolioModel.getMedia(this, url);
 				break;
 	
 			default:
