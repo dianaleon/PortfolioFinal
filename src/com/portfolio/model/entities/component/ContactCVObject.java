@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import com.portfolio.model.adapter.ContactItem;
 import com.portfolio.model.interfaces.component.IContactCVObject;
+import com.portfolio.model.interfaces.component.IPageObject;
 
 public class ContactCVObject extends PageObject implements IContactCVObject {
 
@@ -16,6 +17,7 @@ public class ContactCVObject extends PageObject implements IContactCVObject {
 	
 	public ContactCVObject(JSONObject jsonObject) {
 		try {
+			this.type = IPageObject.type_contact_cv;
 			objects = new ArrayList<ContactItem>();
 			JSONArray values = jsonObject.getJSONArray("value");
 			for (int index = 0; index < values.length(); index++) {

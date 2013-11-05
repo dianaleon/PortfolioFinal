@@ -7,8 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.portfolio.model.adapter.ContactItem;
-import com.portfolio.model.interfaces.component.IContactCVObject;
+import com.portfolio.model.interfaces.component.IPageObject;
 import com.portfolio.model.interfaces.component.ISectionCVObject;
 import com.portfolio.model.interfaces.component.ISectionItemObject;
 
@@ -19,6 +18,7 @@ public class SectionCVObject extends PageObject implements ISectionCVObject {
 	
 	public SectionCVObject(JSONObject jsonObject) {
 		try {
+			this.type = IPageObject.type_section_cv;
 			this.title = jsonObject.getString("title");
 			objects = new ArrayList<ISectionItemObject>();
 			JSONArray values = jsonObject.getJSONArray("info");

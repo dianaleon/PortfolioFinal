@@ -3,7 +3,7 @@ package com.portfolio.model.entities;
 import com.portfolio.activities.CustomThemeWindow;
 import com.portfolio.model.interfaces.IPage;
 
-public abstract class  Page extends CustomThemeWindow implements IPage {
+public abstract class Page extends CustomThemeWindow implements IPage {
 
 	protected Type type;
 	protected String name;
