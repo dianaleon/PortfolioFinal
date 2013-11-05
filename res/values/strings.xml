@@ -12,4 +12,15 @@
     <string name="databaseVersion">1</string>
     <string name="phone">+34 6571402XX</string>
     <string name="email">sandroluini@gmail.XX</string>
+    <string name="itemMenu1">Text Page Item </string>
+    <string name="itemMenu2">Gallery Page Item</string>
+    <string name="itemMenu3">Social Media</string>
+    <string name="itemMenu4">title_page</string>
+    <string name="tittle_page">Tittle Page</string>
+    <string name="text_example">Desciption and states of the people</string>
+    <string name="tittle_app">Nuñez | Suarez</string>
+    <string name="subtittle_app">Abogados</string>
+    <string name="name_page">Bufete</string>
+    <string name="desc">Image app list</string>
+    
 </resources>
