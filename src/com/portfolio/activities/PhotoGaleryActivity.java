@@ -14,7 +14,6 @@ public class PhotoGaleryActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.window_title);
 		
 		setContentView(R.layout.activity_photo_galery);
 	}

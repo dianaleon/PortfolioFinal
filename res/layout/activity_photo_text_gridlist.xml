@@ -2,23 +2,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_img_list"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_gravity="center_horizontal"
-    android:orientation="vertical" >
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="false"
+    android:scrollbarStyle="outsideInset"
+    android:weightSum="10.0" >
 
    <LinearLayout
-        android:id="@+id/header"
-        style="@style/customHeaderTitleSubtitle"
-        android:layout_width="fill_parent"
-        android:layout_height="120dp"
-        android:layout_gravity="center_vertical"
-        android:background="@drawable/gradient_gold"
-        android:gravity="center_vertical"
-        android:orientation="vertical" >
-
-   
-
-        <TextView
+       android:id="@+id/header"
+       style="@style/customHeaderTitleSubtitle"
+       android:layout_width="fill_parent"
+       android:layout_height="0dp"
+       android:layout_gravity="top|center_vertical|center_horizontal"
+       android:layout_weight="3.0"
+       android:background="@drawable/gradient_gold"
+       android:gravity="center_vertical"
+       android:orientation="vertical" >
+     	
+     	<TextView
             android:id="@+id/tittle_app"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,24 +44,20 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/body"
-        android:layout_width="match_parent"
-        android:layout_height="360dp"
-        android:background="#000"
-        android:orientation="vertical"
-        android:scrollbarStyle="insideInset"
-        android:scrollbars="vertical" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+	<LinearLayout
+	    android:id="@+id/body"
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="6.5"
+	    android:background="#000"
+	    android:orientation="vertical"
+	    android:scrollbarStyle="outsideOverlay"
+	    android:scrollbars="vertical" >
 
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:background="@drawable/gradient_light_gold"
                 >
 
@@ -98,57 +96,17 @@
 				 </LinearLayout>
                 
             </TableRow>
-            <TableRow
-                android:id="@+id/tableRow2"
+	    
+	    
+	    <TableRow
+                android:id="@+id/tableRow1"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:background="@drawable/gradient_light_gold"
                 >
 
                 <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="120sp"
-                    android:layout_height="150dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/thai" 
-                    android:contentDescription="@string/desc"/>
-				 <LinearLayout
-            		android:layout_width="fill_parent"
-           			android:layout_height="wrap_content"
-            		android:orientation="vertical" >
-	                <TextView
-	                    android:id="@+id/tittle_item_list"
-	                    android:layout_width="fill_parent"
-	                    android:layout_height="30dp"
-	                    android:paddingLeft="10dp"
-	                    android:text="@string/tittle_app"
-	                    android:textAppearance="?android:attr/textAppearanceMedium"
-	                    android:textColor="#000000"
-	                    android:textSize="23sp"
-                    	android:textStyle="bold" />
-
-	                 <TextView
-	                     android:id="@+id/text_item2_list"
-	                     android:layout_width="fill_parent"
-	                     android:layout_height="wrap_content"
-	                     android:paddingLeft="10dp"
-	                     android:text="@string/text_example"
-	                     android:textAppearance="?android:attr/textAppearanceMedium"
-	                     android:textColor="#ffffff"
-	                     android:textSize="20sp" />
-                
-				 </LinearLayout>
-                
-            </TableRow>
-            <TableRow
-                android:id="@+id/tableRow3"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/gradient_light_gold"
-                >
-
-                <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/imageView1"
                     android:layout_width="120sp"
                     android:layout_height="150dp"
                     android:scaleType="fitXY"
@@ -170,7 +128,7 @@
                     	android:textStyle="bold" />
 
 	                 <TextView
-	                     android:id="@+id/text_item_list3"
+	                     android:id="@+id/text_item0_list"
 	                     android:layout_width="fill_parent"
 	                     android:layout_height="wrap_content"
 	                     android:paddingLeft="10dp"
@@ -182,18 +140,17 @@
 				 </LinearLayout>
                 
             </TableRow>
-        </LinearLayout>
-
-    </LinearLayout>
-	
-    <include
+	  
+	    
+	</LinearLayout>
+	<include
         android:id="@+id/layout_menu"
         layout="@layout/menu_layout" />
-
-    <LinearLayout
+ 	<LinearLayout
         style="@style/customHeaderTitleSubtitle"
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
+       	android:layout_height="0dp"
+    	android:layout_weight="0.5"
         android:layout_gravity="bottom"
         android:background="@drawable/gradient_gold"
         android:orientation="vertical" >
@@ -207,5 +164,5 @@
             android:gravity="center_vertical|center_horizontal|fill_vertical|bottom|right" />
 
     </LinearLayout>
-
+       
 </LinearLayout>

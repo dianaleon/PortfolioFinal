@@ -22,5 +22,11 @@
     <string name="subtittle_app">Abogados</string>
     <string name="name_page">Bufete</string>
     <string name="desc">Image app list</string>
+    <string name="itemMenu10">Socios</string>
+    <string name="itemMenu11">Especialistas en</string>
+    <string name="itemMenu12">Servicios</string>
+    <string name="itemMenu13">Testimonios</string>
+    <string name="itemMenu14">Redes sociales</string>
+    <string name="itemMenu15">Contacto</string>
     
 </resources>
