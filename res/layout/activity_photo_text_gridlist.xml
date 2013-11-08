@@ -66,7 +66,7 @@
                     android:layout_width="120sp"
                     android:layout_height="150dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/thai"
+                    android:src="@drawable/ic_launcher"
                     android:contentDescription="@string/desc" />
 				 <LinearLayout
             		android:layout_width="fill_parent"
@@ -110,7 +110,7 @@
                     android:layout_width="120sp"
                     android:layout_height="150dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/thai"
+                    android:src="@drawable/ic_launcher"
                     android:contentDescription="@string/desc" />
 				 <LinearLayout
             		android:layout_width="fill_parent"

@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.portfolio.activities.TextActivity;
@@ -25,6 +26,7 @@ public class MainActivity extends Activity implements IPortfolioListener{
         //requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);     
 		setContentView(R.layout.activity_ttl_txt_img);
+		
 		
 		
 		PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
