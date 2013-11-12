@@ -43,8 +43,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </LinearLayout>
-
-	<LinearLayout
+    
+   <LinearLayout
 	    android:id="@+id/body"
 	    android:layout_width="match_parent"
 	    android:layout_height="0dp"
@@ -53,8 +53,7 @@
 	    android:orientation="vertical"
 	    android:scrollbarStyle="outsideOverlay"
 	    android:scrollbars="vertical" >
-
-            <TableRow
+        <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="fill_parent"
                 android:layout_height="150dp"
@@ -140,16 +139,12 @@
 				 </LinearLayout>
                 
             </TableRow>
-	  
-	    
-	</LinearLayout>
-	<include
-        android:id="@+id/layout_menu"
-        layout="@layout/menu_layout" />
- 	<LinearLayout
+      	
+   </LinearLayout>
+   <LinearLayout
         style="@style/customHeaderTitleSubtitle"
         android:layout_width="fill_parent"
-       	android:layout_height="0dp"
+        android:layout_height="0dp"
     	android:layout_weight="0.5"
         android:layout_gravity="bottom"
         android:background="@drawable/gradient_gold"
@@ -164,5 +159,5 @@
             android:gravity="center_vertical|center_horizontal|fill_vertical|bottom|right" />
 
     </LinearLayout>
-       
+</LinearLayout>
 </LinearLayout>
