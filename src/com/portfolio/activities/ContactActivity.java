@@ -3,11 +3,16 @@ package com.portfolio.activities;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.Window;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 import com.portfolio.R;
+import com.portfolio.components.menu;
 
 public class ContactActivity extends Activity {
+
+	private Button buttonMenu;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +24,20 @@ public class ContactActivity extends Activity {
 		///Typeface font = Typeface.createFromAsset(getAssets(), "hindifont.ttf");
 		///txt.setTypeface(font);
 		setContentView(R.layout.activity_contact);
+		
+		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
+        menuLayout.init();
+        
+        buttonMenu = (Button) findViewById(R.id.buttonMenu);
+		buttonMenu.setOnClickListener(new OnClickListener() {
+	        public void onClick(View v) {
+	        	if (menuLayout.getVisibility() == View.VISIBLE) {
+	        		menuLayout.setVisibility(View.INVISIBLE);
+	        	} else {
+	        		menuLayout.setVisibility(View.VISIBLE);	        		
+	        	}
+	        }
+	    });
 		
 	}
 

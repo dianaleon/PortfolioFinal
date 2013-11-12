@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.portfolio.activities.PhotoTittleTextActivity;
 import com.portfolio.activities.TextActivity;
 import com.portfolio.listener.IPortfolioListener;
 import com.portfolio.model.PortfolioModel;
@@ -25,9 +26,7 @@ public class MainActivity extends Activity implements IPortfolioListener{
 		super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);     
-		setContentView(R.layout.activity_ttl_txt_img);
-		
-		
+		setContentView(R.layout.activity_text);
 		
 		PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
 		portfolioModel.getPortfolio(this);
@@ -74,6 +73,8 @@ public class MainActivity extends Activity implements IPortfolioListener{
 	@Override
 	public void errorGetPortfolio() {
 		System.out.println("ads");
+		Intent intent = new Intent(MainActivity.this, TextActivity.class);
+		startActivity(intent);
 	}
 
 }

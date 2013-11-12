@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
@@ -42,6 +42,9 @@
 		
 	</LinearLayout>
 
+    <include
+        android:id="@+id/layout_menu"
+        layout="@layout/menu_layout" />
 	<LinearLayout
 	    android:id="@+id/body"
 	    android:layout_width="match_parent"
@@ -79,9 +82,9 @@
 	<LinearLayout
         style="@style/customHeaderTitleSubtitle"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-    	android:layout_weight="0.5"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/gradient_gold"
         android:orientation="vertical" >
 
@@ -91,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/menu"
-            android:gravity="center_vertical|center_horizontal|fill_vertical|bottom|right" />
+            android:gravity="center_horizontal" />
 
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

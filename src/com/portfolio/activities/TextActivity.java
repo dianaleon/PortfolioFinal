@@ -23,13 +23,14 @@ public class TextActivity extends Activity {
 		setContentView(R.layout.activity_text);
         Bundle bundle = this.getIntent().getExtras();
 
-        String text = bundle.getString("text");
+//        String text = bundle.getString("text");
         //TextView textView = (TextView) findViewById(R.id.text);
         //textView.setText(text);
         
         final menu menuLayout = (menu) findViewById(R.id.layout_menu);
-
-		buttonMenu = (Button) findViewById(R.id.buttonMenu);
+        menuLayout.init();
+        
+        buttonMenu = (Button) findViewById(R.id.buttonMenu);
 		buttonMenu.setOnClickListener(new OnClickListener() {
 	        public void onClick(View v) {
 	        	if (menuLayout.getVisibility() == View.VISIBLE) {
