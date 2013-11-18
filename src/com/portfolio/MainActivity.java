@@ -25,7 +25,7 @@ public class MainActivity extends Activity implements IPortfolioListener{
 		super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);     
-		setContentView(R.layout.activity_ttl_txt_img);
+		setContentView(R.layout.activity_text);
 		
 		
 		

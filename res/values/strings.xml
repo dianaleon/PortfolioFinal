@@ -28,5 +28,10 @@
     <string name="itemMenu13">Testimonios</string>
     <string name="itemMenu14">Redes sociales</string>
     <string name="itemMenu15">Contacto</string>
-    
+    <string name="network1">Facebook</string>
+    <string name="network2">Twitter</string>
+    <string name="network3">Linked In</string>
+    <string name="network4">Google +</string>
+    <string name="network5">Pinterest</string>
+    <string name="network6">Mail</string>
 </resources>

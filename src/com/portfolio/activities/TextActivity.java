@@ -21,7 +21,7 @@ public class TextActivity extends Activity {
                 super.onCreate(savedInstanceState);
                 requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
                 setContentView(R.layout.activity_text);
-        Bundle bundle = this.getIntent().getExtras();
+                Bundle bundle = this.getIntent().getExtras();
 
 //        String text = bundle.getString("text");
         //TextView textView = (TextView) findViewById(R.id.text);
