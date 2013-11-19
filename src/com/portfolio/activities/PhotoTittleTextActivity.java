@@ -25,10 +25,12 @@ public class PhotoTittleTextActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.activity_ttl_txt_img);
-		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
-		//final Button menuItem1 = (Button) findViewById(R.id.);
 		
-		
+        flipper = (ViewFlipper) findViewById(R.id.flipper);
+
+        final menu menuLayout = (menu) findViewById(R.id.layout_menu);
+        menuLayout.init();
+        //final Button menuItem1 = (Button) findViewById(R.id.);
 		
 		buttonMenu.setOnClickListener(new OnClickListener() {
 	        public void onClick(View v) {

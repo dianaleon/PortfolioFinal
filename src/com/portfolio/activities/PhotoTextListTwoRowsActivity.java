@@ -29,9 +29,12 @@ public class PhotoTextListTwoRowsActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		
 		setContentView(R.layout.activity_photo_text_gridlist_2);
-		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
 
-		
+        flipper = (ViewFlipper) findViewById(R.id.flipper);
+
+        final menu menuLayout = (menu) findViewById(R.id.layout_menu);
+        menuLayout.init();
+        
 		buttonMenu = (Button) findViewById(R.id.buttonMenu);
 		buttonMenu.setOnClickListener(new OnClickListener() {
 	        public void onClick(View v) {

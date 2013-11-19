@@ -35,9 +35,9 @@ public class TextActivity extends Activity {
         //TextView textView = (TextView) findViewById(R.id.text);
         //textView.setText(text);
         
+        flipper = (ViewFlipper) findViewById(R.id.flipper);
         final menu menuLayout = (menu) findViewById(R.id.layout_menu);
         menuLayout.init();
-        flipper = (ViewFlipper) findViewById(R.id.flipper);
         buttonMenu = (Button) findViewById(R.id.buttonMenu);
         buttonMenu.setOnClickListener(new OnClickListener() {
                 public void onClick(View v) {

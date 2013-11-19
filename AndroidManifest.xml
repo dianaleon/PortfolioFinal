@@ -34,6 +34,13 @@
         </activity>
         <activity android:name=".activities.PhotoGaleryActivity" >
         </activity>
+		<activity android:name=".activities.PhotoTextListTwoRowsActivity" >
+        </activity>
+        <activity android:name=".activities.PhotoTittleTextActivity" >
+        </activity>
+        <activity android:name=".activities.PhotoTextListActivity" >
+        </activity>
+        
     </application>
 
 </manifest>

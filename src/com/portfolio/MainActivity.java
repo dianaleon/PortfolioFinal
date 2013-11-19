@@ -8,7 +8,6 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import com.portfolio.activities.TextActivity;
@@ -73,7 +72,7 @@ public class MainActivity extends Activity implements IPortfolioListener{
 
 	@Override
 	public void errorGetPortfolio() {
-		//System.out.println("ads");
+
 		Intent intent = new Intent(MainActivity.this, TextActivity.class);
 		intent.putExtra("text", "");
 		startActivity(intent);
