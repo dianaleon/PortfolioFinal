@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical" >
+
+		         <TableRow
+		             android:id="@+id/tableRow1"
+		             android:layout_width="wrap_content"
+		             android:layout_height="110dp"
+		             android:layout_gravity="center_vertical|center_horizontal" >
+	        	
+	           		<Button
+					    android:id="@+id/facebook"
+					    android:layout_width="90dp"
+			            android:layout_height="90dp"
+			          	android:text="@string/network1" />
+	           		
+	           		<Button
+					    android:id="@+id/twitter"
+					    android:layout_width="90dp"
+			            android:layout_height="90dp"
+					    android:text="@string/network2"/>
+	            	
+	            	<Button
+					    android:id="@+id/linkedin"
+					    android:layout_width="90dp"
+			            android:layout_height="90dp"
+					    android:text="@string/network3" />
+					
+					
+			</TableRow>
+            
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="110dp"
+                android:layout_gravity="center_vertical|center_horizontal" >
+
+	            	<Button
+					    android:id="@+id/google"
+					    android:layout_width="90dp"
+			            android:layout_height="90dp"
+					    android:text="@string/network4" />
+					<Button
+					    android:id="@+id/pinterest"
+					    android:layout_width="90dp"
+			            android:layout_height="90dp"
+					    android:layout_gravity="center_horizontal"
+					    android:text="@string/network5" />
+					<Button
+					    android:id="@+id/pictures"
+					    android:layout_width="90dp"
+			            android:layout_height="90dp"
+					    android:layout_gravity="center_horizontal"
+					    android:text="@string/network6" />
+	          </TableRow>
+		       
+                </LinearLayout>
+
+</LinearLayout>

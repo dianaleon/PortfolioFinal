@@ -7,42 +7,12 @@
     android:orientation="vertical" 
     android:weightSum="10.0" >
 
+    <include
+		android:id="@+id/layout_header"
+	    layout="@layout/header_layout" 
+	/>
+    
     <LinearLayout
-        android:id="@+id/header"
-        style="@style/customHeaderTitleSubtitle"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3.0"
-        android:layout_gravity="center_vertical"
-        android:background="@drawable/gradient_gold"
-        android:gravity="center_vertical"
-        android:orientation="vertical" >
-        <TextView
-            android:id="@+id/tittle_app"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:text="@string/tittle_app"
-            android:textAllCaps="true"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/sub_tittle_app"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/subtittle_app"
-            android:textAllCaps="true"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-                 
-                
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/body"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -53,85 +23,24 @@
             android:orientation="vertical"
             android:scrollbarStyle="insideInset"
             android:scrollbars="vertical" >
+			<ViewFlipper 
+				android:id="@+id/flipper"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent">
 
-        	<LinearLayout
-        	    android:id="@+id/container"
-        	    android:layout_width="wrap_content"
-        	    android:layout_height="wrap_content"
-        	    android:layout_gravity="center_vertical|center_horizontal"
-        	    android:gravity="center_vertical|center_horizontal"
-        	    android:orientation="vertical" >
-
-		         <TableRow
-		             android:id="@+id/tableRow1"
-		             android:layout_width="wrap_content"
-		             android:layout_height="110dp"
-		             android:layout_gravity="center_vertical|center_horizontal" >
-	        	
-	           		<Button
-					    android:id="@+id/facebook"
-					    android:layout_width="90dp"
-			            android:layout_height="90dp"
-			          	android:text="@string/network1" />
-	           		
-	           		<Button
-					    android:id="@+id/twitter"
-					    android:layout_width="90dp"
-			            android:layout_height="90dp"
-					    android:text="@string/network2"/>
-	            	
-	            	<Button
-					    android:id="@+id/linkedin"
-					    android:layout_width="90dp"
-			            android:layout_height="90dp"
-					    android:text="@string/network3" />
-					
-					
-			</TableRow>
-            
-            <TableRow
-                android:id="@+id/tableRow2"
-                android:layout_width="wrap_content"
-                android:layout_height="110dp"
-                android:layout_gravity="center_vertical|center_horizontal" >
-
-	            	<Button
-					    android:id="@+id/google"
-					    android:layout_width="90dp"
-			            android:layout_height="90dp"
-					    android:text="@string/network4" />
-					<Button
-					    android:id="@+id/pinterest"
-					    android:layout_width="90dp"
-			            android:layout_height="90dp"
-					    android:layout_gravity="center_horizontal"
-					    android:text="@string/network5" />
-					<Button
-					    android:id="@+id/pictures"
-					    android:layout_width="90dp"
-			            android:layout_height="90dp"
-					    android:layout_gravity="center_horizontal"
-					    android:text="@string/network6" />
-	          </TableRow>
-		       
-                </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-        style="@style/customHeaderTitleSubtitle"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@drawable/gradient_gold"
-        android:orientation="vertical" >
-
-        <Button
-            android:id="@+id/buttonMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/menu"
-            android:gravity="center_vertical|center_horizontal|fill_vertical|bottom|right" />
-		
+	 				<include
+						android:id="@+id/layout_content"
+					    layout="@layout/body_network" 
+					/>
+	 				<include
+	            		android:id="@+id/layout_menu"
+	            		layout="@layout/menu_layout" 
+	           		 />
+			</ViewFlipper>
+        	
     </LinearLayout>
-    
+     <include
+	        android:id="@+id/layout_footer"
+	        layout="@layout/footer_layout" 
+	   />
 </LinearLayout>

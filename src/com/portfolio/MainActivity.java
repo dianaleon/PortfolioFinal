@@ -73,7 +73,10 @@ public class MainActivity extends Activity implements IPortfolioListener{
 
 	@Override
 	public void errorGetPortfolio() {
-		System.out.println("ads");
+		//System.out.println("ads");
+		Intent intent = new Intent(MainActivity.this, TextActivity.class);
+		intent.putExtra("text", "");
+		startActivity(intent);
 	}
 
 }

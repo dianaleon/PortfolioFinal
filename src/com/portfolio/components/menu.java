@@ -11,6 +11,7 @@ import com.portfolio.R;
 import com.portfolio.activities.ContactActivity;
 import com.portfolio.activities.NetworkActivity;
 import com.portfolio.activities.PhotoTextListActivity;
+import com.portfolio.activities.PhotoTextListTwoRowsActivity;
 import com.portfolio.activities.PhotoTittleTextActivity;
 import com.portfolio.activities.TextActivity;
 
@@ -38,21 +39,14 @@ public class menu extends LinearLayout {
                 super(context, attrs);
         }
         
-    public void init() {
-            buttonItem1 = (Button) findViewById(R.id.itemMenu1);
-            buttonItem1.setOnClickListener(new OnClickListener() {
-                        
-                        @Override
-                        public void onClick(View v) {
-                                getContext().startActivity(new Intent(getContext(), TextActivity.class));
-                        }
-                });
+        public void init() {
+            
             buttonItem2 = (Button) findViewById(R.id.itemMenu2);
             buttonItem2.setOnClickListener(new OnClickListener() {
                         
                         @Override
                         public void onClick(View v) {
-                                getContext().startActivity(new Intent(getContext(), ContactActivity.class));
+                                getContext().startActivity(new Intent(getContext(), PhotoTextListTwoRowsActivity.class));
                         }
                 });
             buttonItem3 = (Button) findViewById(R.id.itemMenu3);
@@ -68,7 +62,7 @@ public class menu extends LinearLayout {
                         
                         @Override
                         public void onClick(View v) {
-                                getContext().startActivity(new Intent(getContext(), PhotoTittleTextActivity.class));
+                                getContext().startActivity(new Intent(getContext(), PhotoTextListActivity.class));
                         }
                 });
             buttonItem5 = (Button) findViewById(R.id.itemMenu4);
@@ -76,7 +70,7 @@ public class menu extends LinearLayout {
                         
                         @Override
                         public void onClick(View v) {
-                                getContext().startActivity(new Intent(getContext(), PhotoTextListActivity.class));
+                                getContext().startActivity(new Intent(getContext(), NetworkActivity.class));
                         }
                 });
             buttonItem6 = (Button) findViewById(R.id.itemMenu4);
@@ -84,7 +78,7 @@ public class menu extends LinearLayout {
                         
                         @Override
                         public void onClick(View v) {
-                                getContext().startActivity(new Intent(getContext(), TextActivity.class));
+                                getContext().startActivity(new Intent(getContext(), ContactActivity.class));
                         }
                 });
     }

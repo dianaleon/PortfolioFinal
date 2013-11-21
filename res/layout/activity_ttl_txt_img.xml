@@ -6,92 +6,41 @@
     android:gravity="center_horizontal"
     android:orientation="vertical" 
     >
-    <LinearLayout
-        android:id="@+id/header"
-        style="@style/customHeaderTitleSubtitle"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2.5"
-        android:layout_gravity="center_vertical"
-        android:background="@drawable/gradient_gold"
-        android:gravity="center_vertical"
-        android:orientation="vertical" >
-        <TextView
-            android:id="@+id/tittle_app"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:text="@string/tittle_app"
-            android:textAllCaps="true"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/sub_tittle_app"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/subtittle_app"
-            android:textAllCaps="true"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-                 
-                
-        </LinearLayout>
+		   <include
+				android:id="@+id/layout_header"
+			    layout="@layout/header_layout" 
+			/>
        
            <LinearLayout
-            android:id="@+id/body"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="7.0"
-            android:background="#000"
-            android:gravity="top|center_horizontal"
-            android:orientation="vertical" >
+	            android:id="@+id/body"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dp"
+	            android:layout_weight="7.0"
+	            android:background="#000"
+	            android:gravity="top|center_horizontal"
+	            android:orientation="vertical" >
+				
+               <ViewFlipper 
+				android:id="@+id/flipper"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent">
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="fill_parent"
-            android:layout_height="150dp"
-            android:contentDescription="@string/desc"
-            android:src="@drawable/ic_launcher" />
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:background="@drawable/gradient_gold"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="@string/name_page"
-            android:textAllCaps="true"
-            android:textColor="#000000"
-            android:textSize="22sp" />
-         <TextView
-            android:id="@+id/text_item_list"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="@string/text_example"
-            android:textColor="@color/goldMed"
-            android:textSize="18sp" />
+	 				<include
+						android:id="@+id/layout_content"
+					    layout="@layout/body_photo_ttl_txt_img" 
+					/>
+	 				<include
+	            		android:id="@+id/layout_menu"
+	            		layout="@layout/menu_layout" 
+	           		 />
+			</ViewFlipper>
+        
         </LinearLayout>
-    	<LinearLayout
-        style="@style/customHeaderTitleSubtitle"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@drawable/gradient_gold"
-        android:orientation="vertical" >
-
-        <Button
-            android:id="@+id/buttonMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/menu"
-            android:gravity="center_horizontal" />
-
-    </LinearLayout>
+    	
+    	<include
+	        android:id="@+id/layout_footer"
+	        layout="@layout/footer_layout" 
+	   />
     
     
     

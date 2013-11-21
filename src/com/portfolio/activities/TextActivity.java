@@ -1,6 +1,7 @@
 package com.portfolio.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -19,6 +20,9 @@ public class TextActivity extends Activity {
 
         private Button buttonMenu;
         ViewFlipper flipper;
+        Button buttonItem1;
+        Button buttonItem2;
+        
         @Override
         protected void onCreate(Bundle savedInstanceState) {
                 
@@ -41,7 +45,25 @@ public class TextActivity extends Activity {
                 	flipper.setOutAnimation(outToLeftAnimation());
                 	flipper.showNext();     
                 }
+        });
+        
+        buttonItem1 = (Button) findViewById(R.id.itemMenu1);
+        buttonItem1.setOnClickListener(new OnClickListener() {
+        @Override
+            public void onClick(View v) {
+        		startActivity(new Intent(getApplicationContext(), PhotoTittleTextActivity.class));
+        		overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            	}
             });
+        buttonItem2 = (Button) findViewById(R.id.itemMenu2);
+        buttonItem2.setOnClickListener(new OnClickListener() {
+        @Override
+            public void onClick(View v) {
+        		startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
+        		overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            	}
+            });
+        
 
         }
 
@@ -94,5 +116,12 @@ public class TextActivity extends Activity {
         	
         	return outtoRight;
         }
+        @Override
+        public void onBackPressed() {
+            // TODO Auto-generated method stub
+            super.onBackPressed();
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+        }
+        
 
 }
