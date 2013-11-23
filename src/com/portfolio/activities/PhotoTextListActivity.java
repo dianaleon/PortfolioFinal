@@ -21,6 +21,13 @@ public class PhotoTextListActivity extends Activity {
 	
 	private Button buttonMenu;
 	ViewFlipper flipper;
+	Button buttonItem1;
+    Button buttonItem2;
+    Button buttonItem3;
+    Button buttonItem4;
+    Button buttonItem5;
+    Button buttonItem6;
+    Button buttonItem7;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +47,71 @@ public class PhotoTextListActivity extends Activity {
                 	flipper.showNext();     
                 }
             });
+      //BuFETE
+        buttonItem1 = (Button) findViewById(R.id.itemMenu1);
+        buttonItem1.setOnClickListener(new OnClickListener() {
+        @Override
+            public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(), PhotoTittleTextActivity.class));
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+                    }
+            });
+        //Socios
+        buttonItem2 = (Button) findViewById(R.id.itemMenu2);
+        buttonItem2.setOnClickListener(new OnClickListener() {
+        @Override
+            public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+                    }
+            });
+        //Especialistas en: despliega el submenu
+        buttonItem3 = (Button) findViewById(R.id.itemMenu2);
+        buttonItem3.setOnClickListener(new OnClickListener() {
+        @Override
+            public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+                    }
+            });
+        //Servicios? seguramente despliega otro submenu tambien, consultar!
+        buttonItem4 = (Button) findViewById(R.id.itemMenu2);
+        buttonItem4.setOnClickListener(new OnClickListener() {
+        @Override
+            public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+                    }
+            });
+        //Testimonios
+        buttonItem5 = (Button) findViewById(R.id.itemMenu2);
+        buttonItem5.setOnClickListener(new OnClickListener() {
+        @Override
+            public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(), PhotoTextListActivity.class));
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+                    }
+            });
+        //Redes sociales
+        buttonItem6 = (Button) findViewById(R.id.itemMenu2);
+        buttonItem6.setOnClickListener(new OnClickListener() {
+        @Override
+            public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(), NetworkActivity.class));
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+                    }
+            });
+      //Contacto
+        buttonItem7 = (Button) findViewById(R.id.itemMenu2);
+        buttonItem7.setOnClickListener(new OnClickListener() {
+        @Override
+            public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(), ContactActivity.class));
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+                    }
+            });
+        
+        
 		
 	}
 
@@ -92,5 +164,10 @@ public class PhotoTextListActivity extends Activity {
     	
     	return outtoRight;
     }
-
+    @Override
+    public void onBackPressed() {
+        // TODO Auto-generated method stub
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+    }
 }

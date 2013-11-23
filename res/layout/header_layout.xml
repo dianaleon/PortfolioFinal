@@ -6,7 +6,7 @@
     android:layout_height="0dp"
     android:layout_weight="2.5"
     android:layout_gravity="top"
-    android:background="@drawable/gradient_gold"
+    android:background="@drawable/bg_header"
     android:gravity="center_vertical"
     android:orientation="vertical" >
 
