@@ -2,6 +2,7 @@ package com.portfolio.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.portfolio.R;
@@ -39,6 +41,9 @@ public class TextActivity extends Activity {
                 //String text = bundle.getString("text");
                 //TextView textView = (TextView) findViewById(R.id.text);
                 //textView.setText(text);
+                Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/CopperGothicStd29AB");
+                TextView tv = (TextView) findViewById(R.id.tittle_app);
+                tv.setTypeface(tf);
         
                 flipper = (ViewFlipper) findViewById(R.id.flipper);
                 final menu menuLayout = (menu) findViewById(R.id.layout_menu);
