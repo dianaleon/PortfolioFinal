@@ -9,11 +9,11 @@
 		android:id="@+id/layout_header"
 	    layout="@layout/header_layout" 
 	/>
-
+	
         <LinearLayout
             android:id="@+id/body"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="10dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_weight="7.0"
             android:background="#000"
@@ -26,9 +26,10 @@
 				android:layout_height="fill_parent">
 
 	 				<include
-						android:id="@+id/layout_content"
-					    layout="@layout/body_contact" 
-					/>
+	 				    android:id="@+id/layout_content"
+	 				    android:layout_gravity="center_vertical"
+	 				    layout="@layout/body_contact" />
+
 	 				<include
 	            		android:id="@+id/layout_menu"
 	            		layout="@layout/menu_layout" 

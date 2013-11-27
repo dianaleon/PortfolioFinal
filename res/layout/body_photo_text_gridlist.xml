@@ -2,14 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="#000000">
     
     <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/gradient_light_gold">
+                android:background="@drawable/gradient_light_gold"
+                android:layout_marginBottom="1dp">
 
                 <ImageView
                     android:id="@+id/imageView1"
@@ -17,11 +19,11 @@
                     android:layout_height="fill_parent"
                     android:contentDescription="@string/desc"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/lawS" />
 
-                                 <LinearLayout
+                    <LinearLayout
                             android:layout_width="fill_parent"
-                                   android:layout_height="wrap_content"
+                            android:layout_height="wrap_content"
                             android:orientation="vertical" >
                         <TextView
                             android:id="@+id/tittle_item_list"
@@ -52,16 +54,17 @@
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/gradient_light_gold">
+                android:background="@drawable/gradient_light_gold"
+                android:layout_marginBottom="1dp">
 
                 <ImageView
                     android:id="@+id/imageView1"
                     android:layout_width="120sp"
                     android:layout_height="fill_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_launcher"
+                    android:src="@drawable/lawS"
                     android:contentDescription="@string/desc" />
-                                 <LinearLayout
+                   <LinearLayout
                             android:layout_width="fill_parent"
                                    android:layout_height="wrap_content"
                             android:orientation="vertical" >
@@ -95,14 +98,15 @@
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/gradient_light_gold">
+                android:background="@drawable/gradient_light_gold"
+                android:layout_marginBottom="1dp">
 
                 <ImageView
                     android:id="@+id/imageView1"
                     android:layout_width="120sp"
                     android:layout_height="fill_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_launcher"
+                    android:src="@drawable/lawS"
                     android:contentDescription="@string/desc" />
                                  <LinearLayout
                             android:layout_width="fill_parent"
@@ -140,6 +144,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@drawable/gradient_light_gold"
+               
                 >
 
                 <ImageView
@@ -147,7 +152,7 @@
                     android:layout_width="120sp"
                     android:layout_height="fill_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_launcher"
+                    android:src="@drawable/lawS"
                     android:contentDescription="@string/desc" />
                                  <LinearLayout
                             android:layout_width="fill_parent"

@@ -13,23 +13,24 @@
 		android:id="@+id/layout_header"
 	    layout="@layout/header_layout" 
 	/>
+   
         
     
    <LinearLayout
        android:id="@+id/body"
        android:layout_width="match_parent"
-       android:layout_height="0dp"
+       android:layout_height="20dp"
        android:layout_weight="7.0"
-       android:background="#000"
        android:orientation="vertical"
        android:scrollbarStyle="insideInset"
-       android:scrollbars="vertical"
+       android:scrollbars="vertical"   
        android:weightSum="2.0" >
        
-        <ViewFlipper 
-				android:id="@+id/flipper"
-				android:layout_width="fill_parent"
-				android:layout_height="fill_parent">
+        <ViewFlipper
+            android:id="@+id/flipper"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbarStyle="outsideOverlay" >
 
  				<include
 					android:id="@+id/layout_content"

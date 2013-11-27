@@ -23,19 +23,23 @@
 					    android:id="@+id/facebook"
 					    android:layout_width="90dp"
 			            android:layout_height="90dp"
-			          	android:text="@string/network1" />
+			            android:background="@drawable/fb"
+			          	 
+			          	/>
 	           		
 	           		<Button
 					    android:id="@+id/twitter"
 					    android:layout_width="90dp"
 			            android:layout_height="90dp"
-					    android:text="@string/network2"/>
+			            android:background="@drawable/twitter"
+					   />
 	            	
 	            	<Button
 					    android:id="@+id/linkedin"
 					    android:layout_width="90dp"
 			            android:layout_height="90dp"
-					    android:text="@string/network3" />
+			            android:background="@drawable/lin"
+					    />
 					
 					
 			</TableRow>
@@ -50,19 +54,22 @@
 					    android:id="@+id/google"
 					    android:layout_width="90dp"
 			            android:layout_height="90dp"
-					    android:text="@string/network4" />
+			            android:background="@drawable/gplus"
+					     />
 					<Button
 					    android:id="@+id/pinterest"
 					    android:layout_width="90dp"
 			            android:layout_height="90dp"
 					    android:layout_gravity="center_horizontal"
-					    android:text="@string/network5" />
+					    android:background="@drawable/pinterest"
+					     />
 					<Button
 					    android:id="@+id/pictures"
 					    android:layout_width="90dp"
 			            android:layout_height="90dp"
 					    android:layout_gravity="center_horizontal"
-					    android:text="@string/network6" />
+					    android:background="@drawable/instagram"
+					     />
 	          </TableRow>
 		       
                 </LinearLayout>
