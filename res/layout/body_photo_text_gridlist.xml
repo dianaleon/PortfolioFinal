@@ -19,7 +19,7 @@
                     android:layout_height="fill_parent"
                     android:contentDescription="@string/desc"
                     android:scaleType="fitXY"
-                    android:src="@drawable/lawS" />
+                    android:src="@drawable/laws" />
 
                     <LinearLayout
                             android:layout_width="fill_parent"
@@ -62,7 +62,7 @@
                     android:layout_width="120sp"
                     android:layout_height="fill_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/lawS"
+                    android:src="@drawable/laws"
                     android:contentDescription="@string/desc" />
                    <LinearLayout
                             android:layout_width="fill_parent"
@@ -106,7 +106,7 @@
                     android:layout_width="120sp"
                     android:layout_height="fill_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/lawS"
+                    android:src="@drawable/laws"
                     android:contentDescription="@string/desc" />
                                  <LinearLayout
                             android:layout_width="fill_parent"
@@ -152,7 +152,7 @@
                     android:layout_width="120sp"
                     android:layout_height="fill_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/lawS"
+                    android:src="@drawable/laws"
                     android:contentDescription="@string/desc" />
                                  <LinearLayout
                             android:layout_width="fill_parent"

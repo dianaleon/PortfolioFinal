@@ -9,7 +9,7 @@
             android:layout_width="fill_parent"
             android:layout_height="150dp"
             android:contentDescription="@string/desc"
-            android:src="@drawable/homeS" />
+            android:src="@drawable/homes" />
         <TextView
             android:id="@+id/text"
             android:layout_width="match_parent"

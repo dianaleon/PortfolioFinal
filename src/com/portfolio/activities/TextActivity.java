@@ -41,7 +41,7 @@ public class TextActivity extends Activity {
                 //String text = bundle.getString("text");
                 //TextView textView = (TextView) findViewById(R.id.text);
                 //textView.setText(text);
-                Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/CopperGothicStd29AB");
+                Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/CopperGothicStd29AB.otf");
                 TextView tv = (TextView) findViewById(R.id.tittle_app);
                 tv.setTypeface(tf);
         
