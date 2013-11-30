@@ -34,4 +34,15 @@
     <string name="network4">Google +</string>
     <string name="network5">Pinterest</string>
     <string name="network6">Mail</string>
+    <string name="tittle_app_2">JOSEPH DIRAN</string>
+    <string name="tittle_app_2_2">Diran</string>
+    <string name="subtittle_app_2">ARQUITECTO</string>
+    
+    <string name="itemMenu2_1">CURRICULUM</string>
+    <string name="itemMenu2_2">PROYECTOS</string>
+    <string name="itemMenu2_3">CLIENTES</string>
+    <string name="itemMenu2_4">PORTFOLIO</string>
+    <string name="itemMenu2_5">SERVICIOS</string>
+    <string name="itemMenu2_6">REDES SOCIALES</string>
+    <string name="itemMenu2_7">CONTACTO</string>
 </resources>
