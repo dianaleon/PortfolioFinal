@@ -10,6 +10,6 @@
 	        android:layout_height="match_parent"
 	        android:contentDescription="@string/desc"
 	        android:scaleType="fitXY"
-	        android:src="@drawable/homes" />
+	        android:src="@drawable/home" />
 	
 </LinearLayout>

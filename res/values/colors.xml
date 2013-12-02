@@ -15,4 +15,7 @@
   <color name="white">#FFFFFF</color>
   <color name="black_start">#393939</color>
   <color name="black_end">#474747</color>
+  <color name="blue_first">#204068</color>
+  <color name="blue_sec">#265082</color>
+  <color name="blue_th">#346399</color>
 </resources> 
