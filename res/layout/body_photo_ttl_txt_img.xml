@@ -10,7 +10,7 @@
         android:layout_height="150dp"
         android:contentDescription="@string/desc"
         android:scaleType="fitXY"
-        android:src="@drawable/homes" />
+        android:src="@drawable/home" />
 
         <TextView
             android:id="@+id/text"
