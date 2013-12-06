@@ -13,6 +13,7 @@ public class TextPage extends Page implements ITextPage {
 	private String text;
 	
 	public TextPage(Type type, JSONObject jsonObject) {
+		super(jsonObject);
 		this.type = type;
 		this.type.setTypeValue(IPage.type_text);
 		try {

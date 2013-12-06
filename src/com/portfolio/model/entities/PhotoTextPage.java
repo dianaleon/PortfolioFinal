@@ -18,6 +18,7 @@ public class PhotoTextPage extends Page implements IPhotoTextPage {
 	private List<IPageObject> objects;
 
 	public PhotoTextPage(Type type, JSONObject jsonObject) {
+		super(jsonObject);
 		this.type = type;
 		this.type.setTypeValue(IPage.type_photo_text);
 		this.objects= new ArrayList<IPageObject>();

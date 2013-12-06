@@ -18,6 +18,7 @@ public class HorizontalTxtPhotoListPage extends Page implements
 	private List<IRowObject> objects;
 
 	public HorizontalTxtPhotoListPage(Type type, JSONObject jsonObject) {
+		super(jsonObject);
 		this.type = type;
 		this.type.setTypeValue(IPage.type_horizontal_txt_photo_list);
 		this.objects = new ArrayList<IRowObject>();

@@ -19,6 +19,7 @@ public class CurriculumPage extends Page implements ICurriculumPage {
 	private List<IPageObject> objects;
 
 	public CurriculumPage(Type type, JSONObject jsonObject) {
+		super(jsonObject);
 		this.type = type;
 		this.type.setTypeValue(IPage.type_curriculum);
 		this.objects= new ArrayList<IPageObject>();

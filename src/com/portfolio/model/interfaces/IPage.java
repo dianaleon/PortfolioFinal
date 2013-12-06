@@ -25,5 +25,9 @@ public interface IPage {
 	public int getPosition();
 	
 	public String getIconUrl();
-
+	
+	public String getTitle();
+	
+	public String getContent();
+	
 }

@@ -16,6 +16,7 @@ public class ContactPage extends Page implements IContactPage {
 	public List<ContactItem> items;
 
 	public ContactPage(Type type, JSONObject jsonObject) {
+		super(jsonObject);
 		this.type = type;
 		this.type.setTypeValue(IPage.type_contact);
 		this.items = new ArrayList<ContactItem>();

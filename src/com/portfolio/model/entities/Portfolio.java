@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.portfolio.model.interfaces.IClient;
+import com.portfolio.model.interfaces.IMenu;
 import com.portfolio.model.interfaces.IPage;
 import com.portfolio.model.interfaces.ITheme;
 
@@ -15,13 +16,16 @@ public class Portfolio {
 	private List<IPage> pages;
 	private IClient client;
 	private ITheme theme;
+	private IMenu menu;
 	
 	public Portfolio(final JSONObject JSONPortfolio) {
         try {
         	client = new Client(JSONPortfolio.getJSONObject("client"));
         	theme = new Theme(JSONPortfolio.getJSONObject("theme"));
+        	JSONObject jsonMenu = JSONPortfolio.getJSONObject("menu");
+        	menu = new Menu(jsonMenu);
         	this.pages = new ArrayList<IPage>();
-            JSONArray pages = JSONPortfolio.getJSONArray("page");
+            JSONArray pages = jsonMenu.getJSONArray("page");
             for (int index = 0; index < pages.length(); index++) {
             	JSONObject page = pages.getJSONObject(index);
             	Type type = new Type(page.getJSONObject("type"));
@@ -58,6 +62,10 @@ public class Portfolio {
 
 	public ITheme getTheme() {
 		return theme;
+	}
+
+	public IMenu getMenu() {
+		return menu;
 	}
 
 	public int getNumberPages() {

@@ -17,6 +17,7 @@ public class PhotoGaleryPage extends Page implements IPhotoGaleryPage {
 	private List<IPageObject> objects;
 
 	public PhotoGaleryPage(Type type, JSONObject jsonObject) {
+		super(jsonObject);
 		this.type = type;
 		this.type.setTypeValue(IPage.type_photo_galery);
 		this.objects= new ArrayList<IPageObject>();

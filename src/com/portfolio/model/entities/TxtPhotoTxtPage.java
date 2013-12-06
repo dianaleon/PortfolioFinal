@@ -18,6 +18,7 @@ public class TxtPhotoTxtPage extends Page implements ITxtPhotoTxtPage {
 	private List<IPageObject> objects;
 
 	public TxtPhotoTxtPage(Type type, JSONObject jsonObject) {
+		super(jsonObject);
 		this.type = type;
 		this.type.setTypeValue(IPage.type_txt_photo_txt);
 		this.objects= new ArrayList<IPageObject>();

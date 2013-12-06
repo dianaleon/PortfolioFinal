@@ -14,15 +14,19 @@ public class Theme implements ITheme {
 	private String titleBarBackground;
 	private String menuBackground;
 	private String menuItemBackground;
+	private String homeBackground;
+	private String colors;
 	
 	public Theme(JSONObject jsonObject) {
 		try {
 			this.code = jsonObject.getString("code");
 			this.urlImages= jsonObject.getString("url-images");
 			this.background = jsonObject.getString("background");
-			this.titleBarBackground = jsonObject.getString("titlebar-background");
+			this.titleBarBackground = jsonObject.getString("titlebar_background");
 			this.menuBackground = jsonObject.getString("menu-background");
-			this.menuItemBackground = jsonObject.getString("menu-item-background");
+			this.menuItemBackground = jsonObject.getString("menu_item_background");
+			this.homeBackground = jsonObject.getString("home_background");
+			this.colors = jsonObject.getString("colors");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -57,6 +61,14 @@ public class Theme implements ITheme {
 	@Override
 	public String getMenuItemBackground() {
 		return this.menuItemBackground;
+	}
+
+	public String getHomeBackground() {
+		return homeBackground;
+	}
+
+	public String getColors() {
+		return colors;
 	}
 
 }

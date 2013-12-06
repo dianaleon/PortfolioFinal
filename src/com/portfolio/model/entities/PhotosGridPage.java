@@ -18,6 +18,7 @@ public class PhotosGridPage extends Page implements IPhotosGridPage {
 	private List<IPageObject> objects;
 
 	public PhotosGridPage(Type type, JSONObject jsonObject) {
+		super(jsonObject);
 		this.type = type;
 		this.type.setTypeValue(IPage.type_photos_grid);
 		this.objects= new ArrayList<IPageObject>();
