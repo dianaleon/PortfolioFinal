@@ -17,12 +17,12 @@ public class Menu implements IMenu {
 	
 	public Menu(JSONObject jsonObject) {
 		try {
-			this.title = jsonObject.getString("code");
-			this.subtitle= jsonObject.getString("url-images");
-			this.icon = jsonObject.getString("background");
-			this.gradient_orientation = jsonObject.getString("titlebar_background");
-			this.text_color = jsonObject.getString("menu-background");
-			this.background = jsonObject.getString("menu_item_background");
+			this.title = jsonObject.getString("title");
+			this.subtitle= jsonObject.getString("subtitle");
+			this.icon = jsonObject.getString("icon");
+			this.gradient_orientation = jsonObject.getString("gradient_orientation");
+			this.text_color = jsonObject.getString("text_color");
+			this.background = jsonObject.getString("background");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

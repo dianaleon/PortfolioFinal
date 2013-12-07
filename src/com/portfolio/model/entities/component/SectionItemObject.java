@@ -13,6 +13,7 @@ public class SectionItemObject extends PageObject implements ISectionItemObject 
 	private String subscript = null;
 	
 	public SectionItemObject(JSONObject jsonObject) {
+		super(jsonObject);
 		try {
 			if (jsonObject.has("title")) {
 				this.title= jsonObject.getString("title");

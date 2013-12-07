@@ -1,24 +1,27 @@
 package com.portfolio.model.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.graphics.Shader.TileMode;
-
-import com.portfolio.activities.CustomThemeWindow;
 import com.portfolio.model.interfaces.IPage;
+import com.portfolio.model.interfaces.component.IPageObject;
 
 public abstract class Page implements IPage {
 
 	protected Type type;
-	protected String name;
 	protected String iconURL;
 	protected int pos;
 	protected String title;
 	protected String content;
 	
+	protected List<IPageObject> objects;
+
 	public Page(JSONObject jsonObject) {
 		try {
+			this.objects= new ArrayList<IPageObject>();
 			this.pos = Integer.valueOf(jsonObject.getString("pos"));
 			this.title = jsonObject.getString("title");
 			this.content = jsonObject.getString("content");
@@ -35,15 +38,6 @@ public abstract class Page implements IPage {
 	@Override
 	public Type getType() {
 		return type;
-	}
-
-	@Override
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	@Override
@@ -64,5 +58,10 @@ public abstract class Page implements IPage {
 	@Override
 	public String getContent() {
 		return content;
+	}
+	
+	@Override
+	public List<IPageObject> getObjects() {
+		return objects;
 	}
 }

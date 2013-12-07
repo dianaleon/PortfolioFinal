@@ -1,6 +1,7 @@
 package com.portfolio.model.entities;
 
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -13,7 +14,7 @@ import com.portfolio.model.interfaces.ITheme;
 
 public class Portfolio {
 
-	private List<IPage> pages;
+	private HashMap<Integer, IPage> pages;
 	private IClient client;
 	private ITheme theme;
 	private IMenu menu;
@@ -24,8 +25,8 @@ public class Portfolio {
         	theme = new Theme(JSONPortfolio.getJSONObject("theme"));
         	JSONObject jsonMenu = JSONPortfolio.getJSONObject("menu");
         	menu = new Menu(jsonMenu);
-        	this.pages = new ArrayList<IPage>();
-            JSONArray pages = jsonMenu.getJSONArray("page");
+        	this.pages = new HashMap<Integer, IPage>();
+            JSONArray pages = jsonMenu.getJSONArray("pages");
             for (int index = 0; index < pages.length(); index++) {
             	JSONObject page = pages.getJSONObject(index);
             	Type type = new Type(page.getJSONObject("type"));
@@ -33,13 +34,13 @@ public class Portfolio {
             	if (type.getType().equalsIgnoreCase("text")) {
             		pageObject = new TextPage(type, page);
             	}
-            	if (type.getType().equalsIgnoreCase("photos-gallery")) {
+            	if (type.getType().equalsIgnoreCase("galeriaMultimedia")) {
             		pageObject = new PhotoGaleryPage(type, page);
             	}
-            	if (type.getType().equalsIgnoreCase("contact")) {
+            	if (type.getType().equalsIgnoreCase("contacto")) {
             		pageObject = new ContactPage(type, page);
             	}
-            	if (type.getType().equalsIgnoreCase("network")) {
+            	if (type.getType().equalsIgnoreCase("redesSociales")) {
             		pageObject = new NetworkPage(type, page);
             	}
             	//NUEVAS PAGINAS
@@ -47,9 +48,11 @@ public class Portfolio {
             		pageObject = new PhotoTxtGridListPage(type, page);
             	}
 
-            	String namePage = page.getString("name");
-            	((Page) pageObject).setName(namePage);
-        		this.pages.add(pageObject);
+            	if (pageObject != null) {
+//	            	String namePage = page.getString("name");
+//	            	((Page) pageObject).setName(namePage);
+	        		this.pages.put(pageObject.getPosition(), pageObject);
+            	}
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,14 +76,14 @@ public class Portfolio {
 	}
 
 	public IPage getPage(int numberPage) {
-		return pages.get(numberPage - 1);
+		return pages.get(numberPage);
 	}
 
-	public List<IPage> getPages() {
-		return pages;
+	public Collection<IPage> getPages() {
+		return pages.values();
 	}
 
-	public void setPages(List<IPage> pages) {
-		this.pages = pages;
-	}
+//	public void setPages(List<IPage> pages) {
+//		this.pages = pages;
+//	}
 }

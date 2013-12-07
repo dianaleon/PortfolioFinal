@@ -72,9 +72,9 @@ public class GetPortfolioAsyncTask extends MyAsyncTask {
 				JSONObject result = pool.request("", param);
 				Client client = new Client(result.getJSONObject("client"));
 				String previousUpdate = getJSONUpdate();
-				long newUpdate = client.getUpdate();
-				long preUpdate = Long.parseLong(previousUpdate);
-				if (newUpdate > preUpdate) {
+				String newUpdate = client.getUpdate();
+				String preUpdate = previousUpdate;
+				if (newUpdate.compareTo(preUpdate) > 1) {
 					response = new Portfolio(result);
 					String path = writeFileJSON(String.valueOf(client.getUpdate()), result.toString());
 					updateJSONUpdate(String.valueOf(client.getUpdate()), path);

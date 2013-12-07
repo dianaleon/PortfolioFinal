@@ -16,6 +16,7 @@ public class ContactCVObject extends PageObject implements IContactCVObject {
 	private List<ContactItem> objects;
 	
 	public ContactCVObject(JSONObject jsonObject) {
+		super(jsonObject);
 		try {
 			this.type = IPageObject.type_contact_cv;
 			objects = new ArrayList<ContactItem>();

@@ -17,6 +17,7 @@ public class SectionCVObject extends PageObject implements ISectionCVObject {
 	private List<ISectionItemObject> objects;
 	
 	public SectionCVObject(JSONObject jsonObject) {
+		super(jsonObject);
 		try {
 			this.type = IPageObject.type_section_cv;
 			this.title = jsonObject.getString("title");

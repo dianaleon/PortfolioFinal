@@ -1,6 +1,10 @@
 package com.portfolio.model.interfaces;
 
+import java.io.Serializable;
+import java.util.List;
+
 import com.portfolio.model.entities.Type;
+import com.portfolio.model.interfaces.component.IPageObject;
 
 public interface IPage {
 
@@ -19,9 +23,7 @@ public interface IPage {
 	
 
 	public Type getType();
-	
-	public String getName();
-	
+		
 	public int getPosition();
 	
 	public String getIconUrl();
@@ -29,5 +31,7 @@ public interface IPage {
 	public String getTitle();
 	
 	public String getContent();
+	
+	public List<IPageObject> getObjects();
 	
 }

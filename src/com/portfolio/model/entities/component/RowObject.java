@@ -15,6 +15,7 @@ public class RowObject extends PageObject implements IRowObject {
 	private List<IPageObject> objects;
 	
 	public RowObject(JSONObject jsonObject) {
+		super(jsonObject);
 		try {
 			objects = new ArrayList<IPageObject>();
 			JSONArray values = jsonObject.getJSONArray("value");

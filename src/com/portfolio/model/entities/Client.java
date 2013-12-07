@@ -37,8 +37,8 @@ public class Client implements IClient {
 	}
 
 	@Override
-	public long getUpdate() {
-		return Integer.valueOf(this.update);
+	public String getUpdate() {
+		return this.update;
 	}
 
 	@Override

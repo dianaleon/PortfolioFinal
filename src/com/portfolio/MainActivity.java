@@ -42,13 +42,12 @@ public class MainActivity extends Activity implements IPortfolioListener{
         public void onPortfolioReady() {
                 PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
                 int pagesCount = portfolioModel.getNumberPages();
-                List<String> names = portfolioModel.getPagesName();
-                IPage pageNum1 = portfolioModel.getPageInfo(1);
+                List<String> names = portfolioModel.getPagesTitles();
+                IPage pageNum1 = portfolioModel.getPageInfo(4);
                 switch (pageNum1.getType().getTypeValue()) {
                         case IPage.type_text:
-                                ITextPage textPage = (ITextPage) pageNum1;
                                 Intent intent = new Intent(MainActivity.this, TextActivity.class);
-                                intent.putExtra("text", textPage.getText());
+                                intent.putExtra("position", 4);
                                 startActivity(intent);
                                 break;
                         case IPage.type_photo_galery:

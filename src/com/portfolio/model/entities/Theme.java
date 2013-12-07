@@ -20,10 +20,10 @@ public class Theme implements ITheme {
 	public Theme(JSONObject jsonObject) {
 		try {
 			this.code = jsonObject.getString("code");
-			this.urlImages= jsonObject.getString("url-images");
+			this.urlImages= jsonObject.getString("url_images");
 			this.background = jsonObject.getString("background");
 			this.titleBarBackground = jsonObject.getString("titlebar_background");
-			this.menuBackground = jsonObject.getString("menu-background");
+			this.menuBackground = jsonObject.getString("menu_background");
 			this.menuItemBackground = jsonObject.getString("menu_item_background");
 			this.homeBackground = jsonObject.getString("home_background");
 			this.colors = jsonObject.getString("colors");

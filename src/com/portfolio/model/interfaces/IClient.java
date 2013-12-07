@@ -6,7 +6,7 @@ public interface IClient {
 	
 	public String getSurname();
 	
-	public long getUpdate();
+	public String getUpdate();
 	
 	public String getResources();
 

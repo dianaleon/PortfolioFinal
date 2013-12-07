@@ -2,6 +2,7 @@ package com.portfolio.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +18,8 @@ import android.widget.ViewFlipper;
 
 import com.portfolio.R;
 import com.portfolio.components.menu;
+import com.portfolio.model.PortfolioModel;
+import com.portfolio.model.interfaces.ITextPage;
 
 public class TextActivity extends Activity {
 
@@ -37,7 +40,8 @@ public class TextActivity extends Activity {
 //                requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
                 setContentView(R.layout.activity_text);
                 Bundle bundle = this.getIntent().getExtras();
-
+                int position = bundle.getInt("position");
+                ITextPage textPage = (ITextPage) PortfolioModel.getInstance(this).getPageInfo(position);
                 //String text = bundle.getString("text");
                 //TextView textView = (TextView) findViewById(R.id.text);
                 //textView.setText(text);

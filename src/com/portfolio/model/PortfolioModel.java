@@ -2,6 +2,8 @@ package com.portfolio.model;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import android.content.Context;
@@ -63,13 +65,14 @@ public class PortfolioModel {
 		return portfolio.getPage(numberPage);
 	}
 	
-	public List<String> getPagesName() {
+	public List<String> getPagesTitles() {
 		List<String> names = new ArrayList<String>();
 		if (portfolio != null) {
-			List<IPage> pages = portfolio.getPages();
-			for (int index = 0; index < pages.size(); index++) {
-				IPage page = (IPage) pages.get(index);
-				names.add(page.getName());
+			Collection<IPage> pages = portfolio.getPages();
+			Iterator<IPage> itePages = pages.iterator();
+			while (itePages.hasNext()) {
+				IPage page = (IPage) itePages.next();
+				names.add(page.getTitle());				
 			}
 		}
 		return names;
