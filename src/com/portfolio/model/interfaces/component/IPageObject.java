@@ -8,7 +8,7 @@ public interface IPageObject {
 	public static final int type_section_cv = 4;
 	public static final int type_network = 5;
 	public static final int type_contact = 6;
-	
+	public static final int type_video = 7;	
 
 	public int getType();
 	public String getContent();

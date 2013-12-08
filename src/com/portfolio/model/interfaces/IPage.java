@@ -1,6 +1,5 @@
 package com.portfolio.model.interfaces;
 
-import java.io.Serializable;
 import java.util.List;
 
 import com.portfolio.model.entities.Type;
@@ -12,6 +11,9 @@ public interface IPage {
 	public static final int type_photo_galery = 2;
 	public static final int type_contact = 3;
 	public static final int type_network = 4;
+	public static final int type_video = 5;
+	public static final int type_image = 6;
+	
 	
 	//NUEVAS PAGINAS
 	public static final int type_photo_txt_grid_list = 5;

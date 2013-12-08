@@ -34,6 +34,9 @@ public class Portfolio {
             	if (type.getType().equalsIgnoreCase("text")) {
             		pageObject = new TextPage(type, page);
             	}
+            	if (type.getType().equalsIgnoreCase("image")) {
+            		pageObject = new ImagePage(type, page);
+            	}
             	if (type.getType().equalsIgnoreCase("galeriaMultimedia")) {
             		pageObject = new PhotoGaleryPage(type, page);
             	}
@@ -43,6 +46,10 @@ public class Portfolio {
             	if (type.getType().equalsIgnoreCase("redesSociales")) {
             		pageObject = new NetworkPage(type, page);
             	}
+            	if (type.getType().equalsIgnoreCase("video")) {
+            		pageObject = new VideoPage(type, page);
+            	}
+
             	//NUEVAS PAGINAS
             	if (type.getType().equalsIgnoreCase("photo_txt_gridlist")) {
             		pageObject = new PhotoTxtGridListPage(type, page);
