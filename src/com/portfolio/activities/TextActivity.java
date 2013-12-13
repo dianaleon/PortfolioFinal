@@ -1,14 +1,14 @@
 package com.portfolio.activities;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -19,7 +19,10 @@ import android.widget.ViewFlipper;
 import com.portfolio.R;
 import com.portfolio.components.menu;
 import com.portfolio.model.PortfolioModel;
+import com.portfolio.model.interfaces.IPage;
 import com.portfolio.model.interfaces.ITextPage;
+import com.portfolio.model.interfaces.component.IPageObject;
+import com.portfolio.model.interfaces.component.ITextObject;
 
 public class TextActivity extends Activity {
 
@@ -42,6 +45,16 @@ public class TextActivity extends Activity {
                 Bundle bundle = this.getIntent().getExtras();
                 int position = bundle.getInt("position");
                 ITextPage textPage = (ITextPage) PortfolioModel.getInstance(this).getPageInfo(position);
+                List<IPageObject> objetos = textPage.getObjects();
+                for (int index = 0; index < objetos.size(); index++) {
+                	IPageObject object = objetos.get(index);
+                	if (object.getType() == IPageObject.type_text) {
+                		ITextObject text = (ITextObject) object;
+                		String title = text.getTitle();
+                		String subtitle = text.getSubtitle();
+                	}
+                }
+                
                 //String text = bundle.getString("text");
                 //TextView textView = (TextView) findViewById(R.id.text);
                 //textView.setText(text);

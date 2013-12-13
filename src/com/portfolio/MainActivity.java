@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import com.portfolio.activities.TextActivity;
 import com.portfolio.listener.IPortfolioListener;
 import com.portfolio.model.PortfolioModel;
+import com.portfolio.model.entities.Portfolio;
+import com.portfolio.model.interfaces.IMenu;
 import com.portfolio.model.interfaces.IPage;
 import com.portfolio.model.interfaces.IPhotoGaleryPage;
 import com.portfolio.model.interfaces.ITextPage;
@@ -41,6 +43,9 @@ public class MainActivity extends Activity implements IPortfolioListener{
         @Override
         public void onPortfolioReady() {
                 PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
+                IMenu menu = portfolioModel.getPorfolioMenu();
+                menu.getTitle();
+                menu.getBackground();
                 int pagesCount = portfolioModel.getNumberPages();
                 List<String> names = portfolioModel.getPagesTitles();
                 IPage pageNum1 = portfolioModel.getPageInfo(4);
@@ -50,8 +55,8 @@ public class MainActivity extends Activity implements IPortfolioListener{
                                 intent.putExtra("position", 4);
                                 startActivity(intent);
                                 break;
-                        case IPage.type_photo_galery:
-                                IPhotoGaleryPage photoPage = (IPhotoGaleryPage) pageNum1;
+                        case IPage.type_image:
+                                IPage photoPage = (IPhotoGaleryPage) pageNum1;
 //                                String url = photoPage.getImagesUrl().get(0);
 //                                portfolioModel.getMedia(this, url);
                                 break;

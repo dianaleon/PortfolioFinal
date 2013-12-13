@@ -18,6 +18,7 @@ import com.portfolio.listener.IPortfolioListener;
 import com.portfolio.model.db.dao.MediaDAO;
 import com.portfolio.model.entities.Media;
 import com.portfolio.model.entities.Portfolio;
+import com.portfolio.model.interfaces.IMenu;
 import com.portfolio.model.interfaces.IPage;
 
 public class PortfolioModel {
@@ -124,5 +125,9 @@ public class PortfolioModel {
 		    Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
 		    callback.onImageReady(myBitmap);
 		}
+	}
+	
+	public IMenu getPorfolioMenu() {
+		return this.portfolio.getMenu();
 	}
 }
