@@ -18,8 +18,10 @@ import com.portfolio.listener.IPortfolioListener;
 import com.portfolio.model.db.dao.MediaDAO;
 import com.portfolio.model.entities.Media;
 import com.portfolio.model.entities.Portfolio;
+import com.portfolio.model.interfaces.IClient;
 import com.portfolio.model.interfaces.IMenu;
 import com.portfolio.model.interfaces.IPage;
+import com.portfolio.model.interfaces.ITheme;
 
 public class PortfolioModel {
 
@@ -129,5 +131,13 @@ public class PortfolioModel {
 	
 	public IMenu getPorfolioMenu() {
 		return this.portfolio.getMenu();
+	}
+	
+	public ITheme getTheme() {
+		return this.portfolio.getTheme();
+	}
+	
+	public IClient getClient() {
+		return this.portfolio.getClient();		
 	}
 }
