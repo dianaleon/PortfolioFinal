@@ -45,8 +45,8 @@ public class TextActivity extends Activity {
         protected void onCreate(Bundle savedInstanceState) {
                 
                 super.onCreate(savedInstanceState);
-                //requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-                //la vista que tiene imagen + titulo + texto
+                
+                //la vista que tiene imagen + titulo + texto. Layout:
                 setContentView(R.layout.activity_text);
                 Bundle bundle = this.getIntent().getExtras();
                 int position = bundle.getInt("position");
@@ -62,28 +62,22 @@ public class TextActivity extends Activity {
                 //cargar el layout
                 // imagen +  titulo + texto
                 List<IPageObject> objetos = textPage.getObjects();
-                String title = null;
-                String subtitle = null;
-                String content = null;
-                String urlFinal = null;
+                
+                
                 for (int index = 0; index < objetos.size(); index++) {
                 	IPageObject object = objetos.get(index);
+                	String title = object.getTitle();
+                    String  subtitle = object.getSubtitle();
+                    String  content = object.getContent();
+                    String urlFinal = url + object.getContent_img();
                 	switch (object.getType()) {
                         
                         case IPageObject.type_text:
                             ITextObject text = (ITextObject) object;
-                            title = text.getTitle();
-                            subtitle = text.getSubtitle();
-                            content = text.getContent();
-                            urlFinal = url + text.getContent_img();
+                            
                         
                         case IPageObject.type_image:
                         	IImageObject img = (IImageObject) object;
-                            title = img.getTitle();
-                            subtitle = img.getSubtitle();
-                            content = img.getContent();
-                            urlFinal = url + img.getContent_img();
-                        
                     
                    }
                 }
@@ -115,10 +109,10 @@ public class TextActivity extends Activity {
                 */
                 
                 TextView textView = (TextView) findViewById(R.id.text_item);
-                textView.setText(content);
+                //textView.setText(content);
                 
                 TextView tittleView = (TextView) findViewById(R.id.tittle);
-                tittleView.setText(title);
+                //tittleView.setText(title);
                 
                 
                 /*

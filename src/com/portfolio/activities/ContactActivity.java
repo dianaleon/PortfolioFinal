@@ -21,6 +21,7 @@ import com.portfolio.components.menu;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IContactPage;
 import com.portfolio.model.interfaces.ITextPage;
+import com.portfolio.model.interfaces.ITheme;
 import com.portfolio.model.interfaces.component.IContactObject;
 import com.portfolio.model.interfaces.component.IPageObject;
 import com.portfolio.model.interfaces.component.ITextObject;
@@ -48,30 +49,34 @@ public class ContactActivity extends Activity {
         //la interfaz que se llama contact, que tiene una lista de url + nombre + etc
         IContactPage contactPage = (IContactPage) PortfolioModel.getInstance(this).getPageInfo(position);
         
+        //caragr info
+        ITheme iTheme = PortfolioModel.getInstance(this).getTheme();
+        String url = iTheme.getUrlImages();
         
         //cargar el layout
         List<IPageObject> objetos = contactPage.getObjects();
-        String title = null;
-        String subtitle = null;
-        String content = null;
-        String urlFinal = null;
+        
         for (int index = 0; index < objetos.size(); index++) {
             IPageObject object = objetos.get(index);
+            String title = object.getTitle();
+            String  subtitle = object.getSubtitle();
+            String  content = object.getContent();
+            
             switch (object.getType()) {
             	case IPageObject.type_contact:
 	        		IContactObject contact = (IContactObject) object;
-	        		title = contact.getTitle(); // no veo el json cuales son los campos
-	        		subtitle = contact.getSubtitle(); // pongo ejemplo
+	        		String  type = contact.getSubtype();
+	        		
             }
         }
 		
 		//cargar datos del layout
         //cargar telefono y mail
         TextView textView = (TextView) findViewById(R.id.telefono);
-        textView.setText(content);
+        //textView.setText(content);
         
         TextView tittleView = (TextView) findViewById(R.id.tittle);
-        tittleView.setText(title);
+        //tittleView.setText(title);
         
         //MENU
 		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
