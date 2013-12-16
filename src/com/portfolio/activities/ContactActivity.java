@@ -68,11 +68,11 @@ public class ContactActivity extends Activity {
 	        		String  type = contact.getSubtype();
 	        		
 	        		if (type != null){
-	        			if(type == "email"){
+	        			if(type.equalsIgnoreCase(IContactPage.email)) {
 	        				TextView textView = (TextView) findViewById(R.id.mail);
 	        		        textView.setText(content);
 	        			}
-	        			if(type == "direccion"){
+	        			if(type.equalsIgnoreCase(IContactPage.address)) {
 	        				TextView textView = (TextView) findViewById(R.id.direccion);
 	        		        textView.setText(content);
 	        			}
