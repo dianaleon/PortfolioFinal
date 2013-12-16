@@ -64,7 +64,7 @@
 					    android:background="@drawable/pinterest"
 					     />
 					<Button
-					    android:id="@+id/pictures"
+					    android:id="@+id/instagram"
 					    android:layout_width="90dp"
 			            android:layout_height="90dp"
 					    android:layout_gravity="center_horizontal"

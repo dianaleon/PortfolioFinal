@@ -1,5 +1,7 @@
 package com.portfolio.activities;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +13,17 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.portfolio.R;
 import com.portfolio.components.menu;
+import com.portfolio.model.PortfolioModel;
+import com.portfolio.model.interfaces.IContactPage;
+import com.portfolio.model.interfaces.ITextPage;
+import com.portfolio.model.interfaces.component.IContactObject;
+import com.portfolio.model.interfaces.component.IPageObject;
+import com.portfolio.model.interfaces.component.ITextObject;
 
 public class ContactActivity extends Activity {
 	private Button buttonMenu;
@@ -31,14 +40,40 @@ public class ContactActivity extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		
-		//requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-		//getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.window_title);
-		///TextView txt = (TextView) findViewById(R.id.custom_font);
-		///Typeface font = Typeface.createFromAsset(getAssets(), "hindifont.ttf");
-		///txt.setTypeface(font);
-		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-        Bundle bundle = this.getIntent().getExtras();
 		setContentView(R.layout.activity_contact);
+        Bundle bundle = this.getIntent().getExtras();
+        int position = bundle.getInt("position");
+
+        //levanto la pagina de esa posicion
+        //la interfaz que se llama contact, que tiene una lista de url + nombre + etc
+        IContactPage contactPage = (IContactPage) PortfolioModel.getInstance(this).getPageInfo(position);
+        
+        
+        //cargar el layout
+        List<IPageObject> objetos = contactPage.getObjects();
+        String title = null;
+        String subtitle = null;
+        String content = null;
+        String urlFinal = null;
+        for (int index = 0; index < objetos.size(); index++) {
+            IPageObject object = objetos.get(index);
+            switch (object.getType()) {
+            	case IPageObject.type_contact:
+	        		IContactObject contact = (IContactObject) object;
+	        		title = contact.getTitle(); // no veo el json cuales son los campos
+	        		subtitle = contact.getSubtitle(); // pongo ejemplo
+            }
+        }
+		
+		//cargar datos del layout
+        //cargar telefono y mail
+        TextView textView = (TextView) findViewById(R.id.telefono);
+        textView.setText(content);
+        
+        TextView tittleView = (TextView) findViewById(R.id.tittle);
+        tittleView.setText(title);
+        
+        //MENU
 		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
         menuLayout.init();
         flipper = (ViewFlipper) findViewById(R.id.flipper);

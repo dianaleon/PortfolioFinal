@@ -1,5 +1,7 @@
 package com.portfolio.activities;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +13,17 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.portfolio.R;
 import com.portfolio.components.menu;
+import com.portfolio.model.PortfolioModel;
+import com.portfolio.model.interfaces.INetworkPage;
+import com.portfolio.model.interfaces.ITextPage;
+import com.portfolio.model.interfaces.component.INetworkObject;
+import com.portfolio.model.interfaces.component.IPageObject;
+import com.portfolio.model.interfaces.component.ITextObject;
 
 public class NetworkActivity extends Activity {
 	
@@ -30,10 +39,59 @@ public class NetworkActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+		
 		setContentView(R.layout.activity_network);
 		Bundle bundle = this.getIntent().getExtras();
+		int position = bundle.getInt("position");
 		
+		//levanto la pagina de esa posicion
+        //la interfaz que se llama redes sociales,....
+        INetworkPage textPage = (INetworkPage) PortfolioModel.getInstance(this).getPageInfo(position);
+        
+        //cargar el layout
+        List<IPageObject> objetos = textPage.getObjects();
+        String title = null;
+        String subtitle = null;
+        String content = null;
+        String urlFinal = null;
+        
+        for (int index = 0; index < objetos.size(); index++) {
+            IPageObject object = objetos.get(index);
+            switch (object.getType()) {
+            	
+            	case IPageObject.type_network:
+            		INetworkObject text = (INetworkObject) object;
+            		title = text.getTitle();//???
+            		subtitle = text.getSubtitle();
+            		content = text.getContent();
+            
+           }
+        }
+		//caragar layout
+        //url de la red social + nombre red social
+        Button fbButton = (Button) findViewById(R.id.facebook);
+        fbButton.setText(content);
+        
+        Button twitterButton = (Button) findViewById(R.id.twitter);
+        twitterButton.setText(content);
+        
+        Button linkedInButton = (Button) findViewById(R.id.linkedin);
+        linkedInButton.setText(content);
+        
+        Button googleButton = (Button) findViewById(R.id.google);
+        twitterButton.setText(content);
+        
+        Button pinterestButton = (Button) findViewById(R.id.pinterest);
+        twitterButton.setText(content);
+        
+        Button instagramButton = (Button) findViewById(R.id.instagram);
+        twitterButton.setText(content);
+		
+		
+		
+		
+		
+		//MENU
 		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
         menuLayout.init();
         flipper = (ViewFlipper) findViewById(R.id.flipper);

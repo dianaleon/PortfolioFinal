@@ -13,7 +13,7 @@
         android:src="@drawable/home" />
 
         <TextView
-            android:id="@+id/text"
+            android:id="@+id/tittle"
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:background="@drawable/gradient_gold"
@@ -23,7 +23,7 @@
             android:textColor="#000000"
             android:textSize="22sp" />
          <TextView
-            android:id="@+id/text_item_list"
+            android:id="@+id/text_item"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:gravity="center_horizontal|center_vertical"

@@ -1,5 +1,7 @@
 package com.portfolio.activities;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +13,19 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.portfolio.R;
 import com.portfolio.components.menu;
+import com.portfolio.model.PortfolioModel;
+import com.portfolio.model.interfaces.IPhotoTextPage;
+import com.portfolio.model.interfaces.ITextPage;
+import com.portfolio.model.interfaces.ITheme;
+import com.portfolio.model.interfaces.component.IImageObject;
+import com.portfolio.model.interfaces.component.IPageObject;
+import com.portfolio.model.interfaces.component.ITextObject;
 
 public class PhotoTittleTextActivity extends Activity {
         
@@ -30,10 +41,60 @@ public class PhotoTittleTextActivity extends Activity {
         protected void onCreate(Bundle savedInstanceState) {
                 
                 super.onCreate(savedInstanceState);
-                requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
                 setContentView(R.layout.activity_ttl_txt_img);
+                Bundle bundle = this.getIntent().getExtras();
+                int position = bundle.getInt("position");
+		        
+                //levanto la pagina de esa posicion
+                //la interfaz que se llama text, que tiene imagen, titulo y texto
+                IPhotoTextPage textPage = (IPhotoTextPage) PortfolioModel.getInstance(this).getPageInfo(position);
+               
+                //caragr info
+                ITheme iTheme = PortfolioModel.getInstance(this).getTheme();
+                String url = iTheme.getUrlImages();
+                ImageView imgView = (ImageView) findViewById(R.id.imageView1);
+                //levantar info para el layout
+                // imagen +  titulo + texto
+                List<IPageObject> objetos = textPage.getObjects();
+                String title = null;
+                String subtitle = null;
+                String content = null;
+                String urlFinal = null;
+                for (int index = 0; index < objetos.size(); index++) {
+                	IPageObject object = objetos.get(index);
+                	switch (object.getType()) {
+                        
+                        case IPageObject.type_text:
+                            ITextObject text = (ITextObject) object;
+                            title = text.getTitle();
+                            subtitle = text.getSubtitle();
+                            content = text.getContent();
+                            urlFinal = url + text.getContent_img();
+                        
+                        case IPageObject.type_image:
+                        	IImageObject img = (IImageObject) object;
+                            title = img.getTitle();
+                            subtitle = img.getSubtitle();
+                            content = img.getContent();
+                            urlFinal = url + img.getContent_img();
+                        
+                    
+                   }
+                }
                 
-		        flipper = (ViewFlipper) findViewById(R.id.flipper);
+                //cargar el layout
+                TextView textView = (TextView) findViewById(R.id.text_item);
+                textView.setText(content);
+                
+                TextView tittleView = (TextView) findViewById(R.id.tittle);
+                tittleView.setText(title);
+                
+                
+                
+                
+                
+                //MENU
+                flipper = (ViewFlipper) findViewById(R.id.flipper);
 		
 		        final menu menuLayout = (menu) findViewById(R.id.layout_menu);
 		        menuLayout.init();	

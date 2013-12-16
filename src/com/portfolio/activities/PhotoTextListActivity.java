@@ -1,5 +1,7 @@
 package com.portfolio.activities;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +18,11 @@ import android.widget.ViewFlipper;
 import com.portfolio.MainActivity;
 import com.portfolio.R;
 import com.portfolio.components.menu;
+import com.portfolio.model.PortfolioModel;
+import com.portfolio.model.interfaces.IPhotoGaleryPage;
+import com.portfolio.model.interfaces.ITextPage;
+import com.portfolio.model.interfaces.component.IPageObject;
+import com.portfolio.model.interfaces.component.ITextObject;
 
 public class PhotoTextListActivity extends Activity {
 	
@@ -33,9 +40,33 @@ public class PhotoTextListActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+		
 		
 		setContentView(R.layout.activity_photo_text_gridlist);
+		Bundle bundle = this.getIntent().getExtras();
+        int position = bundle.getInt("position");
+		
+        //levanto la pagina de esa posicion
+        //la interfaz que se llama text, que tiene imagen, titulo y texto
+        IPhotoGaleryPage textPage = (IPhotoGaleryPage) PortfolioModel.getInstance(this).getPageInfo(position);
+        
+        //cargar el layout
+        List<IPageObject> objetos = textPage.getObjects();
+        for (int index = 0; index < objetos.size(); index++) {
+            IPageObject object = objetos.get(index);
+            switch (object.getType()) {
+            	
+            	case IPageObject.type_text:
+            		ITextObject text = (ITextObject) object;
+            		String title = text.getTitle();
+            		String subtitle = text.getSubtitle();
+            		String content = text.getContent();
+            
+           }
+        }
+		
+		
+		//MENU
 		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
         menuLayout.init();
         flipper = (ViewFlipper) findViewById(R.id.flipper);

@@ -10,7 +10,11 @@ import android.view.Menu;
 import android.view.Window;
 import android.widget.ImageView;
 
+import com.portfolio.activities.ContactActivity;
+import com.portfolio.activities.NetworkActivity;
+import com.portfolio.activities.PhotoTextListActivity;
 import com.portfolio.activities.TextActivity;
+import com.portfolio.activities.VideoActivity;
 import com.portfolio.listener.IPortfolioListener;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.entities.Portfolio;
@@ -42,30 +46,62 @@ public class MainActivity extends Activity implements IPortfolioListener{
 
         @Override
         public void onPortfolioReady() {
-                PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
-                IMenu menu = portfolioModel.getPorfolioMenu();
-                menu.getTitle();
-                menu.getBackground();
-                int pagesCount = portfolioModel.getNumberPages();
-                List<String> names = portfolioModel.getPagesTitles();
-                IPage pageNum1 = portfolioModel.getPageInfo(4);
-                switch (pageNum1.getType().getTypeValue()) {
-                        case IPage.type_text:
-                                Intent intent = new Intent(MainActivity.this, TextActivity.class);
-                                intent.putExtra("position", 4);
-                                startActivity(intent);
-                                break;
-                        case IPage.type_image:
-                                IPage photoPage = (IPhotoGaleryPage) pageNum1;
-//                                String url = photoPage.getImagesUrl().get(0);
-//                                portfolioModel.getMedia(this, url);
-                                break;
-        
-                        default:
-                                break;
-                        }
-//                finish();                
-        }
+                
+        	PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
+            IMenu menu = portfolioModel.getPorfolioMenu();
+            menu.getTitle();
+            menu.getBackground();
+                
+            //Obtener la cantidad de paginas.
+            int pagesCount = portfolioModel.getNumberPages();
+            //Obtener los tipos de paginas
+            List<String> names = portfolioModel.getPagesTitles();
+            
+            //Levantar la primer pagina.
+            IPage pageNum1 = portfolioModel.getPageInfo(1);
+            switch (pageNum1.getType().getTypeValue()) {
+                    
+	                case IPage.type_video:
+	                	Intent intent1 = new Intent(MainActivity.this, VideoActivity.class);
+	                    intent1.putExtra("position", 1);
+	                    startActivity(intent1);
+	                    break;
+	                //listas
+	                case IPage.type_photo_galery:
+                    	Intent intent2 = new Intent(MainActivity.this, PhotoTextListActivity.class);
+                        intent2.putExtra("position", 2);
+                        startActivity(intent2);
+                        break;
+                    //redes sociales
+	                case IPage.type_network:
+                    	Intent intent3 = new Intent(MainActivity.this, NetworkActivity.class);
+                        intent3.putExtra("position", 3);
+                        startActivity(intent3);
+                        break;
+            		//imagen texto 
+	                case IPage.type_text:
+                            Intent intent4 = new Intent(MainActivity.this, TextActivity.class);
+                            intent4.putExtra("position", 4);
+                            startActivity(intent4);
+                            break;
+                    //la home
+                    case IPage.type_image:
+                    	Intent intent5 = new Intent(MainActivity.this, TextActivity.class);
+                        intent5.putExtra("position", 5);
+                        startActivity(intent5);
+                        break;
+                    //contacto  
+                    case IPage.type_contact:
+                    	Intent intent6 = new Intent(MainActivity.this, ContactActivity.class);
+                        intent6.putExtra("position", 6);
+                        startActivity(intent6);
+                        break;
+                                          
+                    default:
+                            break;
+                    }
+//            finish();                
+    }
 
         @Override
         public void onImageReady(Bitmap bitmap) {

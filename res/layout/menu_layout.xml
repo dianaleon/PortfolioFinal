@@ -35,7 +35,7 @@
             android:layout_gravity="center_horizontal|top"
             android:background="#000"
             android:gravity="center_vertical|center_horizontal"
-            android:text="@string/itemMenu11"
+            android:text="@string/itemMenu10"
             android:textColor="#FFF"
             android:textSize="20sp"
             android:layout_marginBottom="1dp" />

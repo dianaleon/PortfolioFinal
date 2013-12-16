@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,14 +14,18 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.portfolio.R;
 import com.portfolio.components.menu;
+import com.portfolio.listener.IPortfolioListener;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IPage;
 import com.portfolio.model.interfaces.ITextPage;
+import com.portfolio.model.interfaces.ITheme;
+import com.portfolio.model.interfaces.component.IImageObject;
 import com.portfolio.model.interfaces.component.IPageObject;
 import com.portfolio.model.interfaces.component.ITextObject;
 
@@ -35,26 +40,105 @@ public class TextActivity extends Activity {
         Button buttonItem5;
         Button buttonItem6;
         Button buttonItem7;
-        
+        ImageView imgView;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
                 
                 super.onCreate(savedInstanceState);
-//                requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+                //requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+                //la vista que tiene imagen + titulo + texto
                 setContentView(R.layout.activity_text);
                 Bundle bundle = this.getIntent().getExtras();
                 int position = bundle.getInt("position");
+                
+                //levanto la pagina de esa posicion
+                //la interfaz que se llama text, que tiene imagen, titulo y texto
                 ITextPage textPage = (ITextPage) PortfolioModel.getInstance(this).getPageInfo(position);
+                
+                //caragr info
+                ITheme iTheme = PortfolioModel.getInstance(this).getTheme();
+                String url = iTheme.getUrlImages();
+                ImageView imgView = (ImageView) findViewById(R.id.imageView1);
+                //cargar el layout
+                // imagen +  titulo + texto
                 List<IPageObject> objetos = textPage.getObjects();
+                String title = null;
+                String subtitle = null;
+                String content = null;
+                String urlFinal = null;
                 for (int index = 0; index < objetos.size(); index++) {
                 	IPageObject object = objetos.get(index);
-                	if (object.getType() == IPageObject.type_text) {
-                		ITextObject text = (ITextObject) object;
-                		String title = text.getTitle();
-                		String subtitle = text.getSubtitle();
-                	}
+                	switch (object.getType()) {
+                        
+                        case IPageObject.type_text:
+                            ITextObject text = (ITextObject) object;
+                            title = text.getTitle();
+                            subtitle = text.getSubtitle();
+                            content = text.getContent();
+                            urlFinal = url + text.getContent_img();
+                        
+                        case IPageObject.type_image:
+                        	IImageObject img = (IImageObject) object;
+                            title = img.getTitle();
+                            subtitle = img.getSubtitle();
+                            content = img.getContent();
+                            urlFinal = url + img.getContent_img();
+                        
+                    
+                   }
                 }
                 
+                /*ME TIRA ERROR algo pongo mal aca!!!!*/ 
+                /*
+				PortfolioModel.getMedia(new IPortfolioListener() {
+                    
+                	
+                    @Override
+                    public void onPortfolioReady() {
+                     // TODO Auto-generated method stub
+                     
+                    }
+                    
+                    @Override
+                    public void onImageReady(Bitmap bitmap) {
+                     imageView.setBitmap(bitmap);
+                    }
+                    
+                    @Override
+                    public void errorGetPortfolio() {
+                     // TODO Auto-generated method stub
+                     
+                    }
+
+					
+                   }, urlFinal);
+                */
+                
+                TextView textView = (TextView) findViewById(R.id.text_item);
+                textView.setText(content);
+                
+                TextView tittleView = (TextView) findViewById(R.id.tittle);
+                tittleView.setText(title);
+                
+                
+                /*
+                
+                //cargar la imagen
+                String nameImageUrl = bundle.getString("text");
+                ImageView imgView = (ImageView) findViewById(R.id.imageView1);
+                
+                
+                //cargar el texto: public String getContent();
+                String text = bundle.getString("text");
+                
+                
+                //IPage ->   getTitle
+                String tittle = bundle.getString("tittle");
+               
+                
+                
+                */
+
                 //String text = bundle.getString("text");
                 //TextView textView = (TextView) findViewById(R.id.text);
                 //textView.setText(text);

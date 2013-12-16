@@ -2,23 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:weightSum="7.0" >
     
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="fill_parent"
         android:layout_height="10dp"
-    	android:layout_weight="4"
+    	android:layout_weight="3.0"
     	android:background="#ffffff"
         android:contentDescription="@string/desc"
         android:scaleType="fitXY"
         android:src="@drawable/arquitecto" />
 
     <TextView
-            android:id="@+id/text"
+            android:id="@+id/tittle"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-    		android:layout_weight="3"
+    		android:layout_weight="4.0"
             android:background="#ffffff"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/text_example"
