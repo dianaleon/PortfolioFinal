@@ -67,16 +67,22 @@ public class ContactActivity extends Activity {
 	        		IContactObject contact = (IContactObject) object;
 	        		String  type = contact.getSubtype();
 	        		
+	        		if (type != null){
+	        			if(type == "email"){
+	        				TextView textView = (TextView) findViewById(R.id.mail);
+	        		        textView.setText(content);
+	        			}
+	        			if(type == "direccion"){
+	        				TextView textView = (TextView) findViewById(R.id.direccion);
+	        		        textView.setText(content);
+	        			}
+	        		}
+	        		
             }
         }
 		
-		//cargar datos del layout
-        //cargar telefono y mail
-        TextView textView = (TextView) findViewById(R.id.telefono);
-        //textView.setText(content);
-        
-        TextView tittleView = (TextView) findViewById(R.id.tittle);
-        //tittleView.setText(title);
+
+
         
         //MENU
 		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
