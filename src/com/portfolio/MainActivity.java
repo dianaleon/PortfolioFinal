@@ -28,8 +28,8 @@ public class MainActivity extends Activity implements IPortfolioListener{
         @Override
         protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
-                 requestWindowFeature(Window.FEATURE_NO_TITLE);     
-                 setContentView(R.layout.activity_text);
+                 //requestWindowFeature(Window.FEATURE_NO_TITLE);     
+                 setContentView(R.layout.activity_contact);
                 
                 
                 
@@ -58,7 +58,7 @@ public class MainActivity extends Activity implements IPortfolioListener{
             List<String> names = portfolioModel.getPagesTitles();
             
             //Levantar la primer pagina.
-            IPage pageNum1 = portfolioModel.getPageInfo(1);
+            IPage pageNum1 = portfolioModel.getPageInfo(6);
             switch (pageNum1.getType().getTypeValue()) {
                     
 	                case IPage.type_video:
