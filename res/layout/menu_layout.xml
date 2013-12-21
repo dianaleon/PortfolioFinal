@@ -8,85 +8,14 @@
     android:visibility="invisible"
     android:weightSum="10.0">
 
-    <LinearLayout
+    <LinearLayout 
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6.5"
         android:orientation="vertical"
         android:background="@drawable/gradient_light_gold" >
 
-        <Button
-            android:id="@+id/itemMenu1"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal|top"
-            
-            android:gravity="center_vertical|center_horizontal"
-            android:text="@string/name_page"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:background="@drawable/gradient_gold"
-            android:layout_marginBottom="1dp" />
-
-        <Button
-            android:id="@+id/itemMenu2"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal|top"
-            android:background="#000"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="@string/itemMenu10"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:layout_marginBottom="1dp" />
-
-        <Button
-            android:id="@+id/itemMenu3"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal|top"
-            android:background="#000"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="@string/itemMenu11"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:layout_marginBottom="1dp" />
-
-        <Button
-            android:id="@+id/itemMenu4"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal|top"
-            android:background="#000"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="@string/itemMenu12"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:layout_marginBottom="1dp" />
-
-        <Button
-            android:id="@+id/itemMenu5"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal|top"
-            android:background="#000"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="@string/itemMenu13"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:layout_marginBottom="1dp" />
-
-        <Button
-            android:id="@+id/itemMenu6"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal|top"
-            android:background="#000"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="@string/itemMenu14"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:layout_marginBottom="1dp" />
-    </LinearLayout>
+      </LinearLayout>
 
 </com.portfolio.components.menu>
