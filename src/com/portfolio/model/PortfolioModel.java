@@ -80,6 +80,19 @@ public class PortfolioModel {
 		}
 		return names;
 	}
+	
+	public List<Integer> getPagesPositions() {
+		List<Integer> positions = new ArrayList<Integer>();
+		if (portfolio != null) {
+			Collection<IPage> pages = portfolio.getPages();
+			Iterator<IPage> itePages = pages.iterator();
+			while (itePages.hasNext()) {
+				IPage page = (IPage) itePages.next();
+				positions.add(page.getPosition());				
+			}
+		}
+		return positions;
+	}
 
 	public void getMedia(final IPortfolioListener callback, final String url) {
 		int index = url.lastIndexOf("/");
