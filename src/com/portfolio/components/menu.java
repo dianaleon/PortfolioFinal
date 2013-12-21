@@ -9,15 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.portfolio.MainActivity;
 import com.portfolio.R;
 import com.portfolio.activities.ContactActivity;
-import com.portfolio.activities.NetworkActivity;
-import com.portfolio.activities.PhotoTextListActivity;
-import com.portfolio.activities.PhotoTextListTwoRowsActivity;
-import com.portfolio.activities.PhotoTittleTextActivity;
 import com.portfolio.activities.TextActivity;
-import com.portfolio.activities.VideoActivity;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IPage;
 
@@ -85,13 +79,13 @@ public class menu extends LinearLayout {
                          */
                          case IPage.type_contact:
                          	Intent intent6 = new Intent(getContext(), ContactActivity.class);
-                             intent6.putExtra("position", 7);
+                             intent6.putExtra("position", pos);
                              getContext().startActivity(intent6);
                              break;
                         //imagen texto 
       	                case IPage.type_text:
                                   Intent intent4 = new Intent(getContext(), TextActivity.class);
-                                  intent4.putExtra("position", 4);
+                                  intent4.putExtra("position",pos);
                                   getContext().startActivity(intent4);
                                   break;
                                                
