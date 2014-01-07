@@ -63,6 +63,7 @@ public class ContactActivity extends Activity {
             String  content = object.getContent();
             
             switch (object.getType()) {
+            
             	case IPageObject.type_contact:
 	        		IContactObject contact = (IContactObject) object;
 	        		String  type = contact.getSubtype();

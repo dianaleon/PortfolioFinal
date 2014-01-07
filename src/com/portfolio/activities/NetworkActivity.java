@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -19,8 +20,11 @@ import android.widget.ViewFlipper;
 import com.portfolio.R;
 import com.portfolio.components.menu;
 import com.portfolio.model.PortfolioModel;
+import com.portfolio.model.interfaces.IContactPage;
 import com.portfolio.model.interfaces.INetworkPage;
+import com.portfolio.model.interfaces.IPage;
 import com.portfolio.model.interfaces.ITextPage;
+import com.portfolio.model.interfaces.ITheme;
 import com.portfolio.model.interfaces.component.INetworkObject;
 import com.portfolio.model.interfaces.component.IPageObject;
 import com.portfolio.model.interfaces.component.ITextObject;
@@ -36,8 +40,12 @@ public class NetworkActivity extends Activity {
     Button buttonItem6;
     Button buttonItem7;
     ViewFlipper flipper;
+    String addressfb = null;
+    String addresstwitter = null;
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.activity_network);
@@ -47,32 +55,64 @@ public class NetworkActivity extends Activity {
 		//levanto la pagina de esa posicion
         //la interfaz que se llama redes sociales,....
         INetworkPage textPage = (INetworkPage) PortfolioModel.getInstance(this).getPageInfo(position);
+       
+        //caragr info
+        ITheme iTheme = PortfolioModel.getInstance(this).getTheme();
+        String url = iTheme.getUrlImages();
         
         //cargar el layout
         List<IPageObject> objetos = textPage.getObjects();
-        String title = null;
-        String subtitle = null;
-        String content = null;
-        String urlFinal = null;
         
+        
+        Button twButton = (Button) findViewById(R.id.twitter);
+        Button fbButton = (Button) findViewById(R.id.facebook);
+       
         for (int index = 0; index < objetos.size(); index++) {
-            IPageObject object = objetos.get(index);
+            
+        	IPageObject object = objetos.get(index);
+            String title = object.getTitle();
+            //String  imageBgUrl = object.getIconUrl();
+            String  content = object.getContent();
+            
             switch (object.getType()) {
             	
             	case IPageObject.type_network:
-            		INetworkObject text = (INetworkObject) object;
-            		title = text.getTitle();//???
-            		subtitle = text.getSubtitle();
-            		content = text.getContent();
-            
+            		INetworkObject social = (INetworkObject) object;
+            		String  type = social.getSubtype();
+            		if (type != null){
+            			if(type.equalsIgnoreCase(INetworkPage.facebook)) {
+            				addressfb = content;
+	        				fbButton.setText(title);
+	        				
+	        			}
+            			if(type.equalsIgnoreCase(INetworkPage.twitter)) {
+            				addresstwitter = content;
+            				twButton.setText(content);
+	        			}
+            		}
+            		
+            	
            }
         }
-		//caragar layout
-        //url de la red social + nombre red social
-        Button fbButton = (Button) findViewById(R.id.facebook);
-        fbButton.setText(content);
         
-        Button twitterButton = (Button) findViewById(R.id.twitter);
+        //set listeners for buttons
+        fbButton.setOnClickListener(new OnClickListener() {
+	       	public void onClick(View v) {
+	       		 Uri uri = Uri.parse(addressfb);
+	       		 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+	       		 startActivity(intent);
+	            }
+        });
+        
+        twButton.setOnClickListener(new OnClickListener() {
+	       	public void onClick(View v) {
+	       		 Uri uri = Uri.parse(addresstwitter);
+	       		 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+	       		 startActivity(intent);
+	            }
+        });
+        
+        /*Button twitterButton = (Button) findViewById(R.id.twitter);
         twitterButton.setText(content);
         
         Button linkedInButton = (Button) findViewById(R.id.linkedin);
@@ -85,13 +125,13 @@ public class NetworkActivity extends Activity {
         twitterButton.setText(content);
         
         Button instagramButton = (Button) findViewById(R.id.instagram);
-        twitterButton.setText(content);
+        twitterButton.setText(content);*/
 		
 		
 		
 		
 		
-		//MENU
+		
 		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
         menuLayout.init();
         flipper = (ViewFlipper) findViewById(R.id.flipper);
@@ -103,6 +143,7 @@ public class NetworkActivity extends Activity {
                 	flipper.showNext();     
                 }
             });
+        /*
       //BuFETE
         buttonItem1 = (Button) findViewById(R.id.itemMenu1);
         buttonItem1.setOnClickListener(new OnClickListener() {
@@ -167,8 +208,9 @@ public class NetworkActivity extends Activity {
                     }
             });
         
+	
+*/
 	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

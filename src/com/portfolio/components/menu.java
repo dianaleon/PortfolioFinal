@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 
 import com.portfolio.R;
 import com.portfolio.activities.ContactActivity;
+import com.portfolio.activities.NetworkActivity;
 import com.portfolio.activities.TextActivity;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IPage;
@@ -34,6 +35,7 @@ public class menu extends LinearLayout {
         }
         
         public void init() {
+        	
         	final PortfolioModel portfolioModel = PortfolioModel.getInstance(getContext());
         	List <String> titles = (List<String>)portfolioModel.getPagesTitles();
         	List <Integer> posicion = (List<Integer>) portfolioModel.getPagesPositions();
@@ -41,6 +43,7 @@ public class menu extends LinearLayout {
         		String title= titles.get(index);
         		int pos = posicion.get(index);
         		Button but = new Button(getContext());
+        		but.setBackgroundResource( R.drawable.bg_menu_item);
         		but.setText(title);
         		but.setTag(pos);
         		but.setOnClickListener(new OnClickListener() {
@@ -62,12 +65,7 @@ public class menu extends LinearLayout {
                              intent2.putExtra("position", 2);
                              startActivity(intent2);
                              break;
-                         //redes sociales
-     	                case IPage.type_network:
-                         	Intent intent3 = new Intent(MainActivity.this, NetworkActivity.class);
-                             intent3.putExtra("position", 3);
-                             startActivity(intent3);
-                             break;
+                        
                  		
                          //la home
                          case IPage.type_image:
@@ -77,17 +75,26 @@ public class menu extends LinearLayout {
                              break;
                          //contacto  
                          */
-                         case IPage.type_contact:
+                    	//HOME
+       	                case IPage.type_image:
+                                   Intent intent4 = new Intent(getContext(), TextActivity.class);
+                                   intent4.putExtra("position",pos);
+                                   getContext().startActivity(intent4);
+                                   break;
+                                   
+                    	 //REDES SOCIALES
+      	                 case IPage.type_network:
+      	                	 	Intent intent3 = new Intent(getContext(), NetworkActivity.class);
+      	                	 	intent3.putExtra("position", pos);
+      	                	 	getContext().startActivity(intent3);
+      	                	 	break;
+      	                //CONTACTO
+      	                 case IPage.type_contact:
                          	Intent intent6 = new Intent(getContext(), ContactActivity.class);
                              intent6.putExtra("position", pos);
                              getContext().startActivity(intent6);
                              break;
-                        //imagen texto 
-      	                case IPage.type_text:
-                                  Intent intent4 = new Intent(getContext(), TextActivity.class);
-                                  intent4.putExtra("position",pos);
-                                  getContext().startActivity(intent4);
-                                  break;
+                        
                                                
                          default:
                                  break;

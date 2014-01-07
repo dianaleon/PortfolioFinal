@@ -58,10 +58,19 @@ public class MainActivity extends Activity implements IPortfolioListener{
             List<String> names = portfolioModel.getPagesTitles();
             
             //Levantar la primer pagina.
-            IPage pageNum1 = portfolioModel.getPageInfo(7);
+            IPage pageNum1 = portfolioModel.getPageInfo(5);
             switch (pageNum1.getType().getTypeValue()) {
                     
-	                case IPage.type_video:
+            		//la home
+            		case IPage.type_image:
+            			Intent intent5 = new Intent(MainActivity.this, TextActivity.class);
+            			intent5.putExtra("position", 5);
+            			startActivity(intent5);
+            			break;
+            		
+            		
+            		
+            		case IPage.type_video:
 	                	Intent intent1 = new Intent(MainActivity.this, VideoActivity.class);
 	                    intent1.putExtra("position", 1);
 	                    startActivity(intent1);
@@ -84,12 +93,7 @@ public class MainActivity extends Activity implements IPortfolioListener{
                             intent4.putExtra("position", 4);
                             startActivity(intent4);
                             break;
-                    //la home
-                    case IPage.type_image:
-                    	Intent intent5 = new Intent(MainActivity.this, TextActivity.class);
-                        intent5.putExtra("position", 5);
-                        startActivity(intent5);
-                        break;
+                    
                     //contacto  
                     case IPage.type_contact:
                     	Intent intent6 = new Intent(MainActivity.this, ContactActivity.class);
