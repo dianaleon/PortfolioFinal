@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.StateListDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -66,7 +67,49 @@ public class NetworkActivity extends Activity {
         
         Button twButton = (Button) findViewById(R.id.twitter);
         Button fbButton = (Button) findViewById(R.id.facebook);
+        Button liButton = (Button) findViewById(R.id.linkedin);
+        Button gpButton = (Button) findViewById(R.id.google);
+        Button ptButton = (Button) findViewById(R.id.pinterest);
+        Button inButton = (Button) findViewById(R.id.instagram);
        
+        //por ahora son estaticos cargados
+        //google plus
+        StateListDrawable slDrawGplus = new StateListDrawable(); 
+        slDrawGplus.addState(new int[] {android.R.attr.state_focused}, 
+                getResources().getDrawable(R.drawable.gplus_hover));
+        slDrawGplus.addState(new int[] {}, 
+                getResources().getDrawable(R.drawable.gplus)); 
+        
+        //pinterest
+        StateListDrawable slDrawPinterest = new StateListDrawable(); 
+        slDrawPinterest.addState(new int[] {android.R.attr.state_focused}, 
+                getResources().getDrawable(R.drawable.pinterest_hover));
+        slDrawPinterest.addState(new int[] {}, 
+                getResources().getDrawable(R.drawable.pinterest)); 
+      //Instagram
+        StateListDrawable slDrawInstagram = new StateListDrawable(); 
+        slDrawInstagram.addState(new int[] {android.R.attr.state_focused}, 
+                getResources().getDrawable(R.drawable.instagram_hover));
+        slDrawInstagram.addState(new int[] {}, 
+                getResources().getDrawable(R.drawable.instagram));
+      //Instagram
+        StateListDrawable slDrawLinkedIn= new StateListDrawable(); 
+        slDrawLinkedIn.addState(new int[] {android.R.attr.state_focused}, 
+                getResources().getDrawable(R.drawable.linkedin_hover));
+        slDrawLinkedIn.addState(new int[] {}, 
+                getResources().getDrawable(R.drawable.lin));
+        
+        liButton.setBackgroundResource(R.drawable.lin);
+        gpButton.setBackgroundResource(R.drawable.gplus);
+        inButton.setBackgroundResource(R.drawable.instagram);
+        ptButton.setBackgroundResource(R.drawable.pinterest);
+        
+        
+        
+        
+        
+        
+        
         for (int index = 0; index < objetos.size(); index++) {
             
         	IPageObject object = objetos.get(index);
@@ -84,10 +127,25 @@ public class NetworkActivity extends Activity {
             				addressfb = content;
 	        				fbButton.setText(title);
 	        				
+	        				//aca irian las imagenes que traemos de hover y normal, por ahora son estaticas
+	        				StateListDrawable slDrawFacebook = new StateListDrawable(); 
+	        		        slDrawFacebook.addState(new int[] {android.R.attr.state_focused}, 
+	        		                getResources().getDrawable(R.drawable.fb_hover));
+	        		        slDrawFacebook.addState(new int[] {}, 
+	        		                getResources().getDrawable(R.drawable.fb)); 
+	        		        fbButton.setBackgroundResource(R.drawable.fb);
+	        				
 	        			}
             			if(type.equalsIgnoreCase(INetworkPage.twitter)) {
             				addresstwitter = content;
             				twButton.setText(content);
+            				//aca irian las imagenes que traemos de hover y normal, por ahora son estaticas
+	        				StateListDrawable slDrawTwitter= new StateListDrawable(); 
+	        				slDrawTwitter.addState(new int[] {android.R.attr.state_focused}, 
+	        		                getResources().getDrawable(R.drawable.twitter));
+	        				slDrawTwitter.addState(new int[] {}, 
+	        		                getResources().getDrawable(R.drawable.twitter_hover)); 
+	        				twButton.setBackgroundResource(R.drawable.twitter);
 	        			}
             		}
             		

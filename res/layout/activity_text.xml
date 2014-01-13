@@ -9,13 +9,7 @@
 		<include
 		    android:id="@+id/layout_header"
 		    layout="@layout/header_layout" />
-		<View
-			android:layout_below="@id/layout_header"
-			android:layout_width="fill_parent"
-			android:layout_height="4dip"
-			android:background="@drawable/shadow_dark_bg"
-			>
-		</View>
+		
         
 		<LinearLayout
 		    android:id="@+id/body"

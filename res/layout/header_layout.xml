@@ -31,7 +31,11 @@
             android:text="@string/subtittle_app"
             android:textAllCaps="true"
             android:textAppearance="?android:attr/textAppearanceMedium" />
-                 
+        
+        
                 
 </LinearLayout>
+
+
+ 
 
