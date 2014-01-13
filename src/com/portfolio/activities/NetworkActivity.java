@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.StateListDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -126,7 +127,7 @@ public class NetworkActivity extends Activity {
             			if(type.equalsIgnoreCase(INetworkPage.facebook)) {
             				addressfb = content;
 	        				fbButton.setText(title);
-	        				
+	        				fbButton.setTextColor(Color.TRANSPARENT);
 	        				//aca irian las imagenes que traemos de hover y normal, por ahora son estaticas
 	        				StateListDrawable slDrawFacebook = new StateListDrawable(); 
 	        		        slDrawFacebook.addState(new int[] {android.R.attr.state_focused}, 
@@ -139,6 +140,7 @@ public class NetworkActivity extends Activity {
             			if(type.equalsIgnoreCase(INetworkPage.twitter)) {
             				addresstwitter = content;
             				twButton.setText(content);
+            				twButton.setTextColor(Color.TRANSPARENT);
             				//aca irian las imagenes que traemos de hover y normal, por ahora son estaticas
 	        				StateListDrawable slDrawTwitter= new StateListDrawable(); 
 	        				slDrawTwitter.addState(new int[] {android.R.attr.state_focused}, 
