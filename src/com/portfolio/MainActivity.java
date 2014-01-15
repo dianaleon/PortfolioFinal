@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import com.portfolio.activities.ContactActivity;
 import com.portfolio.activities.NetworkActivity;
 import com.portfolio.activities.PhotoTextListActivity;
+import com.portfolio.activities.PhotoTextListTwoRowsActivity;
 import com.portfolio.activities.TextActivity;
 import com.portfolio.activities.VideoActivity;
 import com.portfolio.listener.IPortfolioListener;
@@ -30,8 +31,6 @@ public class MainActivity extends Activity implements IPortfolioListener{
                 super.onCreate(savedInstanceState);
                  //requestWindowFeature(Window.FEATURE_NO_TITLE);     
                  setContentView(R.layout.activity_contact);
-                
-                
                 
                 PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
                 portfolioModel.getPortfolio(this);
@@ -77,8 +76,8 @@ public class MainActivity extends Activity implements IPortfolioListener{
 	                    break;
 	                //listas
 	                case IPage.type_photo_galery:
-                    	Intent intent2 = new Intent(MainActivity.this, PhotoTextListActivity.class);
-                        intent2.putExtra("position", 2);
+                    	Intent intent2 = new Intent(MainActivity.this, PhotoTextListTwoRowsActivity.class);
+                        intent2.putExtra("position", 0);
                         startActivity(intent2);
                         break;
                     //redes sociales

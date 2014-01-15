@@ -12,9 +12,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.portfolio.MainActivity;
 import com.portfolio.R;
 import com.portfolio.activities.ContactActivity;
 import com.portfolio.activities.NetworkActivity;
+import com.portfolio.activities.PhotoTextListTwoRowsActivity;
 import com.portfolio.activities.TextActivity;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IPage;
@@ -86,6 +88,11 @@ public class menu extends LinearLayout {
                                    getContext().startActivity(intent4);
                                    break;
                                    
+       	                case IPage.type_photo_galery:
+       	                	Intent intent2 = new Intent(getContext(), PhotoTextListTwoRowsActivity.class);
+       	                	intent2.putExtra("position", 2);
+       	                	getContext().startActivity(intent2);
+       	                	break;
                     	 //REDES SOCIALES
       	                 case IPage.type_network:
       	                	 	Intent intent3 = new Intent(getContext(), NetworkActivity.class);
