@@ -38,7 +38,7 @@ public class menu extends LinearLayout {
         
         public void init() {
         	
-        	//Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/CopperGothicStd29AB.otf");
+        	Typeface tf = Typeface.createFromAsset(getContext().getAssets(),"fonts/CopperGothicStd29AB.otf");
         	final PortfolioModel portfolioModel = PortfolioModel.getInstance(getContext());
         	List <String> titles = (List<String>)portfolioModel.getPagesTitles();
         	List <Integer> posicion = (List<Integer>) portfolioModel.getPagesPositions();
@@ -49,7 +49,7 @@ public class menu extends LinearLayout {
         		but.setBackgroundResource( R.drawable.custom_menu_1);
         		but.setTextColor(getResources().getColor(R.color.borderGold));
         		but.setHeight(80);
-        		//but.setTypeface(tf);
+        		but.setTypeface(tf);
         		but.setText(title);
         		but.setTag(pos);
         		but.setOnClickListener(new OnClickListener() {
@@ -157,9 +157,4 @@ public class menu extends LinearLayout {
                         }
                 });*/
     }
-
-		private AssetManager getAssets() {
-			// TODO Auto-generated method stub
-			return null;
-		}
 }
