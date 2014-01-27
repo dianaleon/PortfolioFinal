@@ -57,7 +57,7 @@ public class MainActivity extends Activity implements IPortfolioListener{
             List<String> names = portfolioModel.getPagesTitles();
             
             //Levantar la primer pagina.
-            IPage pageNum1 = portfolioModel.getPageInfo(1);
+            IPage pageNum1 = portfolioModel.getPageInfo(4);
             switch (pageNum1.getType().getTypeValue()) {
             		//contacto  
             		case IPage.type_contact:
@@ -82,7 +82,7 @@ public class MainActivity extends Activity implements IPortfolioListener{
             		//listas de imagenes con textos
 	                case IPage.type_text:
                             Intent intent4 = new Intent(MainActivity.this, PhotoTextListActivity.class);
-                            intent4.putExtra("position", 1);
+                            intent4.putExtra("position", 4);
                             startActivity(intent4);
                             break;
             	

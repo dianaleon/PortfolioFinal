@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
@@ -16,7 +15,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import com.portfolio.MainActivity;
 import com.portfolio.R;
 import com.portfolio.components.menu;
 import com.portfolio.model.PortfolioModel;
@@ -50,7 +48,7 @@ public class PhotoTextListActivity extends Activity {
 		
         //levanto la pagina de esa posicion
         //la interfaz que se llama text, que tiene imagen, titulo y texto
-        IPhotoGaleryPage listPage = (IPhotoGaleryPage) PortfolioModel.getInstance(this).getPageInfo(position);
+        ITextPage listPage = (ITextPage) PortfolioModel.getInstance(this).getPageInfo(position);
         
         
         //caragr info
@@ -86,70 +84,70 @@ public class PhotoTextListActivity extends Activity {
                 }
             });
       //BuFETE
-        buttonItem1 = (Button) findViewById(R.id.itemMenu1);
-        buttonItem1.setOnClickListener(new OnClickListener() {
-        @Override
-            public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(), PhotoTittleTextActivity.class));
-                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-                    }
-            });
-        //Socios
-        buttonItem2 = (Button) findViewById(R.id.itemMenu2);
-        buttonItem2.setOnClickListener(new OnClickListener() {
-        @Override
-            public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
-                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-                    }
-            });
-        //Especialistas en: despliega el submenu
-        buttonItem3 = (Button) findViewById(R.id.itemMenu2);
-        buttonItem3.setOnClickListener(new OnClickListener() {
-        @Override
-            public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
-                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-                    }
-            });
-        //Servicios? seguramente despliega otro submenu tambien, consultar!
-        buttonItem4 = (Button) findViewById(R.id.itemMenu2);
-        buttonItem4.setOnClickListener(new OnClickListener() {
-        @Override
-            public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
-                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-                    }
-            });
-        //Testimonios
-        buttonItem5 = (Button) findViewById(R.id.itemMenu2);
-        buttonItem5.setOnClickListener(new OnClickListener() {
-        @Override
-            public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(), PhotoTextListActivity.class));
-                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-                    }
-            });
-        //Redes sociales
-        buttonItem6 = (Button) findViewById(R.id.itemMenu2);
-        buttonItem6.setOnClickListener(new OnClickListener() {
-        @Override
-            public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(), NetworkActivity.class));
-                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-                    }
-            });
-      //Contacto
-        buttonItem7 = (Button) findViewById(R.id.itemMenu2);
-        buttonItem7.setOnClickListener(new OnClickListener() {
-        @Override
-            public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(), ContactActivity.class));
-                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-                    }
-            });
-        
-        
+//        buttonItem1 = (Button) findViewById(R.id.itemMenu1);
+//        buttonItem1.setOnClickListener(new OnClickListener() {
+//        @Override
+//            public void onClick(View v) {
+//                        startActivity(new Intent(getApplicationContext(), PhotoTittleTextActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                    }
+//            });
+//        //Socios
+//        buttonItem2 = (Button) findViewById(R.id.itemMenu2);
+//        buttonItem2.setOnClickListener(new OnClickListener() {
+//        @Override
+//            public void onClick(View v) {
+//                        startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                    }
+//            });
+//        //Especialistas en: despliega el submenu
+//        buttonItem3 = (Button) findViewById(R.id.itemMenu2);
+//        buttonItem3.setOnClickListener(new OnClickListener() {
+//        @Override
+//            public void onClick(View v) {
+//                        startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                    }
+//            });
+//        //Servicios? seguramente despliega otro submenu tambien, consultar!
+//        buttonItem4 = (Button) findViewById(R.id.itemMenu2);
+//        buttonItem4.setOnClickListener(new OnClickListener() {
+//        @Override
+//            public void onClick(View v) {
+//                        startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                    }
+//            });
+//        //Testimonios
+//        buttonItem5 = (Button) findViewById(R.id.itemMenu2);
+//        buttonItem5.setOnClickListener(new OnClickListener() {
+//        @Override
+//            public void onClick(View v) {
+//                        startActivity(new Intent(getApplicationContext(), PhotoTextListActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                    }
+//            });
+//        //Redes sociales
+//        buttonItem6 = (Button) findViewById(R.id.itemMenu2);
+//        buttonItem6.setOnClickListener(new OnClickListener() {
+//        @Override
+//            public void onClick(View v) {
+//                        startActivity(new Intent(getApplicationContext(), NetworkActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                    }
+//            });
+//      //Contacto
+//        buttonItem7 = (Button) findViewById(R.id.itemMenu2);
+//        buttonItem7.setOnClickListener(new OnClickListener() {
+//        @Override
+//            public void onClick(View v) {
+//                        startActivity(new Intent(getApplicationContext(), ContactActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+//                    }
+//            });
+//        
+//        
 		
 	}
 
