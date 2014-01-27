@@ -37,7 +37,7 @@
                             android:textStyle="bold" />
 
                          <TextView
-                             android:id="@+id/text_item0_list"
+                             android:id="@+id/text_item_0"
                              android:layout_width="fill_parent"
                              android:layout_height="wrap_content"
                              android:paddingLeft="10dp"

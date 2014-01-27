@@ -13,6 +13,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.portfolio.MainActivity;
@@ -21,6 +22,7 @@ import com.portfolio.components.menu;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IPhotoGaleryPage;
 import com.portfolio.model.interfaces.ITextPage;
+import com.portfolio.model.interfaces.ITheme;
 import com.portfolio.model.interfaces.component.IPageObject;
 import com.portfolio.model.interfaces.component.ITextObject;
 
@@ -48,10 +50,14 @@ public class PhotoTextListActivity extends Activity {
 		
         //levanto la pagina de esa posicion
         //la interfaz que se llama text, que tiene imagen, titulo y texto
-        IPhotoGaleryPage textPage = (IPhotoGaleryPage) PortfolioModel.getInstance(this).getPageInfo(position);
+        IPhotoGaleryPage listPage = (IPhotoGaleryPage) PortfolioModel.getInstance(this).getPageInfo(position);
         
+        
+        //caragr info
+        ITheme iTheme = PortfolioModel.getInstance(this).getTheme();
+        String url = iTheme.getUrlImages();
         //cargar el layout
-        List<IPageObject> objetos = textPage.getObjects();
+        List<IPageObject> objetos = listPage.getObjects();
         for (int index = 0; index < objetos.size(); index++) {
             IPageObject object = objetos.get(index);
             switch (object.getType()) {
@@ -61,7 +67,8 @@ public class PhotoTextListActivity extends Activity {
             		String title = text.getTitle();
             		String subtitle = text.getSubtitle();
             		String content = text.getContent();
-            
+            		TextView textView = (TextView) findViewById(R.id.text_item_0);
+            		textView.setText(content);
            }
         }
 		
