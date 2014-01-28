@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -50,6 +51,16 @@ public class PhotoTextListActivity extends Activity {
         //la interfaz que se llama text, que tiene imagen, titulo y texto
         ITextPage listPage = (ITextPage) PortfolioModel.getInstance(this).getPageInfo(position);
         
+        
+        Typeface font1 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31AB.otf");
+        TextView customTittle = (TextView)findViewById(R.id.tittle_app);
+        customTittle.setTypeface(font1);
+        //customTittlesetText(tittleApp);
+        
+        
+        Typeface font2 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 32AB.otf");
+        TextView customSubtittle = (TextView)findViewById(R.id.sub_tittle_app);
+        customSubtittle.setTypeface(font1);
         
         //caragr info
         ITheme iTheme = PortfolioModel.getInstance(this).getTheme();

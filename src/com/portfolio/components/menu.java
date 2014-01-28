@@ -16,6 +16,7 @@ import com.portfolio.MainActivity;
 import com.portfolio.R;
 import com.portfolio.activities.ContactActivity;
 import com.portfolio.activities.NetworkActivity;
+import com.portfolio.activities.PhotoTextListActivity;
 import com.portfolio.activities.PhotoTextListTwoRowsActivity;
 import com.portfolio.activities.TextActivity;
 import com.portfolio.model.PortfolioModel;
@@ -105,7 +106,12 @@ public class menu extends LinearLayout {
                              intent6.putExtra("position", pos);
                              getContext().startActivity(intent6);
                              break;
-                        
+                        //listas de imagenes con textos
+     	                case IPage.type_text:
+                                 Intent intent5 = new Intent(getContext(), PhotoTextListActivity.class);
+                                 intent5.putExtra("position", 1);
+                                 getContext().startActivity(intent5);
+                                 break;
                                                
                          default:
                                  break;

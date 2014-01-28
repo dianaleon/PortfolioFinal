@@ -5,10 +5,12 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.portfolio.activities.ContactActivity;
 import com.portfolio.activities.NetworkActivity;
@@ -25,8 +27,11 @@ import com.portfolio.model.interfaces.IPhotoGaleryPage;
 import com.portfolio.model.interfaces.ITextPage;
 
 public class MainActivity extends Activity implements IPortfolioListener{
-
-        @Override
+		
+		public String tittleApp =null;
+		public String subtittleApp =null;
+        
+		@Override
         protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
                  //requestWindowFeature(Window.FEATURE_NO_TITLE);     
@@ -49,15 +54,27 @@ public class MainActivity extends Activity implements IPortfolioListener{
         	PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
             IMenu menu = portfolioModel.getPorfolioMenu();
             menu.getTitle();
+            tittleApp = menu.getTitle();
+            subtittleApp = menu.getSubtitle();
             menu.getBackground();
+            
+            
+            
+            
                 
             //Obtener la cantidad de paginas.
             int pagesCount = portfolioModel.getNumberPages();
             //Obtener los tipos de paginas
             List<String> names = portfolioModel.getPagesTitles();
             
+            //TextView textView = (TextView) findViewById(R.id.tittle_app);
+            //Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/CopperGothicStd29AB.otf");
+            //textView.setTypeface(tf);
+            
+            
+            
             //Levantar la primer pagina.
-            IPage pageNum1 = portfolioModel.getPageInfo(4);
+            IPage pageNum1 = portfolioModel.getPageInfo(5);
             switch (pageNum1.getType().getTypeValue()) {
             		//contacto  
             		case IPage.type_contact:
@@ -82,7 +99,7 @@ public class MainActivity extends Activity implements IPortfolioListener{
             		//listas de imagenes con textos
 	                case IPage.type_text:
                             Intent intent4 = new Intent(MainActivity.this, PhotoTextListActivity.class);
-                            intent4.putExtra("position", 4);
+                            intent4.putExtra("position", 1);
                             startActivity(intent4);
                             break;
             	
