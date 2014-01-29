@@ -91,7 +91,7 @@ public class menu extends LinearLayout {
                                    
        	                case IPage.type_photo_galery:
        	                	Intent intent2 = new Intent(getContext(), PhotoTextListTwoRowsActivity.class);
-       	                	intent2.putExtra("position", 2);
+       	                	intent2.putExtra("position", pos);
        	                	getContext().startActivity(intent2);
        	                	break;
                     	 //REDES SOCIALES
@@ -109,7 +109,7 @@ public class menu extends LinearLayout {
                         //listas de imagenes con textos
      	                case IPage.type_text:
                                  Intent intent5 = new Intent(getContext(), PhotoTextListActivity.class);
-                                 intent5.putExtra("position", 1);
+                                 intent5.putExtra("position", pos);
                                  getContext().startActivity(intent5);
                                  break;
                                                
