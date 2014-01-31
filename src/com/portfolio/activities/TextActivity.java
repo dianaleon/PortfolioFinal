@@ -59,6 +59,20 @@ public class TextActivity extends Activity {
                 ITheme iTheme = PortfolioModel.getInstance(this).getTheme();
                 String url = iTheme.getUrlImages();
                 ImageView imgView = (ImageView) findViewById(R.id.imageView1);
+                
+                //Cargar el titulo y el subtitulo 
+                Typeface font1 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31AB.otf");
+                TextView customTittle = (TextView)findViewById(R.id.tittle_app);
+                customTittle.setTypeface(font1);
+                 //customTittle.setText(TITULO);
+                
+                
+                Typeface font2 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 32AB.otf");
+                TextView customSubtittle = (TextView)findViewById(R.id.sub_tittle_app);
+                customSubtittle.setTypeface(font1);
+                //customTittle.setText(SUBTITULO);
+                
+                
                 //cargar el layout
                 // imagen +  titulo + texto
                 List<IPageObject> objetos = textPage.getObjects();
@@ -136,9 +150,7 @@ public class TextActivity extends Activity {
                 //String text = bundle.getString("text");
                 //TextView textView = (TextView) findViewById(R.id.text);
                 //textView.setText(text);
-                Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/CopperGothicStd29AB.otf");
-                TextView tv = (TextView) findViewById(R.id.tittle_app);
-                tv.setTypeface(tf);
+                
         
                 flipper = (ViewFlipper) findViewById(R.id.flipper);
                 final menu menuLayout = (menu) findViewById(R.id.layout_menu);

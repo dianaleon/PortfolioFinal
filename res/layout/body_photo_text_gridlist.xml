@@ -3,23 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
+    android:scrollbars="vertical"
     android:background="#000000">
     
     <TableRow
                 android:id="@+id/tableRow1"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/gradient_light_gold"
                 android:layout_marginBottom="1dp">
 
                 <ImageView
                     android:id="@+id/imageView1"
                     android:layout_width="120sp"
-                    android:layout_height="fill_parent"
+                    android:layout_height="match_parent"
                     android:contentDescription="@string/desc"
                     android:scaleType="fitXY"
-                    android:src="@drawable/lawss" />
+                    android:src="@drawable/fotito1" />
 
                     <LinearLayout
                             android:layout_width="fill_parent"
@@ -33,40 +33,43 @@
                             android:text="@string/tittle_app"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textColor="#000000"
-                            android:textSize="23sp"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
 
                          <TextView
                              android:id="@+id/text_item_0"
                              android:layout_width="fill_parent"
                              android:layout_height="wrap_content"
+                             android:minHeight = "100dp"
+                             android:layout_marginBottom="20dp"
                              android:paddingLeft="10dp"
                              android:text="@string/text_example"
                              android:textAppearance="?android:attr/textAppearanceMedium"
                              android:textColor="#ffffff"
-                             android:textSize="20sp" />
+                             android:textSize="10sp" />
                 
                                  </LinearLayout>
                 
             </TableRow>
+
             <TableRow
                 android:id="@+id/tableRow1"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/gradient_light_gold"
                 android:layout_marginBottom="1dp">
 
                 <ImageView
                     android:id="@+id/imageView1"
                     android:layout_width="120sp"
-                    android:layout_height="fill_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/desc"
                     android:scaleType="fitXY"
-                    android:src="@drawable/lawss"
-                    android:contentDescription="@string/desc" />
-                   <LinearLayout
+                    android:src="@drawable/fotito2" />
+
+                    <LinearLayout
                             android:layout_width="fill_parent"
-                                   android:layout_height="wrap_content"
+                            android:layout_height="wrap_content"
                             android:orientation="vertical" >
                         <TextView
                             android:id="@+id/tittle_item_list"
@@ -76,41 +79,44 @@
                             android:text="@string/tittle_app"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textColor="#000000"
-                            android:textSize="23sp"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
 
                          <TextView
-                             android:id="@+id/text_item0_list"
+                             android:id="@+id/text_item_0"
                              android:layout_width="fill_parent"
                              android:layout_height="wrap_content"
+                             android:minHeight = "100dp"
+                             android:layout_marginBottom="20dp"
                              android:paddingLeft="10dp"
                              android:text="@string/text_example"
                              android:textAppearance="?android:attr/textAppearanceMedium"
                              android:textColor="#ffffff"
-                             android:textSize="20sp" />
+                             android:textSize="10sp" />
                 
                                  </LinearLayout>
                 
             </TableRow>
+
             
-            <TableRow
+           <TableRow
                 android:id="@+id/tableRow1"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/gradient_light_gold"
                 android:layout_marginBottom="1dp">
 
                 <ImageView
                     android:id="@+id/imageView1"
                     android:layout_width="120sp"
-                    android:layout_height="fill_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/desc"
                     android:scaleType="fitXY"
-                    android:src="@drawable/lawss"
-                    android:contentDescription="@string/desc" />
-                                 <LinearLayout
+                    android:src="@drawable/fotito3" />
+
+                    <LinearLayout
                             android:layout_width="fill_parent"
-                                   android:layout_height="wrap_content"
+                            android:layout_height="wrap_content"
                             android:orientation="vertical" >
                         <TextView
                             android:id="@+id/tittle_item_list"
@@ -120,43 +126,44 @@
                             android:text="@string/tittle_app"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textColor="#000000"
-                            android:textSize="23sp"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
 
                          <TextView
-                             android:id="@+id/text_item0_list"
+                             android:id="@+id/text_item_0"
                              android:layout_width="fill_parent"
                              android:layout_height="wrap_content"
+                             android:minHeight = "100dp"
+                             android:layout_marginBottom="20dp"
                              android:paddingLeft="10dp"
                              android:text="@string/text_example"
                              android:textAppearance="?android:attr/textAppearanceMedium"
                              android:textColor="#ffffff"
-                             android:textSize="20sp" />
+                             android:textSize="10sp" />
                 
                                  </LinearLayout>
                 
             </TableRow>
+
             
-            
-            <TableRow
+           <TableRow
                 android:id="@+id/tableRow1"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/gradient_light_gold"
-               
-                >
+                android:layout_marginBottom="1dp">
 
                 <ImageView
                     android:id="@+id/imageView1"
                     android:layout_width="120sp"
-                    android:layout_height="fill_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/desc"
                     android:scaleType="fitXY"
-                    android:src="@drawable/lawss"
-                    android:contentDescription="@string/desc" />
-                                 <LinearLayout
+                    android:src="@drawable/fotito4" />
+
+                    <LinearLayout
                             android:layout_width="fill_parent"
-                                   android:layout_height="wrap_content"
+                            android:layout_height="wrap_content"
                             android:orientation="vertical" >
                         <TextView
                             android:id="@+id/tittle_item_list"
@@ -166,18 +173,20 @@
                             android:text="@string/tittle_app"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textColor="#000000"
-                            android:textSize="23sp"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
 
                          <TextView
-                             android:id="@+id/text_item0_list"
+                             android:id="@+id/text_item_0"
                              android:layout_width="fill_parent"
                              android:layout_height="wrap_content"
+                             android:minHeight = "100dp"
+                             android:layout_marginBottom="20dp"
                              android:paddingLeft="10dp"
                              android:text="@string/text_example"
                              android:textAppearance="?android:attr/textAppearanceMedium"
                              android:textColor="#ffffff"
-                             android:textSize="20sp" />
+                             android:textSize="10sp" />
                 
                                  </LinearLayout>
                 
