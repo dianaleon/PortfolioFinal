@@ -84,7 +84,7 @@ public class menu extends LinearLayout {
                          */
                     	//HOME
        	                case IPage.type_image:
-                                   Intent intent4 = new Intent(getContext(), TextActivity.class);
+                                   Intent intent4 = new Intent(getContext(), ContactActivity.class);
                                    intent4.putExtra("position",pos);
                                    getContext().startActivity(intent4);
                                    break;

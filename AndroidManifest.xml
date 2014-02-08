@@ -32,6 +32,8 @@
         </activity>
         <activity android:name=".activities.TextActivity" >
         </activity>
+        <activity android:name=".activities.HomeActivity" >
+        </activity>
         <activity android:name=".activities.PhotoGaleryActivity" >
         </activity>
         <activity android:name=".activities.PhotoTextListTwoRowsActivity" >

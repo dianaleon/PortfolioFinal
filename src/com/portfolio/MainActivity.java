@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.portfolio.activities.ContactActivity;
+import com.portfolio.activities.HomeActivity;
 import com.portfolio.activities.NetworkActivity;
 import com.portfolio.activities.PhotoTextListActivity;
 import com.portfolio.activities.PhotoTextListTwoRowsActivity;
@@ -61,7 +62,7 @@ public class MainActivity extends Activity implements IPortfolioListener{
             
             
             
-                
+            /*    
             //Obtener la cantidad de paginas.
             int pagesCount = portfolioModel.getNumberPages();
             //Obtener los tipos de paginas
@@ -74,7 +75,11 @@ public class MainActivity extends Activity implements IPortfolioListener{
             
             
             //Levantar la primer pagina.
-            IPage pageNum1 = portfolioModel.getPageInfo(5);
+            IPage pageNum1 = portfolioModel.getPageInfo(5);*/
+            /*hago estatica la home para asi pruebo el resto de las paginas*/
+            Intent intent0 = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent0);
+            /*
             switch (pageNum1.getType().getTypeValue()) {
             		//contacto  
             		case IPage.type_contact:
@@ -121,11 +126,11 @@ public class MainActivity extends Activity implements IPortfolioListener{
                     
                     
                    
-                                          
+                    /*                      
                     default:
                             break;
-                    }
-//            finish();                
+                    } */
+           finish();                
     }
 
         @Override
