@@ -21,6 +21,7 @@ import com.portfolio.R;
 import com.portfolio.components.menu;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IContactPage;
+import com.portfolio.model.interfaces.IMenu;
 import com.portfolio.model.interfaces.ITextPage;
 import com.portfolio.model.interfaces.ITheme;
 import com.portfolio.model.interfaces.component.IContactObject;
@@ -66,7 +67,15 @@ public class ContactActivity extends Activity {
         customSubtittle.setTypeface(font1);
         //customTittle.setText(SUBTITULO);
         
-        
+        //Setear el titulo en la pagina
+        PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
+        IMenu menu = portfolioModel.getPorfolioMenu();
+        menu.getTitle();      
+        menu.getBackground();
+        TextView textViewTittle = (TextView) findViewById(R.id.tittle_app);
+        TextView textViewSubTittle = (TextView) findViewById(R.id.sub_tittle_app);
+        textViewTittle.setText(menu.getTitle());
+        textViewSubTittle.setText(menu.getSubtitle());
         
         //cargar el layout
         List<IPageObject> objetos = contactPage.getObjects();

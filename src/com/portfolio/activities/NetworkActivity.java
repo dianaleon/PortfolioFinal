@@ -23,6 +23,7 @@ import com.portfolio.R;
 import com.portfolio.components.menu;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IContactPage;
+import com.portfolio.model.interfaces.IMenu;
 import com.portfolio.model.interfaces.INetworkPage;
 import com.portfolio.model.interfaces.IPage;
 import com.portfolio.model.interfaces.ITextPage;
@@ -65,7 +66,18 @@ public class NetworkActivity extends Activity {
         //cargar el layout
         List<IPageObject> objetos = textPage.getObjects();
         
+        //Setear el titulo en la pagina
+        PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
+        IMenu menu = portfolioModel.getPorfolioMenu();
+        menu.getTitle();      
+        menu.getBackground();
+        TextView textViewTittle = (TextView) findViewById(R.id.tittle_app);
+        TextView textViewSubTittle = (TextView) findViewById(R.id.sub_tittle_app);
+        textViewTittle.setText(menu.getTitle());
+        textViewSubTittle.setText(menu.getSubtitle());
         
+        
+        //Identifico los botones de las redes sociales
         Button twButton = (Button) findViewById(R.id.twitter);
         Button fbButton = (Button) findViewById(R.id.facebook);
         Button liButton = (Button) findViewById(R.id.linkedin);

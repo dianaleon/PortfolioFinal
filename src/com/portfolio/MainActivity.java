@@ -58,9 +58,10 @@ public class MainActivity extends Activity implements IPortfolioListener{
             tittleApp = menu.getTitle();
             subtittleApp = menu.getSubtitle();
             menu.getBackground();
-            
-            
-            
+            //TextView textViewTittle = (TextView) findViewById(R.id.tittle_app);
+            //TextView textViewSubTittle = (TextView) findViewById(R.id.sub_tittle_app);
+            //textViewTittle.setText(tittleApp);
+            //textViewSubTittle.setText(subtittleApp);
             
             /*    
             //Obtener la cantidad de paginas.

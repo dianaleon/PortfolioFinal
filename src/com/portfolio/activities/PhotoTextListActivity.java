@@ -19,6 +19,7 @@ import android.widget.ViewFlipper;
 import com.portfolio.R;
 import com.portfolio.components.menu;
 import com.portfolio.model.PortfolioModel;
+import com.portfolio.model.interfaces.IMenu;
 import com.portfolio.model.interfaces.IPhotoGaleryPage;
 import com.portfolio.model.interfaces.ITextPage;
 import com.portfolio.model.interfaces.ITheme;
@@ -61,6 +62,19 @@ public class PhotoTextListActivity extends Activity {
         Typeface font2 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 32AB.otf");
         TextView customSubtittle = (TextView)findViewById(R.id.sub_tittle_app);
         customSubtittle.setTypeface(font1);
+        
+        
+        //Setear el titulo en la pagina
+        PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
+        IMenu menu = portfolioModel.getPorfolioMenu();
+        menu.getTitle();      
+        menu.getBackground();
+        TextView textViewTittle = (TextView) findViewById(R.id.tittle_app);
+        TextView textViewSubTittle = (TextView) findViewById(R.id.sub_tittle_app);
+        textViewTittle.setText(menu.getTitle());
+        textViewSubTittle.setText(menu.getSubtitle());
+        
+        
         
         //caragr info
         ITheme iTheme = PortfolioModel.getInstance(this).getTheme();

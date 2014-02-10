@@ -22,6 +22,7 @@ import com.portfolio.R;
 import com.portfolio.components.menu;
 import com.portfolio.listener.IPortfolioListener;
 import com.portfolio.model.PortfolioModel;
+import com.portfolio.model.interfaces.IMenu;
 import com.portfolio.model.interfaces.IPage;
 import com.portfolio.model.interfaces.ITextPage;
 import com.portfolio.model.interfaces.ITheme;
@@ -72,8 +73,18 @@ public class TextActivity extends Activity {
                 customSubtittle.setTypeface(font1);
                 //customTittle.setText(SUBTITULO);
                 
+                //Setear el titulo en la pagina
+                PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
+                IMenu menu = portfolioModel.getPorfolioMenu();
+                menu.getTitle();      
+                menu.getBackground();
+                TextView textViewTittle = (TextView) findViewById(R.id.tittle_app);
+                TextView textViewSubTittle = (TextView) findViewById(R.id.sub_tittle_app);
+                textViewTittle.setText(menu.getTitle());
+                textViewSubTittle.setText(menu.getSubtitle());
                 
-                //cargar el layout
+                
+               
                 // imagen +  titulo + texto
                 List<IPageObject> objetos = textPage.getObjects();
                 
@@ -95,6 +106,15 @@ public class TextActivity extends Activity {
                         	break;
                    }
                 }
+                
+                //cargar el layout
+                //titulo
+                TextView textViewTittlePage = (TextView) findViewById(R.id.tittle);
+                textViewTittlePage.setText(menu.getTitle());
+                //texto
+                TextView textViewTextPage = (TextView) findViewById(R.id.text_item);
+                //imagen
+                ImageView imageView = (ImageView) findViewById(R.id.imageView1);
                 
                 /*ME TIRA ERROR algo pongo mal aca!!!!*/ 
                 /*
