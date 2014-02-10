@@ -48,7 +48,7 @@ public class TextActivity extends Activity {
                 super.onCreate(savedInstanceState);
                 
                 //la vista que tiene imagen + titulo + texto. Layout:
-                setContentView(R.layout.activity_text);
+                setContentView(R.layout.activity_ttl_txt_img);
                 Bundle bundle = this.getIntent().getExtras();
                 int position = bundle.getInt("position");
                 
@@ -59,7 +59,7 @@ public class TextActivity extends Activity {
                 //caragr info
                 ITheme iTheme = PortfolioModel.getInstance(this).getTheme();
                 String url = iTheme.getUrlImages();
-                ImageView imgView = (ImageView) findViewById(R.id.imageView1);
+                //ImageView imgView = (ImageView) findViewById(R.id.imageView1);
                 
                 //Cargar el titulo y el subtitulo 
                 Typeface font1 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31AB.otf");
@@ -103,14 +103,18 @@ public class TextActivity extends Activity {
                         
                         case IPageObject.type_image:
                         	IImageObject img = (IImageObject) object;
+                        	//titulo
+                            TextView textViewTittlePage = (TextView) findViewById(R.id.tittle);
+                            textViewTittlePage.setText(img.getDescription());
+                            //texto
+                            TextView textViewTextPage = (TextView) findViewById(R.id.text_item);
+                            textViewTextPage.setText(img.getTitle());
                         	break;
                    }
                 }
                 
                 //cargar el layout
-                //titulo
-                TextView textViewTittlePage = (TextView) findViewById(R.id.tittle);
-                textViewTittlePage.setText(menu.getTitle());
+                
                 //texto
                 TextView textViewTextPage = (TextView) findViewById(R.id.text_item);
                 //imagen

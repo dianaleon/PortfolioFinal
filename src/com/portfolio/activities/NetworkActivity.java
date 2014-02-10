@@ -5,6 +5,7 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.StateListDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -65,6 +66,18 @@ public class NetworkActivity extends Activity {
         
         //cargar el layout
         List<IPageObject> objetos = textPage.getObjects();
+        
+      //Cargar el titulo y el subtitulo 
+        Typeface font1 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31AB.otf");
+        TextView customTittle = (TextView)findViewById(R.id.tittle_app);
+        customTittle.setTypeface(font1);
+         //customTittle.setText(TITULO);
+        
+        
+        Typeface font2 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 32AB.otf");
+        TextView customSubtittle = (TextView)findViewById(R.id.sub_tittle_app);
+        customSubtittle.setTypeface(font1);
+        //customTittle.setText(SUBTITULO);
         
         //Setear el titulo en la pagina
         PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
