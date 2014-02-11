@@ -67,7 +67,7 @@ public class NetworkActivity extends Activity {
         //cargar el layout
         List<IPageObject> objetos = textPage.getObjects();
         
-      //Cargar el titulo y el subtitulo 
+        //Cargar las fuentes
         Typeface font1 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31AB.otf");
         TextView customTittle = (TextView)findViewById(R.id.tittle_app);
         customTittle.setTypeface(font1);
@@ -79,15 +79,13 @@ public class NetworkActivity extends Activity {
         customSubtittle.setTypeface(font1);
         //customTittle.setText(SUBTITULO);
         
-        //Setear el titulo en la pagina
+        //Cargar el titulo en la pagina
         PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
         IMenu menu = portfolioModel.getPorfolioMenu();
         menu.getTitle();      
         menu.getBackground();
-        TextView textViewTittle = (TextView) findViewById(R.id.tittle_app);
-        TextView textViewSubTittle = (TextView) findViewById(R.id.sub_tittle_app);
-        textViewTittle.setText(menu.getTitle());
-        textViewSubTittle.setText(menu.getSubtitle());
+        customTittle.setText(menu.getTitle());
+        customSubtittle.setText(menu.getSubtitle());
         
         
         //Identifico los botones de las redes sociales
@@ -98,43 +96,6 @@ public class NetworkActivity extends Activity {
         Button ptButton = (Button) findViewById(R.id.pinterest);
         Button inButton = (Button) findViewById(R.id.instagram);
        
-        //por ahora son estaticos cargados
-        //google plus
-        StateListDrawable slDrawGplus = new StateListDrawable(); 
-        slDrawGplus.addState(new int[] {android.R.attr.state_focused}, 
-                getResources().getDrawable(R.drawable.gplus_hover));
-        slDrawGplus.addState(new int[] {}, 
-                getResources().getDrawable(R.drawable.gplus)); 
-        
-        //pinterest
-        StateListDrawable slDrawPinterest = new StateListDrawable(); 
-        slDrawPinterest.addState(new int[] {android.R.attr.state_focused}, 
-                getResources().getDrawable(R.drawable.pinterest_hover));
-        slDrawPinterest.addState(new int[] {}, 
-                getResources().getDrawable(R.drawable.pinterest)); 
-      //Instagram
-        StateListDrawable slDrawInstagram = new StateListDrawable(); 
-        slDrawInstagram.addState(new int[] {android.R.attr.state_focused}, 
-                getResources().getDrawable(R.drawable.instagram_hover));
-        slDrawInstagram.addState(new int[] {}, 
-                getResources().getDrawable(R.drawable.instagram));
-      //Instagram
-        StateListDrawable slDrawLinkedIn= new StateListDrawable(); 
-        slDrawLinkedIn.addState(new int[] {android.R.attr.state_focused}, 
-                getResources().getDrawable(R.drawable.linkedin_hover));
-        slDrawLinkedIn.addState(new int[] {}, 
-                getResources().getDrawable(R.drawable.lin));
-        
-        liButton.setBackgroundResource(R.drawable.lin);
-        gpButton.setBackgroundResource(R.drawable.gplus);
-        inButton.setBackgroundResource(R.drawable.instagram);
-        ptButton.setBackgroundResource(R.drawable.pinterest);
-        
-        
-        
-        
-        
-        
         
         for (int index = 0; index < objetos.size(); index++) {
             
@@ -153,30 +114,15 @@ public class NetworkActivity extends Activity {
             				addressfb = content;
 	        				fbButton.setText(title);
 	        				fbButton.setTextColor(Color.TRANSPARENT);
-	        				//aca irian las imagenes que traemos de hover y normal, por ahora son estaticas
-	        				StateListDrawable slDrawFacebook = new StateListDrawable(); 
-	        		        slDrawFacebook.addState(new int[] {android.R.attr.state_focused}, 
-	        		                getResources().getDrawable(R.drawable.fb_hover));
-	        		        slDrawFacebook.addState(new int[] {}, 
-	        		                getResources().getDrawable(R.drawable.fb)); 
-	        		        fbButton.setBackgroundResource(R.drawable.fb);
-	        				
+	        			
 	        			}
             			if(type.equalsIgnoreCase(INetworkPage.twitter)) {
             				addresstwitter = content;
             				twButton.setText(content);
-            				twButton.setTextColor(Color.TRANSPARENT);
-            				//aca irian las imagenes que traemos de hover y normal, por ahora son estaticas
-	        				StateListDrawable slDrawTwitter= new StateListDrawable(); 
-	        				slDrawTwitter.addState(new int[] {android.R.attr.state_focused}, 
-	        		                getResources().getDrawable(R.drawable.twitter));
-	        				slDrawTwitter.addState(new int[] {}, 
-	        		                getResources().getDrawable(R.drawable.twitter_hover)); 
-	        				twButton.setBackgroundResource(R.drawable.twitter);
+            				twButton.setTextColor(Color.TRANSPARENT);	
 	        			}
             		}
-            		
-            	
+        
            }
         }
         

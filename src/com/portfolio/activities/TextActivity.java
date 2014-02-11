@@ -61,17 +61,32 @@ public class TextActivity extends Activity {
                 String url = iTheme.getUrlImages();
                 //ImageView imgView = (ImageView) findViewById(R.id.imageView1);
                 
-                //Cargar el titulo y el subtitulo 
+                //Cargar fuentes
                 Typeface font1 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31AB.otf");
                 TextView customTittle = (TextView)findViewById(R.id.tittle_app);
                 customTittle.setTypeface(font1);
                  //customTittle.setText(TITULO);
                 
-                
+
                 Typeface font2 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 32AB.otf");
                 TextView customSubtittle = (TextView)findViewById(R.id.sub_tittle_app);
                 customSubtittle.setTypeface(font1);
                 //customTittle.setText(SUBTITULO);
+                
+                //Cargar fuentes titulo pagina
+                Typeface font3 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31AB.otf");
+                TextView textViewTittlePage = (TextView)findViewById(R.id.tittle);
+                textViewTittlePage.setTypeface(font3);
+               
+                //Cargar fuentes titulo pagina //texto
+                //Typeface font4 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31AB.otf");
+                TextView textViewTextPage = (TextView)findViewById(R.id.text_item);
+                //textViewTittlePage.setTypeface(font4);
+                
+                
+                
+                
+                
                 
                 //Setear el titulo en la pagina
                 PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
@@ -88,9 +103,8 @@ public class TextActivity extends Activity {
                 // imagen +  titulo + texto
                 List<IPageObject> objetos = textPage.getObjects();
                 
-                TextView textViewTittlePage = (TextView) findViewById(R.id.tittle);
-            	//texto
-                TextView textViewTextPage = (TextView) findViewById(R.id.text_item);
+                
+            	
                 for (int index = 0; index < objetos.size(); index++) {
                 	IPageObject object = objetos.get(index);
                 	//String title = object.getTitle();
