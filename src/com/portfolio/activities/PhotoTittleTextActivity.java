@@ -75,7 +75,7 @@ public class PhotoTittleTextActivity extends Activity {
                         	IImageObject img = (IImageObject) object;
                             title = img.getTitle();
                             subtitle = img.getSubtitle();
-                            content = img.getContent();
+                            content = img.getDescription();
                             urlFinal = url + img.getContent_img();
                         
                     
@@ -83,11 +83,13 @@ public class PhotoTittleTextActivity extends Activity {
                 }
                 
                 //cargar el layout
+                TextView tittleView = (TextView) findViewById(R.id.tittle);
+                tittleView.setText(title);
+                
                 TextView textView = (TextView) findViewById(R.id.text_item);
                 textView.setText(content);
                 
-                TextView tittleView = (TextView) findViewById(R.id.tittle);
-                tittleView.setText(title);
+               
                 
                 
                 

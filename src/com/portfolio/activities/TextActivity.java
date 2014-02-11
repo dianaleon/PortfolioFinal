@@ -88,35 +88,37 @@ public class TextActivity extends Activity {
                 // imagen +  titulo + texto
                 List<IPageObject> objetos = textPage.getObjects();
                 
-                
+                TextView textViewTittlePage = (TextView) findViewById(R.id.tittle);
+            	//texto
+                TextView textViewTextPage = (TextView) findViewById(R.id.text_item);
                 for (int index = 0; index < objetos.size(); index++) {
                 	IPageObject object = objetos.get(index);
-                	String title = object.getTitle();
-                    String  subtitle = object.getSubtitle();
-                    String  content = object.getContent();
-                    String urlFinal = url + object.getContent_img();
+                	//String title = object.getTitle();
+                    // String  subtitle = object.getSubtitle();
+                    //String  content = object.getContent();
+                    //String urlFinal = url + object.getContent_img();
+                	//titulo
+                	
                 	switch (object.getType()) {
                         
                         case IPageObject.type_text:
                             ITextObject text = (ITextObject) object;
+                            textViewTittlePage.setText(text.getTitle());
+                            textViewTextPage.setText(text.getDescription());
                             break;
                         
                         case IPageObject.type_image:
                         	IImageObject img = (IImageObject) object;
                         	//titulo
-                            TextView textViewTittlePage = (TextView) findViewById(R.id.tittle);
-                            textViewTittlePage.setText(img.getDescription());
+                            textViewTittlePage.setText(img.getTitle());
                             //texto
-                            TextView textViewTextPage = (TextView) findViewById(R.id.text_item);
-                            textViewTextPage.setText(img.getTitle());
+                            textViewTextPage.setText(img.getDescription());
                         	break;
                    }
                 }
                 
                 //cargar el layout
                 
-                //texto
-                TextView textViewTextPage = (TextView) findViewById(R.id.text_item);
                 //imagen
                 ImageView imageView = (ImageView) findViewById(R.id.imageView1);
                 
