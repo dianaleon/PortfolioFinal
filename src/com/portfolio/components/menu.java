@@ -4,21 +4,19 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.AssetManager;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.portfolio.MainActivity;
 import com.portfolio.R;
 import com.portfolio.activities.ContactActivity;
 import com.portfolio.activities.NetworkActivity;
 import com.portfolio.activities.PhotoTextListActivity;
 import com.portfolio.activities.PhotoTextListTwoRowsActivity;
 import com.portfolio.activities.TextActivity;
+import com.portfolio.activities.VideoActivity;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IPage;
 
@@ -112,7 +110,12 @@ public class menu extends LinearLayout {
                                  intent5.putExtra("position", pos);
                                  getContext().startActivity(intent5);
                                  break;
-                                               
+     	               //VIDEO
+     	                case IPage.type_video:
+                           Intent intent = new Intent(getContext(), VideoActivity.class);
+                           intent.putExtra("position", pos);
+                           getContext().startActivity(intent);
+                           break;   
                          default:
                                  break;
                          }

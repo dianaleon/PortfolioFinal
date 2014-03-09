@@ -9,7 +9,8 @@ public class Config {
 	public static final String JSON_INTERNAL_PATH = "/JSON";
 
 	public final static String getUrl() {
-		return "http://www.appsworld.crealogica.eu/webServices/getAppById.php?id_app=1";
+//		return "http://www.appsworld.crealogica.eu/webServices/getAppById.php?id_app=1";
+		return "http://www.appsworld.crealogica.eu/webServices/getAppById.php?id_app=1718";
 	}
 
 	

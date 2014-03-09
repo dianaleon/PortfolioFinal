@@ -8,10 +8,10 @@ import com.portfolio.model.entities.component.ImageObject;
 import com.portfolio.model.entities.component.TextObject;
 import com.portfolio.model.entities.component.VideoObject;
 import com.portfolio.model.interfaces.IPage;
-import com.portfolio.model.interfaces.ITextPage;
+import com.portfolio.model.interfaces.IVideoPage;
 
 
-public class VideoPage extends Page implements ITextPage {
+public class VideoPage extends Page implements IVideoPage {
 	
 	public VideoPage(Type type, JSONObject jsonObject) {
 		super(jsonObject);
