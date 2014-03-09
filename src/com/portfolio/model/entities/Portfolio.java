@@ -49,6 +49,9 @@ public class Portfolio {
             	if (type.getType().equalsIgnoreCase("video")) {
             		pageObject = new VideoPage(type, page);
             	}
+            	if (type.getType().equalsIgnoreCase("catalogo")) {
+            		pageObject = new CatalogoPage(type, page);
+            	}
 
             	//NUEVAS PAGINAS
             	if (type.getType().equalsIgnoreCase("photo_txt_gridlist")) {

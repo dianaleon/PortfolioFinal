@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.portfolio.R;
+import com.portfolio.activities.CatalogoActivity;
 import com.portfolio.activities.ContactActivity;
 import com.portfolio.activities.NetworkActivity;
 import com.portfolio.activities.PhotoTextListActivity;
@@ -115,6 +116,12 @@ public class menu extends LinearLayout {
                            Intent intent = new Intent(getContext(), VideoActivity.class);
                            intent.putExtra("position", pos);
                            getContext().startActivity(intent);
+                           break;
+                         //CATALOGO
+     	                case IPage.type_catalogo:
+                           Intent intentCat = new Intent(getContext(), CatalogoActivity.class);
+                           intentCat.putExtra("position", pos);
+                           getContext().startActivity(intentCat);
                            break;   
                          default:
                                  break;

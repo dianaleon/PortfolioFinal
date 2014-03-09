@@ -13,6 +13,7 @@ public interface IPage {
 	public static final int type_network = 4;
 	public static final int type_video = 5;
 	public static final int type_image = 6;
+	public static final int type_catalogo = 7;
 	
 	
 	//NUEVAS PAGINAS
