@@ -1,8 +1,5 @@
 package com.portfolio.model.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,23 +7,23 @@ import org.json.JSONObject;
 import com.portfolio.model.entities.component.ImageObject;
 import com.portfolio.model.entities.component.TextObject;
 import com.portfolio.model.interfaces.IPage;
-import com.portfolio.model.interfaces.IPhotosGridPage;
-import com.portfolio.model.interfaces.component.IPageObject;
+import com.portfolio.model.interfaces.ITxtSubtopicPage;
 
-public class PhotosGridPage extends Page implements IPhotosGridPage {
+public class TxtSubtopicPage extends Page implements ITxtSubtopicPage {
 
-	private List<IPageObject> objects;
-
-	public PhotosGridPage(Type type, JSONObject jsonObject) {
+	public TxtSubtopicPage(Type type, JSONObject jsonObject, String layout) {
 		super(jsonObject);
+		this.layout = layout;
 		this.type = type;
-		this.type.setTypeValue(IPage.type_photos_grid);
-		this.objects= new ArrayList<IPageObject>();
+		this.type.setTypeValue(IPage.type_network);
 		try {
 			JSONArray data = jsonObject.getJSONArray("data");
 			for (int index = 0; index < data.length(); index++) {
 				JSONObject object = data.getJSONObject(index);
-				if (((String)object.get("code")).equalsIgnoreCase("image")) {
+				if (((String)object.get("tipo")).equalsIgnoreCase("text")) {
+					this.objects.add(new TextObject(object));
+				}
+				if (((String)object.get("tipo")).equalsIgnoreCase("image")) {
 					this.objects.add(new ImageObject(object));
 				}
 			}
@@ -34,11 +31,6 @@ public class PhotosGridPage extends Page implements IPhotosGridPage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	public List<IPageObject> getObjects() {
-		return this.objects;
 	}
 
 }

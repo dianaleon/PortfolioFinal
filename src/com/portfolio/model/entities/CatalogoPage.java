@@ -12,8 +12,9 @@ import com.portfolio.model.interfaces.IPage;
 
 public class CatalogoPage extends Page implements ICatalogoPage {
 	
-	public CatalogoPage(Type type, JSONObject jsonObject) {
+	public CatalogoPage(Type type, JSONObject jsonObject, String layout) {
 		super(jsonObject);
+		this.layout = layout;
 		this.type = type;
 		this.type.setTypeValue(IPage.type_catalogo);
 		try {

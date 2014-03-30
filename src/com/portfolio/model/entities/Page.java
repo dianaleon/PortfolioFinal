@@ -16,6 +16,7 @@ public abstract class Page implements IPage {
 	protected int pos;
 	protected String title;
 	protected String content;
+	protected String layout;
 	
 	protected List<IPageObject> objects;
 
@@ -63,5 +64,10 @@ public abstract class Page implements IPage {
 	@Override
 	public List<IPageObject> getObjects() {
 		return objects;
+	}
+	
+	@Override
+	public String getLayout() {
+		return layout;
 	}
 }

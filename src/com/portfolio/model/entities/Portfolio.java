@@ -2,7 +2,6 @@ package com.portfolio.model.entities;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -29,33 +28,44 @@ public class Portfolio {
             JSONArray pages = jsonMenu.getJSONArray("pages");
             for (int index = 0; index < pages.length(); index++) {
             	JSONObject page = pages.getJSONObject(index);
+            	String layout = page.getString("layout");
             	Type type = new Type(page.getJSONObject("type"));
             	IPage pageObject = null;
-            	if (type.getType().equalsIgnoreCase("text")) {
-            		pageObject = new TextPage(type, page);
+            	if (layout.equalsIgnoreCase("photo_text_gridlist")) {
+            		pageObject = new PhotoTxtGridListPage(type, page, layout);
             	}
-            	if (type.getType().equalsIgnoreCase("image")) {
-            		pageObject = new ImagePage(type, page);
+            	if (layout.equalsIgnoreCase("curriculum")) {
+            		pageObject = new CurriculumPage(type, page, layout);
             	}
-            	if (type.getType().equalsIgnoreCase("galeriaMultimedia")) {
-            		pageObject = new PhotoGaleryPage(type, page);
+            	if (layout.equalsIgnoreCase("text_subtopic")) {
+            		pageObject = new TxtSubtopicPage(type, page, layout);
             	}
-            	if (type.getType().equalsIgnoreCase("contacto")) {
-            		pageObject = new ContactPage(type, page);
+            	if (layout.equalsIgnoreCase("image")) {
+            		pageObject = new ImagePage(type, page, layout);
             	}
-            	if (type.getType().equalsIgnoreCase("redesSociales")) {
-            		pageObject = new NetworkPage(type, page);
+            	if (layout.equalsIgnoreCase("photo_grid")) {
+            		pageObject = new PhotoGridPage(type, page, layout);
             	}
-            	if (type.getType().equalsIgnoreCase("video")) {
-            		pageObject = new VideoPage(type, page);
+            	if (layout.equalsIgnoreCase("photo_gallery")) {
+            		pageObject = new PhotoGalleryPage(type, page, layout);
             	}
-            	if (type.getType().equalsIgnoreCase("catalogo")) {
-            		pageObject = new CatalogoPage(type, page);
+            	if (layout.equalsIgnoreCase("video")) {
+            		pageObject = new VideoPage(type, page, layout);
             	}
-
-            	//NUEVAS PAGINAS
-            	if (type.getType().equalsIgnoreCase("photo_txt_gridlist")) {
-            		pageObject = new PhotoTxtGridListPage(type, page);
+            	if (layout.equalsIgnoreCase("redesSociales")) {
+            		pageObject = new NetworkPage(type, page, layout);
+            	}
+            	if (layout.equalsIgnoreCase("photo_text")) {
+            		pageObject = new PhotoTextPage(type, page, layout);
+            	}
+            	if (layout.equalsIgnoreCase("text_photo_text")) {
+            		pageObject = new TxtPhotoTxtPage(type, page, layout);
+            	}
+            	if (layout.equalsIgnoreCase("contacto")) {
+            		pageObject = new ContactPage(type, page, layout);
+            	}
+            	if (layout.equalsIgnoreCase("catalogo")) {
+            		pageObject = new CatalogoPage(type, page, layout);
             	}
 
             	if (pageObject != null) {

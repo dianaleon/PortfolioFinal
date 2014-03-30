@@ -14,9 +14,7 @@ public interface IPage {
 	public static final int type_video = 5;
 	public static final int type_image = 6;
 	public static final int type_catalogo = 7;
-	
-	
-	//NUEVAS PAGINAS
+
 	public static final int type_photo_txt_grid_list = 5;
 	public static final int type_photo_text = 6;
 	public static final int type_txt_photo_txt = 7;
@@ -26,6 +24,8 @@ public interface IPage {
 	
 
 	public Type getType();
+	
+	public String getLayout();
 		
 	public int getPosition();
 	

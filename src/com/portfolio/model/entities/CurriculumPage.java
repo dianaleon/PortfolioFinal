@@ -1,7 +1,6 @@
 package com.portfolio.model.entities;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,10 +15,9 @@ import com.portfolio.model.interfaces.component.IPageObject;
 
 public class CurriculumPage extends Page implements ICurriculumPage {
 
-	private List<IPageObject> objects;
-
-	public CurriculumPage(Type type, JSONObject jsonObject) {
+	public CurriculumPage(Type type, JSONObject jsonObject, String layout) {
 		super(jsonObject);
+		this.layout = layout;
 		this.type = type;
 		this.type.setTypeValue(IPage.type_curriculum);
 		this.objects= new ArrayList<IPageObject>();
@@ -42,10 +40,4 @@ public class CurriculumPage extends Page implements ICurriculumPage {
 			e.printStackTrace();
 		}
 	}
-
-	@Override
-	public List<IPageObject> getObjects() {
-		return this.objects;
-	}
-
 }

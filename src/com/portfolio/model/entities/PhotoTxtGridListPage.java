@@ -1,7 +1,6 @@
 package com.portfolio.model.entities;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,10 +14,9 @@ import com.portfolio.model.interfaces.component.IPageObject;
 
 public class PhotoTxtGridListPage extends Page implements IPhotoTxtGridListPage {
 
-	private List<IPageObject> objects;
-
-	public PhotoTxtGridListPage(Type type, JSONObject jsonObject) {
+	public PhotoTxtGridListPage(Type type, JSONObject jsonObject, String layout) {
 		super(jsonObject);
+		this.layout = layout;
 		this.type = type;
 		this.type.setTypeValue(IPage.type_photo_txt_grid_list);
 		this.objects= new ArrayList<IPageObject>();
@@ -38,10 +36,4 @@ public class PhotoTxtGridListPage extends Page implements IPhotoTxtGridListPage 
 			e.printStackTrace();
 		}
 	}
-
-	@Override
-	public List<IPageObject> getObjects() {
-		return this.objects;
-	}
-
 }

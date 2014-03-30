@@ -13,8 +13,9 @@ import com.portfolio.model.interfaces.IVideoPage;
 
 public class VideoPage extends Page implements IVideoPage {
 	
-	public VideoPage(Type type, JSONObject jsonObject) {
+	public VideoPage(Type type, JSONObject jsonObject, String layout) {
 		super(jsonObject);
+		this.layout = layout;
 		this.type = type;
 		this.type.setTypeValue(IPage.type_video);
 		try {
@@ -34,7 +35,6 @@ public class VideoPage extends Page implements IVideoPage {
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}	
 	}
 }

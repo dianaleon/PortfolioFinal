@@ -6,14 +6,15 @@ import org.json.JSONObject;
 
 import com.portfolio.model.entities.component.ImageObject;
 import com.portfolio.model.entities.component.TextObject;
+import com.portfolio.model.interfaces.IImagePage;
 import com.portfolio.model.interfaces.IPage;
-import com.portfolio.model.interfaces.ITextPage;
 
 
-public class ImagePage extends Page implements ITextPage {
+public class ImagePage extends Page implements IImagePage {
 	
-	public ImagePage(Type type, JSONObject jsonObject) {
+	public ImagePage(Type type, JSONObject jsonObject, String layout) {
 		super(jsonObject);
+		this.layout = layout;
 		this.type = type;
 		this.type.setTypeValue(IPage.type_image);
 		try {

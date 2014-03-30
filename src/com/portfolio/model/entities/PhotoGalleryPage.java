@@ -1,7 +1,5 @@
 package com.portfolio.model.entities;
 
-import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,12 +7,12 @@ import org.json.JSONObject;
 import com.portfolio.model.entities.component.ImageObject;
 import com.portfolio.model.interfaces.IPage;
 import com.portfolio.model.interfaces.IPhotoGaleryPage;
-import com.portfolio.model.interfaces.component.IPageObject;
 
-public class PhotoGaleryPage extends Page implements IPhotoGaleryPage {
+public class PhotoGalleryPage extends Page implements IPhotoGaleryPage {
 
-	public PhotoGaleryPage(Type type, JSONObject jsonObject) {
+	public PhotoGalleryPage(Type type, JSONObject jsonObject, String layout) {
 		super(jsonObject);
+		this.layout = layout;
 		this.type = type;
 		this.type.setTypeValue(IPage.type_photo_galery);
 		try {
@@ -30,10 +28,4 @@ public class PhotoGaleryPage extends Page implements IPhotoGaleryPage {
 			e.printStackTrace();
 		}
 	}
-
-	@Override
-	public List<IPageObject> getObjects() {
-		return this.objects;
-	}
-
 }

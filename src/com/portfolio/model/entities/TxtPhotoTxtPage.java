@@ -1,7 +1,6 @@
 package com.portfolio.model.entities;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -9,16 +8,16 @@ import org.json.JSONObject;
 
 import com.portfolio.model.entities.component.ImageObject;
 import com.portfolio.model.entities.component.TextObject;
+import com.portfolio.model.entities.component.VideoObject;
 import com.portfolio.model.interfaces.IPage;
 import com.portfolio.model.interfaces.ITxtPhotoTxtPage;
 import com.portfolio.model.interfaces.component.IPageObject;
 
 public class TxtPhotoTxtPage extends Page implements ITxtPhotoTxtPage {
 
-	private List<IPageObject> objects;
-
-	public TxtPhotoTxtPage(Type type, JSONObject jsonObject) {
+	public TxtPhotoTxtPage(Type type, JSONObject jsonObject, String layout) {
 		super(jsonObject);
+		this.layout = layout;
 		this.type = type;
 		this.type.setTypeValue(IPage.type_txt_photo_txt);
 		this.objects= new ArrayList<IPageObject>();
@@ -32,16 +31,13 @@ public class TxtPhotoTxtPage extends Page implements ITxtPhotoTxtPage {
 				if (((String)object.get("code")).equalsIgnoreCase("text")) {
 					this.objects.add(new TextObject(object));
 				}
+				if (((String)object.get("code")).equalsIgnoreCase("video")) {
+					this.objects.add(new VideoObject(object));
+				}
 			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
-	@Override
-	public List<IPageObject> getObjects() {
-		return this.objects;
-	}
-
 }

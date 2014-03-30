@@ -15,10 +15,10 @@ import com.portfolio.activities.CatalogoActivity;
 import com.portfolio.activities.ContactActivity;
 import com.portfolio.activities.NetworkActivity;
 import com.portfolio.activities.PhotoTextListActivity;
-import com.portfolio.activities.PhotoTextListTwoRowsActivity;
 import com.portfolio.activities.TextActivity;
 import com.portfolio.activities.VideoActivity;
 import com.portfolio.model.PortfolioModel;
+import com.portfolio.model.entities.PhotoTxtGridListPage;
 import com.portfolio.model.interfaces.IPage;
 
 public class menu extends LinearLayout {
@@ -58,75 +58,57 @@ public class menu extends LinearLayout {
                     public void onClick(View v) {
                         int pos = (Integer) v.getTag();    
                     	IPage page = portfolioModel.getPageInfo(pos);
-                    	 switch (page.getType().getTypeValue()) {
-                         
-     	               /* case IPage.type_video:
-     	                	Intent intent1 = new Intent(getContext(), VideoActivity.class);
-     	                    intent1.putExtra("position", 1);
-     	                    getContext().startActivity(intent1);
-     	                    break;
-     	                //listas
-     	                case IPage.type_photo_galery:
-                         	Intent intent2 = new Intent(MainActivity.this, PhotoTextListActivity.class);
-                             intent2.putExtra("position", 2);
-                             startActivity(intent2);
-                             break;
-                        
-                 		
-                         //la home
-                         case IPage.type_image:
-                         	Intent intent5 = new Intent(MainActivity.this, TextActivity.class);
-                             intent5.putExtra("position", 5);
-                             startActivity(intent5);
-                             break;
-                         //contacto  
-                         */
-                    	//HOME
-       	                case IPage.type_image:
-                                   Intent intent4 = new Intent(getContext(), TextActivity.class);
-                                   intent4.putExtra("position",pos);
-                                   getContext().startActivity(intent4);
-                                   break;
-                                   
-       	                case IPage.type_photo_galery:
-       	                	Intent intent2 = new Intent(getContext(), PhotoTextListTwoRowsActivity.class);
-       	                	intent2.putExtra("position", pos);
-       	                	getContext().startActivity(intent2);
-       	                	break;
-                    	 //REDES SOCIALES
-      	                 case IPage.type_network:
-      	                	 	Intent intent3 = new Intent(getContext(), NetworkActivity.class);
-      	                	 	intent3.putExtra("position", pos);
-      	                	 	getContext().startActivity(intent3);
-      	                	 	break;
-      	                //CONTACTO
-      	                 case IPage.type_contact:
-                         	Intent intent6 = new Intent(getContext(), ContactActivity.class);
-                             intent6.putExtra("position", pos);
-                             getContext().startActivity(intent6);
-                             break;
-                        //listas de imagenes con textos
-     	                case IPage.type_text:
-                                 Intent intent5 = new Intent(getContext(), PhotoTextListActivity.class);
-                                 intent5.putExtra("position", pos);
-                                 getContext().startActivity(intent5);
-                                 break;
-     	               //VIDEO
-     	                case IPage.type_video:
-                           Intent intent = new Intent(getContext(), VideoActivity.class);
-                           intent.putExtra("position", pos);
-                           getContext().startActivity(intent);
-                           break;
-                         //CATALOGO
-     	                case IPage.type_catalogo:
-                           Intent intentCat = new Intent(getContext(), CatalogoActivity.class);
-                           intentCat.putExtra("position", pos);
-                           getContext().startActivity(intentCat);
-                           break;   
-                         default:
-                                 break;
-                         }
-                    	 
+                    	String layout = page.getLayout();
+                    	if (layout.equalsIgnoreCase("photo_text_gridlist")) {
+                    		Intent intent = new Intent(getContext(), PhotoTxtGridListPage.class);
+                            intent.putExtra("position",pos);
+                            getContext().startActivity(intent);
+                    	}
+                    	if (layout.equalsIgnoreCase("curriculum")) {
+                    		//TODO
+                    	}
+                    	if (layout.equalsIgnoreCase("text_subtopic")) {
+                    		//TODO
+                    	}
+                    	if (layout.equalsIgnoreCase("image")) {
+                    		Intent intent4 = new Intent(getContext(), TextActivity.class);
+                            intent4.putExtra("position",pos);
+                            getContext().startActivity(intent4);
+                    	}
+                    	if (layout.equalsIgnoreCase("photo_grid")) {
+                    		//TODO
+                    	}
+                    	if (layout.equalsIgnoreCase("photo_gallery")) {
+                    		//TODO
+                    	}
+                    	if (layout.equalsIgnoreCase("video")) {
+                    		Intent intent = new Intent(getContext(), VideoActivity.class);
+                            intent.putExtra("position", pos);
+                            getContext().startActivity(intent);
+                    	}
+                    	if (layout.equalsIgnoreCase("redesSociales")) {
+                    		Intent intent3 = new Intent(getContext(), NetworkActivity.class);
+  	                	 	intent3.putExtra("position", pos);
+  	                	 	getContext().startActivity(intent3);
+                    	}
+                    	if (layout.equalsIgnoreCase("photo_text")) {
+                    		Intent intent5 = new Intent(getContext(), PhotoTextListActivity.class);
+                            intent5.putExtra("position", pos);
+                            getContext().startActivity(intent5);
+                    	}
+                    	if (layout.equalsIgnoreCase("text_photo_text")) {
+                    		//TODO
+                    	}
+                    	if (layout.equalsIgnoreCase("contacto")) {
+                    		Intent intent6 = new Intent(getContext(), ContactActivity.class);
+                            intent6.putExtra("position", pos);
+                            getContext().startActivity(intent6);
+                    	}
+                    	if (layout.equalsIgnoreCase("catalogo")) {
+                    		 Intent intentCat = new Intent(getContext(), CatalogoActivity.class);
+                             intentCat.putExtra("position", pos);
+                             getContext().startActivity(intentCat);
+                    	}
                     }
             });
         	LinearLayout linear = (LinearLayout) findViewById(R.id.layout);	
