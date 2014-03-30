@@ -1,5 +1,7 @@
 package com.portfolio.model.interfaces;
 
+import com.portfolio.model.entities.component.BackgroundObject;
+
 public interface IMenu {
 
 	public String getTitle();
@@ -12,6 +14,6 @@ public interface IMenu {
 
 	public String getText_color();
 
-	public String getBackground();
+	public BackgroundObject getBackground();
 	
 }

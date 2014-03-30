@@ -3,6 +3,7 @@ package com.portfolio.model.entities;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.portfolio.model.entities.component.BackgroundObject;
 import com.portfolio.model.interfaces.ITheme;
 
 
@@ -10,22 +11,22 @@ public class Theme implements ITheme {
 
 	private String code;
 	private String urlImages;
-	private String background;
-	private String titleBarBackground;
-	private String menuBackground;
-	private String menuItemBackground;
-	private String homeBackground;
+	private BackgroundObject background;
+	private BackgroundObject titleBarBackground;
+	private BackgroundObject menuBackground;
+	private BackgroundObject menuItemBackground;
+	private BackgroundObject homeBackground;
 	private String colors;
 	
 	public Theme(JSONObject jsonObject) {
 		try {
 			this.code = jsonObject.getString("code");
 			this.urlImages= jsonObject.getString("url_images");
-			this.background = jsonObject.getString("background");
-			this.titleBarBackground = jsonObject.getString("titlebar_background");
-			this.menuBackground = jsonObject.getString("menu_background");
-			this.menuItemBackground = jsonObject.getString("menu_item_background");
-			this.homeBackground = jsonObject.getString("home_background");
+			this.background = new BackgroundObject(jsonObject.getString("background"));
+			this.titleBarBackground = new BackgroundObject(jsonObject.getString("titlebar_background"));
+			this.menuBackground = new BackgroundObject(jsonObject.getString("menu_background"));
+			this.menuItemBackground = new BackgroundObject(jsonObject.getString("menu_item_background"));
+			this.homeBackground = new BackgroundObject(jsonObject.getString("home_background"));
 			this.colors = jsonObject.getString("colors");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -44,26 +45,26 @@ public class Theme implements ITheme {
 	}
 
 	@Override
-	public String getBackground() {
+	public BackgroundObject getBackground() {
 		return this.background;
 	}
 
 	@Override
-	public String getTitleBarBackground() {
+	public BackgroundObject getTitleBarBackground() {
 		return this.titleBarBackground;
 	}
 
 	@Override
-	public String getMenuBackground() {
+	public BackgroundObject getMenuBackground() {
 		return this.menuBackground;
 	}
 
 	@Override
-	public String getMenuItemBackground() {
+	public BackgroundObject getMenuItemBackground() {
 		return this.menuItemBackground;
 	}
 
-	public String getHomeBackground() {
+	public BackgroundObject getHomeBackground() {
 		return homeBackground;
 	}
 

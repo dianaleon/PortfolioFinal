@@ -3,6 +3,7 @@ package com.portfolio.model.entities;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.portfolio.model.entities.component.BackgroundObject;
 import com.portfolio.model.interfaces.IMenu;
 
 
@@ -13,7 +14,7 @@ public class Menu implements IMenu {
 	private String icon;
 	private String gradient_orientation;
 	private String text_color;
-	private String background;
+	private BackgroundObject background;
 	
 	public Menu(JSONObject jsonObject) {
 		try {
@@ -22,7 +23,7 @@ public class Menu implements IMenu {
 			this.icon = jsonObject.getString("icon");
 			this.gradient_orientation = jsonObject.getString("gradient_orientation");
 			this.text_color = jsonObject.getString("text_color");
-			this.background = jsonObject.getString("background");
+			this.background = new BackgroundObject(jsonObject.getString("background"));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,7 +56,7 @@ public class Menu implements IMenu {
 	}
 
 	@Override
-	public String getBackground() {
+	public BackgroundObject getBackground() {
 		return this.background;
 	}
 }

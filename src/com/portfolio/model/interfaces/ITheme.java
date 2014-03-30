@@ -1,17 +1,19 @@
 package com.portfolio.model.interfaces;
 
+import com.portfolio.model.entities.component.BackgroundObject;
+
 public interface ITheme {
 
 	public String getCode();
 	
 	public String getUrlImages();
 	
-	public String getBackground();
+	public BackgroundObject getBackground();
 	
-	public String getTitleBarBackground();
+	public BackgroundObject getTitleBarBackground();
 
-	public String getMenuBackground();
+	public BackgroundObject getMenuBackground();
 
-	public String getMenuItemBackground();
+	public BackgroundObject getMenuItemBackground();
 
 }
