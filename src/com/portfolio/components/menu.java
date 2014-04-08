@@ -114,45 +114,6 @@ public class menu extends LinearLayout {
         	LinearLayout linear = (LinearLayout) findViewById(R.id.layout);	
         	linear.addView(but);
         	}
-     /*       buttonItem2 = (Button) findViewById(R.id.itemMenu2);
-            buttonItem2.setOnClickListener(new OnClickListener() {
-                        
-                        @Override
-                        public void onClick(View v) {
-                                getContext().startActivity(new Intent(getContext(), PhotoTextListTwoRowsActivity.class));
-                        }
-                });
-            buttonItem3 = (Button) findViewById(R.id.itemMenu3);
-            buttonItem3.setOnClickListener(new OnClickListener() {
-                        
-                        @Override
-                        public void onClick(View v) {
-                                getContext().startActivity(new Intent(getContext(), NetworkActivity.class));
-                        }
-                });
-            buttonItem4 = (Button) findViewById(R.id.itemMenu4);
-            buttonItem4.setOnClickListener(new OnClickListener() {
-                        
-                        @Override
-                        public void onClick(View v) {
-                                getContext().startActivity(new Intent(getContext(), PhotoTextListActivity.class));
-                        }
-                });
-            buttonItem5 = (Button) findViewById(R.id.itemMenu4);
-            buttonItem5.setOnClickListener(new OnClickListener() {
-                        
-                        @Override
-                        public void onClick(View v) {
-                                getContext().startActivity(new Intent(getContext(), NetworkActivity.class));
-                        }
-                });
-            buttonItem6 = (Button) findViewById(R.id.itemMenu4);
-            buttonItem6.setOnClickListener(new OnClickListener() {
-                        
-                        @Override
-                        public void onClick(View v) {
-                                getContext().startActivity(new Intent(getContext(), ContactActivity.class));
-                        }
-                });*/
+     
     }
 }

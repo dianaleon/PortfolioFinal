@@ -44,7 +44,7 @@ public class PhotoTextListActivity extends Activity {
 		
 		
 		
-		setContentView(R.layout.activity_photo_text_gridlist);
+		setContentView(R.layout.activity_catalogo);
 		Bundle bundle = this.getIntent().getExtras();
         int position = bundle.getInt("position");
 		
@@ -53,16 +53,18 @@ public class PhotoTextListActivity extends Activity {
         ITextPage listPage = (ITextPage) PortfolioModel.getInstance(this).getPageInfo(position);
         
         
-        Typeface font1 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31AB.otf");
+        Typeface font1 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31BC.otf");
         TextView customTittle = (TextView)findViewById(R.id.tittle_app);
         customTittle.setTypeface(font1);
+        customTittle.setTextSize(22);
         //customTittlesetText(tittleApp);
         
         
-        Typeface font2 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 32AB.otf");
+        Typeface font2 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31BC.otf");
         TextView customSubtittle = (TextView)findViewById(R.id.sub_tittle_app);
         customSubtittle.setTypeface(font1);
-        
+        customSubtittle.setTextSize(14);
+        customSubtittle.setTextScaleX(1);
         
         //Setear el titulo en la pagina
         PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
@@ -187,7 +189,7 @@ public class PhotoTextListActivity extends Activity {
     	Animation inFromRight = new TranslateAnimation(
     	Animation.RELATIVE_TO_PARENT,  +1.0f, Animation.RELATIVE_TO_PARENT,  0.0f,
     	Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,   0.0f);
-    	inFromRight.setDuration(500);
+    	inFromRight.setDuration(100);
     	inFromRight.setInterpolator(new AccelerateInterpolator());
     	
     	return inFromRight;
@@ -198,7 +200,7 @@ public class PhotoTextListActivity extends Activity {
     	Animation outtoLeft = new TranslateAnimation(
     	Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,  -1.0f,
     	Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,   0.0f);
-    	outtoLeft.setDuration(500);
+    	outtoLeft.setDuration(100);
     	outtoLeft.setInterpolator(new AccelerateInterpolator());
     	
     	return outtoLeft;
@@ -208,7 +210,7 @@ public class PhotoTextListActivity extends Activity {
     	Animation inFromLeft = new TranslateAnimation(
     	Animation.RELATIVE_TO_PARENT,  -1.0f, Animation.RELATIVE_TO_PARENT,  0.0f,
     	Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,   0.0f);
-    	inFromLeft.setDuration(500);
+    	inFromLeft.setDuration(100);
     	inFromLeft.setInterpolator(new AccelerateInterpolator());
     	
     	return inFromLeft;
@@ -220,7 +222,7 @@ public class PhotoTextListActivity extends Activity {
     	Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,  +1.0f,
     	Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,   0.0f);
     	
-    	outtoRight.setDuration(500);
+    	outtoRight.setDuration(100);
     	outtoRight.setInterpolator(new AccelerateInterpolator());
     	
     	return outtoRight;

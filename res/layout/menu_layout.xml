@@ -8,13 +8,14 @@
     android:visibility="invisible"
     android:weightSum="10.0">
 
-    <LinearLayout 
+    <LinearLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_weight="6.5"
+        android:background="@drawable/gradient_light_gold"
         android:orientation="vertical"
-        android:background="@drawable/gradient_light_gold" >
+        android:scrollbars="vertical" >
 
       </LinearLayout>
 

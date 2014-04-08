@@ -170,7 +170,7 @@ public class PhotoTextListTwoRowsActivity extends Activity {
             Animation inFromRight = new TranslateAnimation(
             Animation.RELATIVE_TO_PARENT,  +1.0f, Animation.RELATIVE_TO_PARENT,  0.0f,
             Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,   0.0f);
-            inFromRight.setDuration(500);
+            inFromRight.setDuration(100);
             inFromRight.setInterpolator(new AccelerateInterpolator());
             
             return inFromRight;
@@ -181,7 +181,7 @@ public class PhotoTextListTwoRowsActivity extends Activity {
 	            Animation outtoLeft = new TranslateAnimation(
 	            Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,  -1.0f,
 	            Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,   0.0f);
-	            outtoLeft.setDuration(500);
+	            outtoLeft.setDuration(100);
 	            outtoLeft.setInterpolator(new AccelerateInterpolator());
 	            
 	            return outtoLeft;
@@ -191,7 +191,7 @@ public class PhotoTextListTwoRowsActivity extends Activity {
 	            Animation inFromLeft = new TranslateAnimation(
 	            Animation.RELATIVE_TO_PARENT,  -1.0f, Animation.RELATIVE_TO_PARENT,  0.0f,
 	            Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,   0.0f);
-	            inFromLeft.setDuration(500);
+	            inFromLeft.setDuration(100);
 	            inFromLeft.setInterpolator(new AccelerateInterpolator());
 	            
 	            return inFromLeft;
@@ -203,7 +203,7 @@ public class PhotoTextListTwoRowsActivity extends Activity {
 	            Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,  +1.0f,
 	            Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,   0.0f);
 	            
-	            outtoRight.setDuration(500);
+	            outtoRight.setDuration(100);
 	            outtoRight.setInterpolator(new AccelerateInterpolator());
 	            
 	            return outtoRight;

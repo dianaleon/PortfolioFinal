@@ -5,8 +5,10 @@ import java.util.List;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
-
+import android.widget.ImageView;
 import com.portfolio.R;
 import com.portfolio.components.menu;
 import com.portfolio.model.PortfolioModel;
@@ -21,9 +23,11 @@ public class CatalogoActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
-
-		setContentView(R.layout.activity_catalogo);
+		
+		//la vista de la pagina que es una lista de imagenes y textos. Layout:catalgo (json)
+        setContentView(R.layout.activity_catalogo);
 		Bundle bundle = this.getIntent().getExtras();
 		int position = bundle.getInt("position");
 
@@ -37,23 +41,10 @@ public class CatalogoActivity extends Activity {
 		ITheme iTheme = PortfolioModel.getInstance(this).getTheme();
 		String url = iTheme.getUrlImages();
 
-		// Cargar el titulo y el subtitulo
-		Typeface font1 = Typeface.createFromAsset(getAssets(),
-				"fonts/CopperplateGothicStd 31AB.otf");
-		TextView customTittle = (TextView) findViewById(R.id.tittle_app);
-		customTittle.setTypeface(font1);
-		// customTittle.setText(TITULO);
-
-		Typeface font2 = Typeface.createFromAsset(getAssets(),
-				"fonts/CopperplateGothicStd 32AB.otf");
-		TextView customSubtittle = (TextView) findViewById(R.id.sub_tittle_app);
-		customSubtittle.setTypeface(font1);
-		// customTittle.setText(SUBTITULO);
-
-		// Setear el titulo en la pagina
+		
+		
 		PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
 		IMenu menu = portfolioModel.getPorfolioMenu();
-		menu.getTitle();
 		menu.getBackground();
 		TextView textViewTittle = (TextView) findViewById(R.id.tittle_app);
 		TextView textViewSubTittle = (TextView) findViewById(R.id.sub_tittle_app);
@@ -62,30 +53,49 @@ public class CatalogoActivity extends Activity {
 
 		// cargar el layout
 		List<IPageObject> objetos = catalogoPage.getObjects();
-
+		TableLayout table = new TableLayout(this);
+		
 		for (int index = 0; index < objetos.size(); index++) {
 			IPageObject object = objetos.get(index);
 			String title = object.getTitle();
 			String subtitle = object.getSubtitle();
 			String content = object.getContent();
-
+			TableRow tableRow = (TableRow)findViewById(R.id.tableRowList);
+			ImageView imageItem = (ImageView) tableRow.findViewById(R.id.imageView1);
+			TextView titlePageItem = (TextView) findViewById(R.id.tittle_item_list);
+			TextView textPageItem = (TextView) findViewById(R.id.text_page_item);
 			switch (object.getType()) {
 
 			case IPageObject.type_text:
 				ITextObject text = (ITextObject) object;
-				// textViewTittlePage.setText(text.getTitle());
-				// textViewTextPage.setText(text.getDescription());
+				//imageItem.setImageDrawable(text.getContent_img()); ???
+				titlePageItem.setText(text.getTitle());
+				textPageItem.setText(text.getContent());
+				
 				break;
 
 			case IPageObject.type_image:
 				IImageObject img = (IImageObject) object;
-				// titulo
-				// textViewTittlePage.setText(img.getTitle());
-				// texto
-				// textViewTextPage.setText(img.getDescription());
+				//imageItem.setImageDrawable(text.getContent_img()); ???
+				titlePageItem.setText(img.getTitle());
+				textPageItem.setText(img.getContent());
 				break;
 			}
+			table.addView(tableRow);
+			
 		}
+		//FUENTES
+		// Cargar el titulo y el subtitulo
+		Typeface font1 = Typeface.createFromAsset(getAssets(),
+						"fonts/CopperplateGothicStd 31AB.otf");
+		TextView customTittle = (TextView) findViewById(R.id.tittle_app);
+		customTittle.setTypeface(font1);
+		// customTittle.setText(TITULO);
+		Typeface font2 = Typeface.createFromAsset(getAssets(),
+						"fonts/CopperplateGothicStd 32AB.otf");
+		TextView customSubtittle = (TextView) findViewById(R.id.sub_tittle_app);
+		customSubtittle.setTypeface(font1);
+		// customTittle.setText(SUBTITULO);
 
 		// MENU
 		final menu menuLayout = (menu) findViewById(R.id.layout_menu);

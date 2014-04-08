@@ -2,6 +2,7 @@ package com.portfolio.activities;
 
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -28,6 +29,7 @@ import com.portfolio.model.interfaces.component.IContactObject;
 import com.portfolio.model.interfaces.component.IPageObject;
 import com.portfolio.model.interfaces.component.ITextObject;
 
+@SuppressLint("ResourceAsColor")
 public class ContactActivity extends Activity {
 	private Button buttonMenu;
     ViewFlipper flipper;
@@ -42,7 +44,6 @@ public class ContactActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
-		
 		setContentView(R.layout.activity_contact);
         Bundle bundle = this.getIntent().getExtras();
         int position = bundle.getInt("position");
@@ -56,15 +57,19 @@ public class ContactActivity extends Activity {
         String url = iTheme.getUrlImages();
         
         //Cargar el titulo y el subtitulo 
-        Typeface font1 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31AB.otf");
+        Typeface font1 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31BC.otf");
         TextView customTittle = (TextView)findViewById(R.id.tittle_app);
         customTittle.setTypeface(font1);
+        customTittle.setTextSize(22);
          //customTittle.setText(TITULO);
         
         
-        Typeface font2 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 32AB.otf");
+        Typeface font2 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31BC.otf");
         TextView customSubtittle = (TextView)findViewById(R.id.sub_tittle_app);
-        customSubtittle.setTypeface(font1);
+        customSubtittle.setTypeface(font2);
+        customSubtittle.setTextSize(14);
+        customSubtittle.setTextScaleX(1);
+        
         //customTittle.setText(SUBTITULO);
         
         //Setear el titulo en la pagina
@@ -76,6 +81,7 @@ public class ContactActivity extends Activity {
         TextView textViewSubTittle = (TextView) findViewById(R.id.sub_tittle_app);
         textViewTittle.setText(menu.getTitle());
         textViewSubTittle.setText(menu.getSubtitle());
+        
         
         //cargar el layout
         List<IPageObject> objetos = contactPage.getObjects();
@@ -97,10 +103,14 @@ public class ContactActivity extends Activity {
 	        		if (type != null){
 	        			if(type.equalsIgnoreCase(IContactPage.email)) {
 	        				TextView textView = (TextView) findViewById(R.id.mail);
+	        				textView.setTypeface(font2);
+	        				textView.setTextColor(R.color.brown); 
 	        		        textView.setText(content);
 	        			}
 	        			if(type.equalsIgnoreCase(IContactPage.address)) {
 	        				TextView textView = (TextView) findViewById(R.id.direccion);
+	        				textView.setTypeface(font2);
+	        				textView.setTextColor(R.color.brown); 
 	        		        textView.setText(content);
 	        			}
 	        		}
@@ -123,74 +133,7 @@ public class ContactActivity extends Activity {
                 	flipper.showNext();     
                 }
             }); 
-      //BuFETE
-//        buttonItem1 = (Button) findViewById(R.id.itemMenu1);
-//        buttonItem1.setOnClickListener(new OnClickListener() {
-//        @Override
-//            public void onClick(View v) {
-//                        startActivity(new Intent(getApplicationContext(), PhotoTittleTextActivity.class));
-//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-//                    }
-//            });
-//        //Socios
-//        buttonItem2 = (Button) findViewById(R.id.itemMenu2);
-//        buttonItem2.setOnClickListener(new OnClickListener() {
-//        @Override
-//            public void onClick(View v) {
-//                        startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
-//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-//                    }
-//            });
-//        //Especialistas en: despliega el submenu
-//        buttonItem3 = (Button) findViewById(R.id.itemMenu2);
-//        buttonItem3.setOnClickListener(new OnClickListener() {
-//        @Override
-//            public void onClick(View v) {
-//                        startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
-//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-//                    }
-//            });
-//        //Servicios? seguramente despliega otro submenu tambien, consultar!
-//        buttonItem4 = (Button) findViewById(R.id.itemMenu2);
-//        buttonItem4.setOnClickListener(new OnClickListener() {
-//        @Override
-//            public void onClick(View v) {
-//                        startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
-//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-//                    }
-//            });
-//        //Testimonios
-//        buttonItem5 = (Button) findViewById(R.id.itemMenu2);
-//        buttonItem5.setOnClickListener(new OnClickListener() {
-//        @Override
-//            public void onClick(View v) {
-//                        startActivity(new Intent(getApplicationContext(), PhotoTextListActivity.class));
-//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-//                    }
-//            });
-//        //Redes sociales
-//        buttonItem6 = (Button) findViewById(R.id.itemMenu2);
-//        buttonItem6.setOnClickListener(new OnClickListener() {
-//        @Override
-//            public void onClick(View v) {
-//                        startActivity(new Intent(getApplicationContext(), NetworkActivity.class));
-//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-//                    }
-//            });
-//      //Contacto
-//        buttonItem7 = (Button) findViewById(R.id.itemMenu2);
-//        buttonItem7.setOnClickListener(new OnClickListener() {
-//        @Override
-//            public void onClick(View v) {
-//                        startActivity(new Intent(getApplicationContext(), ContactActivity.class));
-//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-//                    }
-//            });
-        
-        
-	
-	
-	
+      
 	
 	}
 
@@ -205,7 +148,7 @@ public class ContactActivity extends Activity {
     	Animation inFromRight = new TranslateAnimation(
     	Animation.RELATIVE_TO_PARENT,  +1.0f, Animation.RELATIVE_TO_PARENT,  0.0f,
     	Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,   0.0f);
-    	inFromRight.setDuration(500);
+    	inFromRight.setDuration(100);
     	inFromRight.setInterpolator(new AccelerateInterpolator());
     	
     	return inFromRight;
@@ -216,7 +159,7 @@ public class ContactActivity extends Activity {
     	Animation outtoLeft = new TranslateAnimation(
     	Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,  -1.0f,
     	Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,   0.0f);
-    	outtoLeft.setDuration(500);
+    	outtoLeft.setDuration(100);
     	outtoLeft.setInterpolator(new AccelerateInterpolator());
     	
     	return outtoLeft;
@@ -226,7 +169,7 @@ public class ContactActivity extends Activity {
     	Animation inFromLeft = new TranslateAnimation(
     	Animation.RELATIVE_TO_PARENT,  -1.0f, Animation.RELATIVE_TO_PARENT,  0.0f,
     	Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,   0.0f);
-    	inFromLeft.setDuration(500);
+    	inFromLeft.setDuration(100);
     	inFromLeft.setInterpolator(new AccelerateInterpolator());
     	
     	return inFromLeft;
@@ -238,7 +181,7 @@ public class ContactActivity extends Activity {
     	Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,  +1.0f,
     	Animation.RELATIVE_TO_PARENT,  0.0f, Animation.RELATIVE_TO_PARENT,   0.0f);
     	
-    	outtoRight.setDuration(500);
+    	outtoRight.setDuration(100);
     	outtoRight.setInterpolator(new AccelerateInterpolator());
     	
     	return outtoRight;
