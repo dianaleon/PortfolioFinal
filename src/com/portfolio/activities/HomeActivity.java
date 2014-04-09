@@ -3,36 +3,26 @@ package com.portfolio.activities;
 import java.util.List;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.ViewFlipper;
 
 import com.portfolio.R;
-import com.portfolio.components.menu;
-import com.portfolio.listener.IPortfolioListener;
+import com.portfolio.listener.IMediaListener;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IImagePage;
 import com.portfolio.model.interfaces.IMenu;
-import com.portfolio.model.interfaces.INetworkPage;
-import com.portfolio.model.interfaces.IPage;
-import com.portfolio.model.interfaces.ITextPage;
 import com.portfolio.model.interfaces.ITheme;
 import com.portfolio.model.interfaces.component.IImageObject;
-import com.portfolio.model.interfaces.component.INetworkObject;
 import com.portfolio.model.interfaces.component.IPageObject;
-import com.portfolio.model.interfaces.component.ITextObject;
 
 public class HomeActivity extends Activity {
 
@@ -57,7 +47,7 @@ public class HomeActivity extends Activity {
                 //cargar info
                 ITheme iTheme = PortfolioModel.getInstance(this).getTheme();
                 String url = iTheme.getUrlImages();
-                ImageView imgView = (ImageView) findViewById(R.id.imageView1);
+//                ImageView imgView = (ImageView) findViewById(R.id.imageView1);
                 List<IPageObject> objetos = homePage.getObjects();
                 
                 
@@ -74,7 +64,8 @@ public class HomeActivity extends Activity {
                 textViewSubTittle.setText(menu.getSubtitle());
                 
                 //Image to set as the home page
-                ImageView imageView = (ImageView) findViewById(R.id.layout_content);
+                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.layout_content);
+                final ImageView imageView = (ImageView) linearLayout.findViewById(R.id.imageView1);
                 //Fill Content
                 for (int index = 0; index < objetos.size(); index++) {
                 	IPageObject object = objetos.get(index);
@@ -85,11 +76,16 @@ public class HomeActivity extends Activity {
                     switch (object.getType()) {
                     	
                     	case IPageObject.type_image:
-                    		IImageObject img = (IImageObject) object;
-                    		//imageView.setImageURI(img.getContent_img());???
+                    		final IImageObject img = (IImageObject) object;
+                    		PortfolioModel.getInstance(this).getMedia(new IMediaListener() {
+								
+								@Override
+								public void onImageReady(Bitmap bitmap) {
+									imageView.setImageBitmap(bitmap);
+								}
+								
+							}, img.getContent_img());
                         	break;
-                    		
-                
                    }
                 }
                 

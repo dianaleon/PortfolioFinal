@@ -14,6 +14,7 @@ import android.os.Message;
 import com.portfolio.asyncTask.GetMediaAsyncTask;
 import com.portfolio.asyncTask.GetPortfolioAsyncTask;
 import com.portfolio.handler.AsyncTaskHandler;
+import com.portfolio.listener.IMediaListener;
 import com.portfolio.listener.IPortfolioListener;
 import com.portfolio.model.db.dao.MediaDAO;
 import com.portfolio.model.entities.Media;
@@ -94,7 +95,7 @@ public class PortfolioModel {
 		return positions;
 	}
 
-	public void getMedia(final IPortfolioListener callback, final String url) {
+	public void getMedia(final IMediaListener callback, final String url) {
 		int index = url.lastIndexOf("/");
 		String name = url.substring(index+1);
 		Media media = null;
@@ -121,7 +122,7 @@ public class PortfolioModel {
 	}
 	
 	private void saveMediaDBandGetImage(
-			IPortfolioListener callback, String url, String path) {
+			IMediaListener callback, String url, String path) {
 		Media media = new Media();
 		media.setPath(path);
 		media.setUrl(url);
@@ -134,7 +135,7 @@ public class PortfolioModel {
 		}
 	}
 
-	private void getImageFromFile(IPortfolioListener callback, String path) {
+	private void getImageFromFile(IMediaListener callback, String path) {
 		File imgFile = new  File(path);
 		if(imgFile.exists()){
 		    Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());

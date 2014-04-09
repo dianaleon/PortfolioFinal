@@ -1,31 +1,15 @@
 package com.portfolio;
 
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.Window;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.portfolio.activities.ContactActivity;
 import com.portfolio.activities.HomeActivity;
-import com.portfolio.activities.NetworkActivity;
-import com.portfolio.activities.PhotoTextListActivity;
-import com.portfolio.activities.PhotoTextListTwoRowsActivity;
 import com.portfolio.activities.TextActivity;
-import com.portfolio.activities.VideoActivity;
 import com.portfolio.listener.IPortfolioListener;
 import com.portfolio.model.PortfolioModel;
-import com.portfolio.model.entities.Portfolio;
 import com.portfolio.model.interfaces.IMenu;
-import com.portfolio.model.interfaces.IPage;
-import com.portfolio.model.interfaces.IPhotoGaleryPage;
-import com.portfolio.model.interfaces.ITextPage;
 
 public class MainActivity extends Activity implements IPortfolioListener{
 		
@@ -79,6 +63,7 @@ public class MainActivity extends Activity implements IPortfolioListener{
             IPage pageNum1 = portfolioModel.getPageInfo(5);*/
             /*hago estatica la home para asi pruebo el resto de las paginas*/
             Intent intent0 = new Intent(MainActivity.this, HomeActivity.class);
+            intent0.putExtra("position", 3);
             startActivity(intent0);
             /*
             switch (pageNum1.getType().getTypeValue()) {
@@ -134,11 +119,6 @@ public class MainActivity extends Activity implements IPortfolioListener{
            finish();                
     }
 
-        @Override
-        public void onImageReady(Bitmap bitmap) {
-                ImageView imageView = (ImageView) getWindow().findViewById(R.id.image);
-                imageView.setImageBitmap(bitmap);
-        }
 
         @Override
         public void errorGetPortfolio() {

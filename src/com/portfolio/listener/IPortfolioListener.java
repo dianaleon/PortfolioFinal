@@ -7,6 +7,4 @@ public interface IPortfolioListener {
 	public void onPortfolioReady();
 	
 	public void errorGetPortfolio();
-	
-	public void onImageReady(Bitmap bitmap);
 }

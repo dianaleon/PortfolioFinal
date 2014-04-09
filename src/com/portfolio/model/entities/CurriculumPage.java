@@ -25,13 +25,13 @@ public class CurriculumPage extends Page implements ICurriculumPage {
 			JSONArray data = jsonObject.getJSONArray("data");
 			for (int index = 0; index < data.length(); index++) {
 				JSONObject object = data.getJSONObject(index);
-				if (((String)object.get("code")).equalsIgnoreCase("image")) {
+				if (((String)object.get("tipo")).equalsIgnoreCase("image")) {
 					this.objects.add(new ImageObject(object));
 				}
-				if (((String)object.get("code")).equalsIgnoreCase("contact")) {
+				if (((String)object.get("tipo")).equalsIgnoreCase("contact")) {
 					this.objects.add(new ContactCVObject(object));
 				}
-				if (((String)object.get("code")).equalsIgnoreCase("section")) {
+				if (((String)object.get("tipo")).equalsIgnoreCase("section")) {
 					this.objects.add(new SectionCVObject(object));
 				}
 			}

@@ -92,7 +92,7 @@ public class PhotoTextListActivity extends Activity {
             		String title = text.getTitle();
             		String subtitle = text.getSubtitle();
             		String content = text.getContent();
-            		TextView textView = (TextView) findViewById(R.id.text_item_0);
+            		TextView textView = (TextView) findViewById(R.id.text_item0_list);
             		textView.setText(content);
            }
         }

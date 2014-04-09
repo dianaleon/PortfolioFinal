@@ -24,10 +24,10 @@ public class PhotoTxtGridListPage extends Page implements IPhotoTxtGridListPage 
 			JSONArray data = jsonObject.getJSONArray("data");
 			for (int index = 0; index < data.length(); index++) {
 				JSONObject object = data.getJSONObject(index);
-				if (((String)object.get("code")).equalsIgnoreCase("image")) {
+				if (((String)object.get("tipo")).equalsIgnoreCase("image")) {
 					this.objects.add(new ImageObject(object));
 				}
-				if (((String)object.get("code")).equalsIgnoreCase("text")) {
+				if (((String)object.get("tipo")).equalsIgnoreCase("text")) {
 					this.objects.add(new TextObject(object));
 				}
 			}

@@ -23,7 +23,7 @@ public class PhotoGridPage extends Page implements IPhotosGridPage {
 			JSONArray data = jsonObject.getJSONArray("data");
 			for (int index = 0; index < data.length(); index++) {
 				JSONObject object = data.getJSONObject(index);
-				if (((String)object.get("code")).equalsIgnoreCase("image")) {
+				if (((String)object.get("tipo")).equalsIgnoreCase("image")) {
 					this.objects.add(new ImageObject(object));
 				}
 			}

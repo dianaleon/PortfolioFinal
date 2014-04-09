@@ -1,6 +1,5 @@
 package com.portfolio.asyncTask;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Handler;
 
@@ -29,10 +28,10 @@ public class GetMediaAsyncTask extends MyAsyncTask {
 	protected void onPreExecute() {
 		super.onPreExecute();
 		// Showing the progress dialog before starting process
-		progress = new ProgressDialog(_context);
-		progress.setMessage("Cargando");
-		progress.setCancelable(false);
-		progress.show();
+//		progress = new ProgressDialog(_context);
+//		progress.setMessage("Cargando");
+//		progress.setCancelable(false);
+//		progress.show();
 	}
 
 	@Override
@@ -53,7 +52,7 @@ public class GetMediaAsyncTask extends MyAsyncTask {
 		if (result == AsyncTaskHandler.ACEPTREQUEST) {
 			msg.obj = path;
 		}
-		progress.dismiss();
+//		progress.dismiss();
 		handler.sendMessage(msg);
 	}
 }
