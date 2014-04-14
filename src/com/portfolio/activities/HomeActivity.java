@@ -7,6 +7,8 @@ import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -14,8 +16,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.portfolio.R;
+import com.portfolio.components.menu;
 import com.portfolio.listener.IMediaListener;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IImagePage;
@@ -29,6 +33,8 @@ public class HomeActivity extends Activity {
         private Button buttonMenu;
       
         ImageView imgView;
+        ViewFlipper flipper;
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
                 
@@ -112,7 +118,18 @@ public class HomeActivity extends Activity {
                 
  
                
-                
+              //MENU
+        		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
+                menuLayout.init();
+                flipper = (ViewFlipper) findViewById(R.id.flipper);
+                buttonMenu = (Button) findViewById(R.id.buttonMenu);
+                buttonMenu.setOnClickListener(new OnClickListener() {
+                        public void onClick(View v) {
+                        	flipper.setInAnimation(inFromRightAnimation());
+                        	flipper.setOutAnimation(outToLeftAnimation());
+                        	flipper.showNext();     
+                        }
+                    });
 		        
         
 
