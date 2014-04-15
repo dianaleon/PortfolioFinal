@@ -2,13 +2,16 @@ package com.portfolio.activities;
 
 import java.util.List;
 
+import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.StateListDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
@@ -17,6 +20,8 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -40,6 +45,10 @@ public class NetworkActivity extends Activity {
     ViewFlipper flipper;
     String addressfb = null;
     String addresstwitter = null;
+    String addressgplus = null;
+    String addressinstagram = null;
+    String addresspinterest = null;
+    String addresslinkedin = null;
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,22 +82,18 @@ public class NetworkActivity extends Activity {
         textViewSubTittle.setText(menu.getSubtitle());
         
         
-        //Identifico los botones de las redes sociales en el xml
-        Button twButton = (Button) findViewById(R.id.twitter);
-        Button fbButton = (Button) findViewById(R.id.facebook);
-        Button liButton = (Button) findViewById(R.id.linkedin);
-        Button gpButton = (Button) findViewById(R.id.google);
-        Button ptButton = (Button) findViewById(R.id.pinterest);
-        Button inButton = (Button) findViewById(R.id.instagram);
-       
+        
         //recorro los objetos del json 
         for (int index = 0; index < objetos.size(); index++) {
             
         	IPageObject object = objetos.get(index);
             String title = object.getTitle();
-            String  urlSocial = object.getContent();
             String  content = object.getContent();
-            
+            Button but = new Button(this);
+            but.setWidth(10);
+			but.setHeight(10);
+			but.setTextColor(Color.TRANSPARENT);
+			
             switch (object.getType()) {
             	
             	case IPageObject.type_network:
@@ -97,52 +102,97 @@ public class NetworkActivity extends Activity {
             		if (type != null){
             			if(type.equalsIgnoreCase(INetworkPage.facebook)) {
             				addressfb = content;
-	        				fbButton.setText(urlSocial);
-	        				fbButton.setTextColor(Color.TRANSPARENT);
-	        			
-	        			}
+            				but.setBackgroundResource(R.drawable.fb);
+            				
+            				//but.setTag(pos);
+            				but.setOnClickListener(new OnClickListener() {
+            					public void onClick(View v) {
+            			       		 Uri uri = Uri.parse(addressfb);
+            			       		 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            			       		 startActivity(intent);
+            			            }
+            				});
+            			}
+            		   
             			if(type.equalsIgnoreCase(INetworkPage.twitter)) {
+            				
             				addresstwitter = content;
-            				twButton.setText(content);
-            				twButton.setTextColor(Color.TRANSPARENT);	
-	        			}
+            				but.setBackgroundResource( R.drawable.twitter);
+            				
+            				//but.setTag(pos);
+            				but.setOnClickListener(new OnClickListener() {
+            					public void onClick(View v) {
+            			       		 Uri uri = Uri.parse(addresstwitter);
+            			       		 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            			       		 startActivity(intent);
+            			            }
+            				});
+            			}
+            		
+            			if(type.equalsIgnoreCase(INetworkPage.gplus)) {
+            				
+            				addresstwitter = content;
+            				but.setBackgroundResource( R.drawable.gplus);
+            				
+            				//but.setTag(pos);
+            				but.setOnClickListener(new OnClickListener() {
+            					public void onClick(View v) {
+            			       		 Uri uri = Uri.parse(addresstwitter);
+            			       		 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            			       		 startActivity(intent);
+            			            }
+            				});
+            			}
+            			if(type.equalsIgnoreCase(INetworkPage.instagram)) {
+            				
+            				addresstwitter = content;
+            				but.setBackgroundResource( R.drawable.instagram);
+            				
+            				//but.setTag(pos);
+            				but.setOnClickListener(new OnClickListener() {
+            					public void onClick(View v) {
+            			       		 Uri uri = Uri.parse(addressinstagram);
+            			       		 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            			       		 startActivity(intent);
+            			            }
+            				});
+            			}
+						if(type.equalsIgnoreCase(INetworkPage.pinterest)) {
+							
+							addresstwitter = content;
+							but.setBackgroundResource( R.drawable.pinterest);
+							
+							//but.setTag(pos);
+							but.setOnClickListener(new OnClickListener() {
+								public void onClick(View v) {
+						       		 Uri uri = Uri.parse(addresspinterest);
+						       		 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+						       		 startActivity(intent);
+						            }
+							});
+						}
+						if(type.equalsIgnoreCase(INetworkPage.linkedin)) {
+							
+							addresstwitter = content;
+							but.setBackgroundResource( R.drawable.lin);
+							
+							//but.setTag(pos);
+							but.setOnClickListener(new OnClickListener() {
+								public void onClick(View v) {
+						       		 Uri uri = Uri.parse(addresslinkedin);
+						       		 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+						       		 startActivity(intent);
+						            }
+							});
+						}
             		}
         
-           }
+            }
+            TableRow board = (TableRow) findViewById(R.id.tableRow1);
+            board.addView(but);
         }
         
-        //set listeners for buttons
-        fbButton.setOnClickListener(new OnClickListener() {
-	       	public void onClick(View v) {
-	       		 Uri uri = Uri.parse(addressfb);
-	       		 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-	       		 startActivity(intent);
-	            }
-        });
-        
-        twButton.setOnClickListener(new OnClickListener() {
-	       	public void onClick(View v) {
-	       		 Uri uri = Uri.parse(addresstwitter);
-	       		 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-	       		 startActivity(intent);
-	            }
-        });
-        
-        /*Button twitterButton = (Button) findViewById(R.id.twitter);
-        twitterButton.setText(content);
-        
-        Button linkedInButton = (Button) findViewById(R.id.linkedin);
-        linkedInButton.setText(content);
-        
-        Button googleButton = (Button) findViewById(R.id.google);
-        twitterButton.setText(content);
-        
-        Button pinterestButton = (Button) findViewById(R.id.pinterest);
-        twitterButton.setText(content);
-        
-        Button instagramButton = (Button) findViewById(R.id.instagram);
-        twitterButton.setText(content);*/
-		
+       
 		
 		
         //FUENTES

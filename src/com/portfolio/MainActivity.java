@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 
 import com.portfolio.activities.HomeActivity;
+import com.portfolio.activities.NetworkActivity;
 import com.portfolio.activities.TextActivity;
 import com.portfolio.listener.IPortfolioListener;
 import com.portfolio.model.PortfolioModel;
@@ -42,10 +43,7 @@ public class MainActivity extends Activity implements IPortfolioListener{
             tittleApp = menu.getTitle();
             subtittleApp = menu.getSubtitle();
             menu.getBackground();
-            //TextView textViewTittle = (TextView) findViewById(R.id.tittle_app);
-            //TextView textViewSubTittle = (TextView) findViewById(R.id.sub_tittle_app);
-            //textViewTittle.setText(tittleApp);
-            //textViewSubTittle.setText(subtittleApp);
+            
             
             /*    
             //Obtener la cantidad de paginas.
@@ -61,10 +59,13 @@ public class MainActivity extends Activity implements IPortfolioListener{
             
             //Levantar la primer pagina.
             IPage pageNum1 = portfolioModel.getPageInfo(5);*/
-            /*hago estatica la home para asi pruebo el resto de las paginas*/
+            /*hago estatica la home para asi pruebo el resto de las paginas
             Intent intent0 = new Intent(MainActivity.this, HomeActivity.class);
             intent0.putExtra("position", 3);
-            startActivity(intent0);
+            startActivity(intent0);*/
+            Intent intent3 = new Intent(MainActivity.this, NetworkActivity.class);
+      	 	intent3.putExtra("position", 7);
+      	 	startActivity(intent3);
             /*
             switch (pageNum1.getType().getTypeValue()) {
             		//contacto  

@@ -5,8 +5,11 @@
     android:layout_height="wrap_content"
     android:background="#000"
     android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarStyle="insideOverlay"
+    android:scrollbars="vertical"
     android:visibility="invisible"
-    android:weightSum="10.0">
+    android:weightSum="10.0" >
 
     <LinearLayout
         android:id="@+id/layout"
@@ -16,7 +19,7 @@
         android:background="@drawable/gradient_light_gold"
         android:orientation="vertical"
         android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarStyle="insideOverlay"
         android:scrollbars="vertical" >
 
       </LinearLayout>

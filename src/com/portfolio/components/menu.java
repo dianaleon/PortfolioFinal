@@ -70,12 +70,33 @@ public class menu extends LinearLayout {
   	                	 	intent3.putExtra("position", pos);
   	                	 	getContext().startActivity(intent3);
                     	}
-                    	
                     	if (layout.equalsIgnoreCase("photo_text_gridlist")) {
                     		Intent intent = new Intent(getContext(), PhotoTxtGridListPage.class);
                             intent.putExtra("position",pos);
                             getContext().startActivity(intent);
                     	}
+                    	if (layout.equalsIgnoreCase("photo_grid")) {
+                    		Intent intent = new Intent(getContext(), PhotoTxtGridListPage.class);
+                            intent.putExtra("position",pos);
+                            getContext().startActivity(intent);
+                    	}
+                    	if (layout.equalsIgnoreCase("contacto")) {
+                    		Intent intent6 = new Intent(getContext(), ContactActivity.class);
+                            intent6.putExtra("position", pos);
+                            getContext().startActivity(intent6);
+                    	}
+                    	if (layout.equalsIgnoreCase("catalogo")) {
+                    		 Intent intentCat = new Intent(getContext(), CatalogoActivity.class);
+                             intentCat.putExtra("position", pos);
+                             getContext().startActivity(intentCat);
+                    	}
+                    	
+                    	
+                    	
+                    	
+                    	
+                    	
+                    	
                     	if (layout.equalsIgnoreCase("curriculum")) {
                     		//TODO
                     	}
@@ -83,9 +104,6 @@ public class menu extends LinearLayout {
                     		//TODO
                     	}
                     	
-                    	if (layout.equalsIgnoreCase("photo_grid")) {
-                    		//TODO
-                    	}
                     	if (layout.equalsIgnoreCase("photo_gallery")) {
                     		//TODO
                     	}
@@ -103,16 +121,7 @@ public class menu extends LinearLayout {
                     	if (layout.equalsIgnoreCase("text_photo_text")) {
                     		//TODO
                     	}
-                    	if (layout.equalsIgnoreCase("contacto")) {
-                    		Intent intent6 = new Intent(getContext(), ContactActivity.class);
-                            intent6.putExtra("position", pos);
-                            getContext().startActivity(intent6);
-                    	}
-                    	if (layout.equalsIgnoreCase("catalogo")) {
-                    		 Intent intentCat = new Intent(getContext(), CatalogoActivity.class);
-                             intentCat.putExtra("position", pos);
-                             getContext().startActivity(intentCat);
-                    	}
+                    	
                     }
             });
         	LinearLayout linear = (LinearLayout) findViewById(R.id.layout);	

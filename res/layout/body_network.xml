@@ -13,65 +13,15 @@
         android:gravity="center_vertical|center_horizontal"
         android:orientation="vertical" >
 
-		         <TableRow
-		             android:id="@+id/tableRow1"
-		             android:layout_width="wrap_content"
-		             android:layout_height="110dp"
-		             android:layout_gravity="center_vertical|center_horizontal" >
-	        	
-	           		<Button
-					    android:id="@+id/facebook"
-					    android:layout_width="90dp"
-			            android:layout_height="90dp"
-			            android:background="@drawable/selector_network_button_fb"
-			          	 
-			          	/>
-	           		
-	           		<Button
-					    android:id="@+id/twitter"
-					    android:layout_width="90dp"
-			            android:layout_height="90dp"
-			            android:background="@drawable/selector_network_button_tw"
-					   />
-	            	
-	            	<Button
-					    android:id="@+id/linkedin"
-					    android:layout_width="90dp"
-			            android:layout_height="90dp"
-			            android:background="@drawable/selector_network_button_lin"
-					    />
-					
-					
-			</TableRow>
-            
-            <TableRow
-                android:id="@+id/tableRow2"
-                android:layout_width="wrap_content"
-                android:layout_height="110dp"
-                android:layout_gravity="center_vertical|center_horizontal" >
+		<TableRow
+		    android:id="@+id/tableRow1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center_vertical|center_horizontal"
+		    android:weightSum="6.0" >
 
-	            	<Button
-					    android:id="@+id/google"
-					    android:layout_width="90dp"
-			            android:layout_height="90dp"
-			            android:background="@drawable/selector_network_button_gplus"
-					     />
-					<Button
-					    android:id="@+id/pinterest"
-					    android:layout_width="90dp"
-			            android:layout_height="90dp"
-					    android:layout_gravity="center_horizontal"
-					    android:background="@drawable/selector_network_button_pinterest"
-					     />
-					<Button
-					    android:id="@+id/instagram"
-					    android:layout_width="90dp"
-			            android:layout_height="90dp"
-					    android:layout_gravity="center_horizontal"
-					    android:background="@drawable/selector_network_button_instagram"
-					     />
-	          </TableRow>
-		       
-                </LinearLayout>
+	    </TableRow>
+            
+       </LinearLayout>
 
 </LinearLayout>
