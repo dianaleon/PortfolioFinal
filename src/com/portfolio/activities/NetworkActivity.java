@@ -36,13 +36,7 @@ import com.portfolio.model.interfaces.component.ITextObject;
 public class NetworkActivity extends Activity {
 	
 	private Button buttonMenu;
-	Button buttonItem1;
-    Button buttonItem2;
-    Button buttonItem3;
-    Button buttonItem4;
-    Button buttonItem5;
-    Button buttonItem6;
-    Button buttonItem7;
+	
     ViewFlipper flipper;
     String addressfb = null;
     String addresstwitter = null;
@@ -58,14 +52,12 @@ public class NetworkActivity extends Activity {
 		
 		//levanto la pagina de esa posicion
         //la interfaz que se llama redes sociales,....
-        INetworkPage textPage = (INetworkPage) PortfolioModel.getInstance(this).getPageInfo(position);
+        INetworkPage netPage = (INetworkPage) PortfolioModel.getInstance(this).getPageInfo(position);
        
         //caragr info
         ITheme iTheme = PortfolioModel.getInstance(this).getTheme();
         String url = iTheme.getUrlImages();
-        
-        //cargar el layout
-        List<IPageObject> objetos = textPage.getObjects();
+        List<IPageObject> objetos = netPage.getObjects();
         
         
         
@@ -73,10 +65,15 @@ public class NetworkActivity extends Activity {
         PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
         IMenu menu = portfolioModel.getPorfolioMenu();
         menu.getBackground();
+        //Find views
+        TextView textViewTittle = (TextView) findViewById(R.id.tittle_app);
+        TextView textViewSubTittle = (TextView) findViewById(R.id.sub_tittle_app);
+        //Set title and subtitle from json
+        textViewTittle.setText(menu.getTitle());
+        textViewSubTittle.setText(menu.getSubtitle());
         
         
-        
-        //Identifico los botones de las redes sociales
+        //Identifico los botones de las redes sociales en el xml
         Button twButton = (Button) findViewById(R.id.twitter);
         Button fbButton = (Button) findViewById(R.id.facebook);
         Button liButton = (Button) findViewById(R.id.linkedin);
@@ -84,12 +81,12 @@ public class NetworkActivity extends Activity {
         Button ptButton = (Button) findViewById(R.id.pinterest);
         Button inButton = (Button) findViewById(R.id.instagram);
        
-        
+        //recorro los objetos del json 
         for (int index = 0; index < objetos.size(); index++) {
             
         	IPageObject object = objetos.get(index);
             String title = object.getTitle();
-            //String  imageBgUrl = object.getIconUrl();
+            String  urlSocial = object.getContent();
             String  content = object.getContent();
             
             switch (object.getType()) {
@@ -100,7 +97,7 @@ public class NetworkActivity extends Activity {
             		if (type != null){
             			if(type.equalsIgnoreCase(INetworkPage.facebook)) {
             				addressfb = content;
-	        				fbButton.setText(title);
+	        				fbButton.setText(urlSocial);
 	        				fbButton.setTextColor(Color.TRANSPARENT);
 	        			
 	        			}

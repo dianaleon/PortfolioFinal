@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import com.portfolio.R;
 import com.portfolio.activities.CatalogoActivity;
 import com.portfolio.activities.ContactActivity;
+import com.portfolio.activities.HomeActivity;
 import com.portfolio.activities.NetworkActivity;
 import com.portfolio.activities.PhotoTextListActivity;
 import com.portfolio.activities.TextActivity;
@@ -59,6 +60,17 @@ public class menu extends LinearLayout {
                         int pos = (Integer) v.getTag();    
                     	IPage page = portfolioModel.getPageInfo(pos);
                     	String layout = page.getLayout();
+                    	if (layout.equalsIgnoreCase("image")) {
+                    		Intent intent4 = new Intent(getContext(), HomeActivity.class);
+                            intent4.putExtra("position",pos);
+                            getContext().startActivity(intent4);
+                    	}
+                    	if (layout.equalsIgnoreCase("redesSociales")) {
+                    		Intent intent3 = new Intent(getContext(), NetworkActivity.class);
+  	                	 	intent3.putExtra("position", pos);
+  	                	 	getContext().startActivity(intent3);
+                    	}
+                    	
                     	if (layout.equalsIgnoreCase("photo_text_gridlist")) {
                     		Intent intent = new Intent(getContext(), PhotoTxtGridListPage.class);
                             intent.putExtra("position",pos);
@@ -70,11 +82,7 @@ public class menu extends LinearLayout {
                     	if (layout.equalsIgnoreCase("text_subtopic")) {
                     		//TODO
                     	}
-                    	if (layout.equalsIgnoreCase("image")) {
-                    		Intent intent4 = new Intent(getContext(), TextActivity.class);
-                            intent4.putExtra("position",pos);
-                            getContext().startActivity(intent4);
-                    	}
+                    	
                     	if (layout.equalsIgnoreCase("photo_grid")) {
                     		//TODO
                     	}
@@ -86,11 +94,7 @@ public class menu extends LinearLayout {
                             intent.putExtra("position", pos);
                             getContext().startActivity(intent);
                     	}
-                    	if (layout.equalsIgnoreCase("redesSociales")) {
-                    		Intent intent3 = new Intent(getContext(), NetworkActivity.class);
-  	                	 	intent3.putExtra("position", pos);
-  	                	 	getContext().startActivity(intent3);
-                    	}
+                    	
                     	if (layout.equalsIgnoreCase("photo_text")) {
                     		Intent intent5 = new Intent(getContext(), PhotoTextListActivity.class);
                             intent5.putExtra("position", pos);

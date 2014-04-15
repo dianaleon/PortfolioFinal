@@ -30,8 +30,7 @@ import com.portfolio.model.interfaces.component.IPageObject;
 
 public class HomeActivity extends Activity {
 
-        private Button buttonMenu;
-      
+        private Button buttonMenu;   
         ImageView imgView;
         ViewFlipper flipper;
 
@@ -40,7 +39,7 @@ public class HomeActivity extends Activity {
                 
                 super.onCreate(savedInstanceState);
                 
-                //la vista de la home. Layout:image (json)
+                //la vista de la home. Layout:image (json pos 3)
                 setContentView(R.layout.activity_image);
                 Bundle bundle = this.getIntent().getExtras();
         		int position = bundle.getInt("position");
@@ -53,14 +52,12 @@ public class HomeActivity extends Activity {
                 //cargar info
                 ITheme iTheme = PortfolioModel.getInstance(this).getTheme();
                 String url = iTheme.getUrlImages();
-//                ImageView imgView = (ImageView) findViewById(R.id.imageView1);
                 List<IPageObject> objetos = homePage.getObjects();
                 
                 
                 //Setear el titulo en la pagina
                 PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
                 IMenu menu = portfolioModel.getPorfolioMenu();
-                     
                 menu.getBackground();
                 //Find views
                 TextView textViewTittle = (TextView) findViewById(R.id.tittle_app);
@@ -68,6 +65,8 @@ public class HomeActivity extends Activity {
                 //Set title and subtitle from json
                 textViewTittle.setText(menu.getTitle());
                 textViewSubTittle.setText(menu.getSubtitle());
+                     
+                
                 
                 //Image to set as the home page
                 LinearLayout linearLayout = (LinearLayout) findViewById(R.id.layout_content);
