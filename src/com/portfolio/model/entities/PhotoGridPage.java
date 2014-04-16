@@ -17,7 +17,7 @@ public class PhotoGridPage extends Page implements IPhotosGridPage {
 		super(jsonObject);
 		this.layout = layout;
 		this.type = type;
-		this.type.setTypeValue(IPage.type_photos_grid);
+		this.type.setTypeValue(IPage.type_photo_grid);
 		this.objects= new ArrayList<IPageObject>();
 		try {
 			JSONArray data = jsonObject.getJSONArray("data");

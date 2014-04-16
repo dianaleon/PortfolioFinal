@@ -33,13 +33,7 @@ import com.portfolio.model.interfaces.component.ITextObject;
 public class ContactActivity extends Activity {
 	private Button buttonMenu;
     ViewFlipper flipper;
-    Button buttonItem1;
-    Button buttonItem2;
-    Button buttonItem3;
-    Button buttonItem4;
-    Button buttonItem5;
-    Button buttonItem6;
-    Button buttonItem7;
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -102,13 +96,13 @@ public class ContactActivity extends Activity {
 	        		
 	        		if (type != null){
 	        			if(type.equalsIgnoreCase(IContactPage.email)) {
-	        				TextView textView = (TextView) findViewById(R.id.mail);
+	        				TextView textView = (TextView)findViewById(R.id.mail);
 	        				textView.setTypeface(font2);
 	        				textView.setTextColor(R.color.brown); 
 	        		        textView.setText(content);
 	        			}
 	        			if(type.equalsIgnoreCase(IContactPage.address)) {
-	        				TextView textView = (TextView) findViewById(R.id.direccion);
+	        				TextView textView = (TextView)findViewById(R.id.direccion);
 	        				textView.setTypeface(font2);
 	        				textView.setTextColor(R.color.brown); 
 	        		        textView.setText(content);

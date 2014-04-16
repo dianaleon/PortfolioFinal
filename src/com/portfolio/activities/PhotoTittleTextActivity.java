@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -19,6 +20,7 @@ import android.widget.ViewFlipper;
 
 import com.portfolio.R;
 import com.portfolio.components.menu;
+import com.portfolio.listener.IMediaListener;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IPhotoTextPage;
 import com.portfolio.model.interfaces.ITextPage;
@@ -31,102 +33,79 @@ public class PhotoTittleTextActivity extends Activity {
         
         private Button buttonMenu;
         ViewFlipper flipper;
-        Button buttonItem1;
-        Button buttonItem2;
-        Button buttonItem3;
-        Button buttonItem4;
-        Button buttonItem5;
-        Button buttonItem6;
+        String title = null;//title
+        String content = null;//texto
+        ImageView imgView = null;//content_img
         @Override
         protected void onCreate(Bundle savedInstanceState) {
                 
                 super.onCreate(savedInstanceState);
+                //la vista de la home. Layout:photo_grid (json pos 4)
                 setContentView(R.layout.activity_ttl_txt_img);
                 Bundle bundle = this.getIntent().getExtras();
                 int position = bundle.getInt("position");
 		        
                 //levanto la pagina de esa posicion
                 //la interfaz que se llama text, que tiene imagen, titulo y texto
-                IPhotoTextPage textPage = (IPhotoTextPage) PortfolioModel.getInstance(this).getPageInfo(position);
+                IPhotoTextPage ttlPage = (IPhotoTextPage) PortfolioModel.getInstance(this).getPageInfo(position);
                
                 //caragr info
                 ITheme iTheme = PortfolioModel.getInstance(this).getTheme();
                 String url = iTheme.getUrlImages();
-                ImageView imgView = (ImageView) findViewById(R.id.imageView1);
+                final ImageView imageView = (ImageView)findViewById(R.id.imageView1);
                 //levantar info para el layout
                 // imagen +  titulo + texto
-                List<IPageObject> objetos = textPage.getObjects();
-                String title = null;
-                String subtitle = null;
-                String content = null;
-                String urlFinal = null;
+                List<IPageObject> objetos = ttlPage.getObjects();
+                
                 for (int index = 0; index < objetos.size(); index++) {
                 	IPageObject object = objetos.get(index);
                 	switch (object.getType()) {
-                        
-                        case IPageObject.type_text:
-                            ITextObject text = (ITextObject) object;
-                            title = text.getTitle();
-                            subtitle = text.getSubtitle();
-                            content = text.getContent();
-                            urlFinal = url + text.getContent_img();
-                        
+                 
                         case IPageObject.type_image:
-                        	IImageObject img = (IImageObject) object;
-                            title = img.getTitle();
-                            subtitle = img.getSubtitle();
+                        	final IImageObject img = (IImageObject) object;
+                        	title = img.getTitle();
                             content = img.getDescription();
-                            urlFinal = url + img.getContent_img();
+                    		PortfolioModel.getInstance(this).getMedia(new IMediaListener() {
+								
+								@Override
+								public void onImageReady(Bitmap bitmap) {
+									imageView.setImageBitmap(bitmap);
+								}
+								
+							}, img.getContent_img());
+                        	break;
+                            
+                           
                         
                     
                    }
                 }
                 
-                //cargar el layout
+                //cargar el layout con el contenido del json
                 TextView tittleView = (TextView) findViewById(R.id.tittle);
                 tittleView.setText(title);
                 
                 TextView textView = (TextView) findViewById(R.id.text_page_item);
                 textView.setText(content);
-                
-               
-                
-                
+         
                 
                 
                 
                 //MENU
+        		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
+                menuLayout.init();
                 flipper = (ViewFlipper) findViewById(R.id.flipper);
-		
-		        final menu menuLayout = (menu) findViewById(R.id.layout_menu);
-		        menuLayout.init();	
-                
+                buttonMenu = (Button) findViewById(R.id.buttonMenu);
                 buttonMenu.setOnClickListener(new OnClickListener() {
-                public void onClick(View v) {
-                    flipper.setInAnimation(inFromRightAnimation());
-                    flipper.setOutAnimation(outToLeftAnimation());
-                    flipper.showNext(); 
-	                }
-	            });
-                buttonItem1 = (Button) findViewById(R.id.itemMenu1);
-                buttonItem1.setOnClickListener(new OnClickListener() {
-                @Override
-                    public void onClick(View v) {
-                                startActivity(new Intent(getApplicationContext(), PhotoTittleTextActivity.class));
-                                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-                            }
+                        public void onClick(View v) {
+                        	flipper.setInAnimation(inFromRightAnimation());
+                        	flipper.setOutAnimation(outToLeftAnimation());
+                        	flipper.showNext();     
+                        }
                     });
-                buttonItem2 = (Button) findViewById(R.id.itemMenu2);
-                buttonItem2.setOnClickListener(new OnClickListener() {
-                @Override
-                    public void onClick(View v) {
-                                startActivity(new Intent(getApplicationContext(), PhotoTextListTwoRowsActivity.class));
-                                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
-                            }
-                    });
-	        }
-	
-	        @Override
+        	}
+	        
+        	@Override
 	        public boolean onCreateOptionsMenu(Menu menu) {
 	                // Inflate the menu; this adds items to the action bar if it is present.
 	                getMenuInflater().inflate(R.menu.main, menu);

@@ -31,6 +31,20 @@ public class Portfolio {
             	String layout = page.getString("layout");
             	Type type = new Type(page.getJSONObject("type"));
             	IPage pageObject = null;
+            	if (layout.equalsIgnoreCase("image")) {
+            		pageObject = new ImagePage(type, page, layout);
+            	}
+            	if (layout.equalsIgnoreCase("redesSociales")) {
+            		pageObject = new NetworkPage(type, page, layout);
+            	}
+            	if (layout.equalsIgnoreCase("contacto")) {
+            		pageObject = new ContactPage(type, page, layout);
+            	}
+            	if (layout.equalsIgnoreCase("photo_grid")) {
+            		pageObject = new PhotoGridPage(type, page, layout);
+            	}
+            	
+            	
             	if (layout.equalsIgnoreCase("photo_text_gridlist")) {
             		pageObject = new PhotoTxtGridListPage(type, page, layout);
             	}
@@ -40,20 +54,11 @@ public class Portfolio {
             	if (layout.equalsIgnoreCase("text_subtopic")) {
             		pageObject = new TxtSubtopicPage(type, page, layout);
             	}
-            	if (layout.equalsIgnoreCase("image")) {
-            		pageObject = new ImagePage(type, page, layout);
-            	}
-            	if (layout.equalsIgnoreCase("photo_grid")) {
-            		pageObject = new PhotoGridPage(type, page, layout);
-            	}
             	if (layout.equalsIgnoreCase("photo_gallery")) {
             		pageObject = new PhotoGalleryPage(type, page, layout);
             	}
             	if (layout.equalsIgnoreCase("video")) {
             		pageObject = new VideoPage(type, page, layout);
-            	}
-            	if (layout.equalsIgnoreCase("redesSociales")) {
-            		pageObject = new NetworkPage(type, page, layout);
             	}
             	if (layout.equalsIgnoreCase("photo_text")) {
             		pageObject = new PhotoTextPage(type, page, layout);
@@ -61,14 +66,10 @@ public class Portfolio {
             	if (layout.equalsIgnoreCase("text_photo_text")) {
             		pageObject = new TxtPhotoTxtPage(type, page, layout);
             	}
-            	if (layout.equalsIgnoreCase("contacto")) {
-            		pageObject = new ContactPage(type, page, layout);
-            	}
             	if (layout.equalsIgnoreCase("catalogo")) {
             		pageObject = new CatalogoPage(type, page, layout);
             	}
-
-            	if (pageObject != null) {
+if (pageObject != null) {
 //	            	String namePage = page.getString("name");
 //	            	((Page) pageObject).setName(namePage);
 	        		this.pages.put(pageObject.getPosition(), pageObject);

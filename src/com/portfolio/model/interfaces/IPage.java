@@ -20,7 +20,7 @@ public interface IPage {
 	public static final int type_txt_photo_txt = 7;
 	public static final int type_horizontal_txt_photo_list = 8;
 	public static final int type_curriculum = 9;
-	public static final int type_photos_grid = 10;
+	public static final int type_photo_grid = 10;
 	
 
 	public Type getType();

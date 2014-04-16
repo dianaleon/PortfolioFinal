@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 
+import com.portfolio.activities.ContactActivity;
 import com.portfolio.activities.HomeActivity;
 import com.portfolio.activities.NetworkActivity;
+import com.portfolio.activities.PhotoTittleTextActivity;
 import com.portfolio.activities.TextActivity;
 import com.portfolio.listener.IPortfolioListener;
 import com.portfolio.model.PortfolioModel;
@@ -20,9 +22,6 @@ public class MainActivity extends Activity implements IPortfolioListener{
 		@Override
         protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
-                 //requestWindowFeature(Window.FEATURE_NO_TITLE);     
-                 //setContentView(R.layout.activity_contact);
-                
                 PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
                 portfolioModel.getPortfolio(this);
         }
@@ -63,11 +62,11 @@ public class MainActivity extends Activity implements IPortfolioListener{
             Intent intent0 = new Intent(MainActivity.this, HomeActivity.class);
             intent0.putExtra("position", 3);
             startActivity(intent0);*/
-            Intent intent3 = new Intent(MainActivity.this, NetworkActivity.class);
-      	 	intent3.putExtra("position", 7);
+            Intent intent3 = new Intent(MainActivity.this, PhotoTittleTextActivity.class);
+      	 	intent3.putExtra("position", 1);
       	 	startActivity(intent3);
             /*
-            switch (pageNum1.getType().getTypeValue()) {
+            switch (pageNu1.getType().getTypeValue()) {
             		//contacto  
             		case IPage.type_contact:
 		            	Intent intent6 = new Intent(MainActivity.this, ContactActivity.class);
