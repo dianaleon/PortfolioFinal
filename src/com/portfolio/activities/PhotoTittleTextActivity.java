@@ -23,6 +23,7 @@ import com.portfolio.components.menu;
 import com.portfolio.listener.IMediaListener;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IPhotoTextPage;
+import com.portfolio.model.interfaces.IPhotosGridPage;
 import com.portfolio.model.interfaces.ITextPage;
 import com.portfolio.model.interfaces.ITheme;
 import com.portfolio.model.interfaces.component.IImageObject;
@@ -47,7 +48,7 @@ public class PhotoTittleTextActivity extends Activity {
 		        
                 //levanto la pagina de esa posicion
                 //la interfaz que se llama text, que tiene imagen, titulo y texto
-                IPhotoTextPage ttlPage = (IPhotoTextPage) PortfolioModel.getInstance(this).getPageInfo(position);
+                IPhotosGridPage ttlPage = (IPhotosGridPage) PortfolioModel.getInstance(this).getPageInfo(position);
                
                 //caragr info
                 ITheme iTheme = PortfolioModel.getInstance(this).getTheme();

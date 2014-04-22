@@ -5,6 +5,7 @@ import java.util.List;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -47,8 +48,11 @@ public class HomeActivity extends Activity {
                 //la interfaz que se llama redes sociales,....
                 IImagePage homePage = (IImagePage) PortfolioModel.getInstance(this).getPageInfo(position);
         	       
-        		
-                
+        		//GRADIENTES
+                /*View bgHeader = (TextView)findViewById(R.id.header);
+                int colors[] = { 0xff255779 , 0xff3e7492, 0xffa6c0cd };
+                GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, colors);
+                bgHeader.setBackground(g);*/
                 //cargar info
                 ITheme iTheme = PortfolioModel.getInstance(this).getTheme();
                 String url = iTheme.getUrlImages();

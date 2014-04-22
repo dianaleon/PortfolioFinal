@@ -10,7 +10,9 @@ public class Config {
 
 	public final static String getUrl() {
 //		return "http://www.appsworld.crealogica.eu/webServices/getAppById.php?id_app=1";
-		return "http://www.appsworld.crealogica.eu/webServices/getAppById.php?id_app=1718";
+//		return "http://www.appsworld.crealogica.eu/webServices/getAppById.php?id_app=1718";
+		return "http://diana4love.com/AppsWorld/appsworld.json";
+		
 	}
 
 	

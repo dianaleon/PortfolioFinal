@@ -62,8 +62,8 @@ public class MainActivity extends Activity implements IPortfolioListener{
             Intent intent0 = new Intent(MainActivity.this, HomeActivity.class);
             intent0.putExtra("position", 3);
             startActivity(intent0);*/
-            Intent intent3 = new Intent(MainActivity.this, PhotoTittleTextActivity.class);
-      	 	intent3.putExtra("position", 1);
+            Intent intent3 = new Intent(MainActivity.this, HomeActivity.class);
+      	 	intent3.putExtra("position", 3);
       	 	startActivity(intent3);
             /*
             switch (pageNu1.getType().getTypeValue()) {
