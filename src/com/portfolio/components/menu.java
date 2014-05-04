@@ -79,7 +79,7 @@ public class menu extends LinearLayout {
                     	
                     	
                     	if (layout.equalsIgnoreCase("photo_text_gridlist")) {
-                    		Intent intent = new Intent(getContext(), PhotoTxtGridListPage.class);
+                    		Intent intent = new Intent(getContext(), PhotoTextListActivity.class);
                             intent.putExtra("position",pos);
                             getContext().startActivity(intent);
                     	}

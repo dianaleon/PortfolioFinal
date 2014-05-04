@@ -2,10 +2,12 @@ package com.portfolio.activities;
 
 import java.util.List;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -29,6 +31,7 @@ import com.portfolio.model.interfaces.ITheme;
 import com.portfolio.model.interfaces.component.IImageObject;
 import com.portfolio.model.interfaces.component.IPageObject;
 
+@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class HomeActivity extends Activity {
 
         private Button buttonMenu;   
@@ -69,7 +72,21 @@ public class HomeActivity extends Activity {
                 //Set title and subtitle from json
                 textViewTittle.setText(menu.getTitle());
                 textViewSubTittle.setText(menu.getSubtitle());
-                     
+                
+                
+                
+                //gradiente header
+                LinearLayout bgHeader = (LinearLayout) findViewById(R.id.header);
+                String colorStart = menu.getBackground().getStartColor();
+                String colorEnd = menu.getBackground().getEndColor();
+                int cStart = Integer.parseInt(colorStart.replaceFirst("^#",""), 16); 
+                int cEnd = Integer.parseInt(colorEnd.replaceFirst("^#",""), 16);
+                GradientDrawable  gd = new GradientDrawable(
+                        GradientDrawable.Orientation.TOP_BOTTOM,
+                        new int[] {cStart,cEnd});
+               bgHeader.setBackground(gd);
+                
+                
                 
                 
                 //Image to set as the home page
