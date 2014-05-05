@@ -21,7 +21,9 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
@@ -83,7 +85,7 @@ public class NetworkActivity extends Activity {
         textViewSubTittle.setText(menu.getSubtitle());
         
         
-        
+        RelativeLayout board = (RelativeLayout) findViewById(R.id.boardNetworks);
         //recorro los objetos del json 
         for (int index = 0; index < objetos.size(); index++) {
             
@@ -91,8 +93,8 @@ public class NetworkActivity extends Activity {
             String title = object.getTitle();
             String  content = object.getContent();
             Button but = new Button(this);
-            but.setWidth(10);
-			but.setHeight(10);
+            but.setWidth(100);
+			but.setHeight(100);
 			but.setTextColor(Color.TRANSPARENT);
 			
             switch (object.getType()) {
@@ -189,7 +191,7 @@ public class NetworkActivity extends Activity {
             		}
         
             }
-            TableRow board = (TableRow) findViewById(R.id.tableRow1);
+            
             board.addView(but);
         }
         

@@ -49,20 +49,29 @@ public class CatalogoActivity extends Activity {
 		PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
 		IMenu menu = portfolioModel.getPorfolioMenu();
 		menu.getBackground();
+		
+		//Header fuentes
+		
 		TextView textViewTittle = (TextView) findViewById(R.id.tittle_app);
 		TextView textViewSubTittle = (TextView) findViewById(R.id.sub_tittle_app);
 		textViewTittle.setText(menu.getTitle());
 		textViewSubTittle.setText(menu.getSubtitle());
-
+		//FUENTES
+		// Cargar el titulo y el subtitulo
+		Typeface font1 = Typeface.createFromAsset(getAssets(),"fonts/CopperplateGothicStd 31AB.otf");
+		TextView customTittle = (TextView) findViewById(R.id.tittle_app);
+		customTittle.setTypeface(font1);
+		Typeface font2 = Typeface.createFromAsset(getAssets(),"fonts/CopperplateGothicStd 32AB.otf");
+		TextView customSubtittle = (TextView) findViewById(R.id.sub_tittle_app);
+		customSubtittle.setTypeface(font1);
+		
+		
 		// cargar el layout
 		List<IPageObject> objetos = catalogoPage.getObjects();
 		TableLayout table = new TableLayout(this);
 		
 		for (int index = 0; index < objetos.size(); index++) {
 			IPageObject object = objetos.get(index);
-			String title = object.getTitle();
-			String subtitle = object.getSubtitle();
-			String content = object.getContent();
 			TableRow tableRow = (TableRow)findViewById(R.id.tableRowList);
 			ImageView imageItem = (ImageView) tableRow.findViewById(R.id.imageView1);
 			TextView titlePageItem = (TextView) findViewById(R.id.tittle_item_list);
@@ -74,7 +83,8 @@ public class CatalogoActivity extends Activity {
 				//imageItem.setImageDrawable(text.getContent_img()); ???
 				titlePageItem.setText(text.getTitle());
 				textPageItem.setText(text.getContent());
-				
+				tableRow.addView(titlePageItem);
+				tableRow.addView(textPageItem);
 				break;
 
 			case IPageObject.type_image:
@@ -82,23 +92,14 @@ public class CatalogoActivity extends Activity {
 				//imageItem.setImageDrawable(text.getContent_img()); ???
 				titlePageItem.setText(img.getTitle());
 				textPageItem.setText(img.getContent());
+				tableRow.addView(titlePageItem);
+				tableRow.addView(textPageItem);
 				break;
 			}
 			table.addView(tableRow);
 			
 		}
-		//FUENTES
-		// Cargar el titulo y el subtitulo
-		Typeface font1 = Typeface.createFromAsset(getAssets(),
-						"fonts/CopperplateGothicStd 31AB.otf");
-		TextView customTittle = (TextView) findViewById(R.id.tittle_app);
-		customTittle.setTypeface(font1);
-		// customTittle.setText(TITULO);
-		Typeface font2 = Typeface.createFromAsset(getAssets(),
-						"fonts/CopperplateGothicStd 32AB.otf");
-		TextView customSubtittle = (TextView) findViewById(R.id.sub_tittle_app);
-		customSubtittle.setTypeface(font1);
-		// customTittle.setText(SUBTITULO);
+		
 
 		// MENU
 		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
