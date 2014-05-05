@@ -3,7 +3,6 @@ package com.portfolio.activities;
 import java.util.List;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,8 +19,7 @@ import com.portfolio.R;
 import com.portfolio.components.menu;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IMenu;
-import com.portfolio.model.interfaces.IPhotoGaleryPage;
-import com.portfolio.model.interfaces.ITextPage;
+import com.portfolio.model.interfaces.IPhotoTxtGridListPage;
 import com.portfolio.model.interfaces.ITheme;
 import com.portfolio.model.interfaces.component.IPageObject;
 import com.portfolio.model.interfaces.component.ITextObject;
@@ -50,7 +48,7 @@ public class PhotoTextListActivity extends Activity {
 		
         //levanto la pagina de esa posicion
         //la interfaz que se llama text, que tiene imagen, titulo y texto
-        ITextPage listPage = (ITextPage) PortfolioModel.getInstance(this).getPageInfo(position);
+        IPhotoTxtGridListPage listPage = (IPhotoTxtGridListPage) PortfolioModel.getInstance(this).getPageInfo(position);
         
         
         Typeface font1 = Typeface.createFromAsset(getAssets(), "fonts/CopperplateGothicStd 31BC.otf");

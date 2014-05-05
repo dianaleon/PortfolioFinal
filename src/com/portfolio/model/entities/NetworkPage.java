@@ -27,6 +27,18 @@ public class NetworkPage extends Page implements INetworkPage {
 				if (tipo.equalsIgnoreCase(INetworkPage.twitter)) {
 					networkObject.setSubtype(INetworkPage.twitter);
 				}
+				if (tipo.equalsIgnoreCase(INetworkPage.gplus)) {
+					networkObject.setSubtype(INetworkPage.gplus);
+				}
+				if (tipo.equalsIgnoreCase(INetworkPage.instagram)) {
+					networkObject.setSubtype(INetworkPage.instagram);
+				}
+				if (tipo.equalsIgnoreCase(INetworkPage.pinterest)) {
+					networkObject.setSubtype(INetworkPage.pinterest);
+				}
+				if (tipo.equalsIgnoreCase(INetworkPage.linkedin)) {
+					networkObject.setSubtype(INetworkPage.linkedin);
+				}
 				this.objects.add(networkObject);
 			}
 		} catch (JSONException e) {
