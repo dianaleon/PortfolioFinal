@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -215,6 +216,15 @@ public class NetworkActivity extends Activity {
         
         //MENU
 		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
+		LinearLayout bgFooter = (LinearLayout) findViewById(R.id.layout_footer);
+        String colorStartMenu = menu.getBackground().getStartColor();
+        String colorEndMenu = menu.getBackground().getEndColor();
+        int cStartMenu = Color.parseColor(colorStartMenu);
+        int cEndMenu = Color.parseColor(colorEndMenu);
+        GradientDrawable  gdMenu = new GradientDrawable(
+                GradientDrawable.Orientation.TOP_BOTTOM,
+                new int[] {cStartMenu,cEndMenu});
+        bgFooter.setBackgroundDrawable(gdMenu);
         menuLayout.init();
         flipper = (ViewFlipper) findViewById(R.id.flipper);
         buttonMenu = (Button) findViewById(R.id.buttonMenu);

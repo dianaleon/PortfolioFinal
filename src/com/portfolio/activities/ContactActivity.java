@@ -5,7 +5,9 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -117,6 +120,15 @@ public class ContactActivity extends Activity {
         
         //MENU
 		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
+		LinearLayout bgFooter = (LinearLayout) findViewById(R.id.layout_footer);
+        String colorStartMenu = menu.getBackground().getStartColor();
+        String colorEndMenu = menu.getBackground().getEndColor();
+        int cStartMenu = Color.parseColor(colorStartMenu);
+        int cEndMenu = Color.parseColor(colorEndMenu);
+        GradientDrawable  gdMenu = new GradientDrawable(
+                GradientDrawable.Orientation.TOP_BOTTOM,
+                new int[] {cStartMenu,cEndMenu});
+        bgFooter.setBackgroundDrawable(gdMenu);
         menuLayout.init();
         flipper = (ViewFlipper) findViewById(R.id.flipper);
         buttonMenu = (Button) findViewById(R.id.buttonMenu);

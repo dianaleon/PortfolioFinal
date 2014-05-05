@@ -3,8 +3,11 @@ package com.portfolio.activities;
 import java.util.List;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -99,6 +102,15 @@ public class CatalogoActivity extends Activity {
 
 		// MENU
 		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
+		LinearLayout bgFooter = (LinearLayout) findViewById(R.id.layout_footer);
+        String colorStartMenu = menu.getBackground().getStartColor();
+        String colorEndMenu = menu.getBackground().getEndColor();
+        int cStartMenu = Color.parseColor(colorStartMenu);
+        int cEndMenu = Color.parseColor(colorEndMenu);
+        GradientDrawable  gdMenu = new GradientDrawable(
+                GradientDrawable.Orientation.TOP_BOTTOM,
+                new int[] {cStartMenu,cEndMenu});
+        bgFooter.setBackgroundDrawable(gdMenu);
 		menuLayout.init();
 
 	}

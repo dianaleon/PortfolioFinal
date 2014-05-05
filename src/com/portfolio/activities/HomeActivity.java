@@ -5,6 +5,7 @@ import java.util.List;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
@@ -76,16 +77,15 @@ public class HomeActivity extends Activity {
                 
                 
                 //gradiente header
-                LinearLayout bgHeader = (LinearLayout) findViewById(R.id.header);
+                LinearLayout bgHeader = (LinearLayout) findViewById(R.id.layout_header);
                 String colorStart = menu.getBackground().getStartColor();
                 String colorEnd = menu.getBackground().getEndColor();
-                int cStart = Integer.parseInt(colorStart.replaceFirst("^#",""), 16); 
-                int cEnd = Integer.parseInt(colorEnd.replaceFirst("^#",""), 16);
+                int cStart = Color.parseColor(colorStart);
+                int cEnd = Color.parseColor(colorEnd);
                 GradientDrawable  gd = new GradientDrawable(
                         GradientDrawable.Orientation.TOP_BOTTOM,
                         new int[] {cStart,cEnd});
-               bgHeader.setBackground(gd);
-                
+               bgHeader.setBackgroundDrawable(gd);
                 
                 
                 
@@ -138,8 +138,19 @@ public class HomeActivity extends Activity {
                 
  
                
-              //MENU
+                //MENU
         		final menu menuLayout = (menu) findViewById(R.id.layout_menu);
+        		LinearLayout bgFooter = (LinearLayout) findViewById(R.id.layout_footer);
+                String colorStartMenu = menu.getBackground().getStartColor();
+                String colorEndMenu = menu.getBackground().getEndColor();
+                int cStartMenu = Color.parseColor(colorStartMenu);
+                int cEndMenu = Color.parseColor(colorEndMenu);
+                GradientDrawable  gdMenu = new GradientDrawable(
+                        GradientDrawable.Orientation.TOP_BOTTOM,
+                        new int[] {cStartMenu,cEndMenu});
+                bgFooter.setBackgroundDrawable(gdMenu);
+               
+               
                 menuLayout.init();
                 flipper = (ViewFlipper) findViewById(R.id.flipper);
                 buttonMenu = (Button) findViewById(R.id.buttonMenu);
