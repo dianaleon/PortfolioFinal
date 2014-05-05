@@ -2,28 +2,21 @@ package com.portfolio.activities;
 
 import java.util.List;
 
-import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.StateListDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
@@ -31,15 +24,11 @@ import android.widget.ViewFlipper;
 import com.portfolio.R;
 import com.portfolio.components.menu;
 import com.portfolio.model.PortfolioModel;
-import com.portfolio.model.interfaces.IContactPage;
 import com.portfolio.model.interfaces.IMenu;
 import com.portfolio.model.interfaces.INetworkPage;
-import com.portfolio.model.interfaces.IPage;
-import com.portfolio.model.interfaces.ITextPage;
 import com.portfolio.model.interfaces.ITheme;
 import com.portfolio.model.interfaces.component.INetworkObject;
 import com.portfolio.model.interfaces.component.IPageObject;
-import com.portfolio.model.interfaces.component.ITextObject;
 
 public class NetworkActivity extends Activity {
 	
@@ -84,8 +73,6 @@ public class NetworkActivity extends Activity {
         textViewTittle.setText(menu.getTitle());
         textViewSubTittle.setText(menu.getSubtitle());
         
-        
-        RelativeLayout board = (RelativeLayout) findViewById(R.id.boardNetworks);
         //recorro los objetos del json 
         for (int index = 0; index < objetos.size(); index++) {
             
@@ -93,8 +80,6 @@ public class NetworkActivity extends Activity {
             String title = object.getTitle();
             String  content = object.getContent();
             Button but = new Button(this);
-            but.setWidth(100);
-			but.setHeight(100);
 			but.setTextColor(Color.TRANSPARENT);
 			
             switch (object.getType()) {
@@ -134,13 +119,13 @@ public class NetworkActivity extends Activity {
             		
             			if(type.equalsIgnoreCase(INetworkPage.gplus)) {
             				
-            				addresstwitter = content;
+            				addressgplus = content;
             				but.setBackgroundResource( R.drawable.gplus);
             				
             				//but.setTag(pos);
             				but.setOnClickListener(new OnClickListener() {
             					public void onClick(View v) {
-            			       		 Uri uri = Uri.parse(addresstwitter);
+            			       		 Uri uri = Uri.parse(addressgplus);
             			       		 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             			       		 startActivity(intent);
             			            }
@@ -148,7 +133,7 @@ public class NetworkActivity extends Activity {
             			}
             			if(type.equalsIgnoreCase(INetworkPage.instagram)) {
             				
-            				addresstwitter = content;
+            				addressinstagram = content;
             				but.setBackgroundResource( R.drawable.instagram);
             				
             				//but.setTag(pos);
@@ -162,7 +147,7 @@ public class NetworkActivity extends Activity {
             			}
 						if(type.equalsIgnoreCase(INetworkPage.pinterest)) {
 							
-							addresstwitter = content;
+							addresspinterest = content;
 							but.setBackgroundResource( R.drawable.pinterest);
 							
 							//but.setTag(pos);
@@ -176,7 +161,7 @@ public class NetworkActivity extends Activity {
 						}
 						if(type.equalsIgnoreCase(INetworkPage.linkedin)) {
 							
-							addresstwitter = content;
+							addresslinkedin = content;
 							but.setBackgroundResource( R.drawable.lin);
 							
 							//but.setTag(pos);
@@ -192,7 +177,13 @@ public class NetworkActivity extends Activity {
         
             }
             
-            board.addView(but);
+            if (index < 3) {
+	            TableRow board = (TableRow) findViewById(R.id.tableRow1);
+	            board.addView(but, new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT,1f));
+            } else {
+	            TableRow board2 = (TableRow) findViewById(R.id.tableRow2);
+	            board2.addView(but, new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT,1f));
+            }
         }
         
        
