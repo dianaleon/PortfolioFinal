@@ -28,6 +28,7 @@ import com.portfolio.listener.IMediaListener;
 import com.portfolio.model.PortfolioModel;
 import com.portfolio.model.interfaces.IImagePage;
 import com.portfolio.model.interfaces.IMenu;
+import com.portfolio.model.interfaces.IPhotosGridPage;
 import com.portfolio.model.interfaces.ITheme;
 import com.portfolio.model.interfaces.component.IImageObject;
 import com.portfolio.model.interfaces.component.IPageObject;
@@ -50,7 +51,7 @@ public class HomeActivity extends Activity {
         		int position = bundle.getInt("position");
         		//levanto la pagina de esa posicion
                 //la interfaz que se llama redes sociales,....
-                IImagePage homePage = (IImagePage) PortfolioModel.getInstance(this).getPageInfo(position);
+                IPhotosGridPage homePage = (IPhotosGridPage) PortfolioModel.getInstance(this).getPageInfo(position);
         	       
         		//GRADIENTES
                 /*View bgHeader = (TextView)findViewById(R.id.header);

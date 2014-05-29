@@ -1,8 +1,6 @@
 package com.portfolio.activities;
 
-
 import com.portfolio.R;
-
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -16,9 +14,6 @@ public class CustomThemeWindow extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        
-       
-        
         setContentView(R.layout.activity_main);
        
         
