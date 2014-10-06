@@ -19,7 +19,8 @@ public class MainActivity extends Activity implements IPortfolioListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Config.URL = "http://www.appsworld.eu/apps/ios/appsworld.json";
+		//Config.URL = "http://www.appsworld.eu/apps/ios/appsworld.json";
+		Config.URL = "https://dl.dropboxusercontent.com/u/49247770/PortfolioApps/AppAbogados/AppData.json";
 		PortfolioModel portfolioModel = PortfolioModel.getInstance(this);
 		portfolioModel.getPortfolio(this);
 	}
