@@ -40,8 +40,16 @@
             android:name="com.portfolio.activities.PhotoTextGridListActivity"
             android:screenOrientation="portrait" >
         </activity>
+          <activity
+            android:name="com.portfolio.activities.PhotoTextGridListActivity2"
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name="com.portfolio.activities.ContactActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.portfolio.activities.ContactActivity2"
             android:screenOrientation="portrait" >
         </activity>
         <activity
@@ -76,6 +84,7 @@
             android:name="com.portfolio.activities.PhotoTextListActivity"
             android:screenOrientation="portrait" >
         </activity>
+       
         <activity
             android:name="com.portfolio.activities.VideoActivity"
             android:screenOrientation="portrait" >
@@ -98,6 +107,10 @@
         </activity>
          <activity
             android:name="com.portfolio.activities.AccordionTextActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+          <activity
+            android:name="com.portfolio.activities.NetworkActivity2"
             android:screenOrientation="portrait" >
         </activity>
     </application>
