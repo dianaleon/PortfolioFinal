@@ -1,5 +1,6 @@
 package com.portfolio1;
 
+import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -45,9 +46,7 @@ public class MainActivity extends Activity implements IPortfolioListener {
 	    ImageView splash_image = (ImageView)findViewById(R.id.imageView1);
 	    splash_image.setImageResource(R.drawable.splash_image);
 	    
-	   
-	    
-	    
+
 	    LinearLayout layoutHeader = (LinearLayout) findViewById(R.id.layout_header);
 		UIUtils.setGradient(layoutHeader,
 				"#D0B36A","#775728",
@@ -67,8 +66,8 @@ public class MainActivity extends Activity implements IPortfolioListener {
 		customSubtittle.setTextScaleX(1);
 		customSubtittle.setText("A  B  O  G  A  D  O  S");
 
-		 LinearLayout layoutFooter = (LinearLayout) findViewById(R.id.layout_footer);
-			UIUtils.setGradient(layoutFooter,
+		LinearLayout layoutFooter = (LinearLayout) findViewById(R.id.layout_footer);
+			;		UIUtils.setGradient(layoutFooter,
 					"#D0B36A","#775728",
 					String.valueOf("135"));
 	}
