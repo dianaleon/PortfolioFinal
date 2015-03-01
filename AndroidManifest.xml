@@ -94,6 +94,10 @@
             android:name="com.portfolio.activities.CatalogoActivity"
             android:screenOrientation="portrait" >
         </activity>
+         <activity
+            android:name="com.portfolio.activities.CatalogoActivity2"
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name="com.portfolio.activities.PhotoTextActivity"
             android:screenOrientation="portrait" >
