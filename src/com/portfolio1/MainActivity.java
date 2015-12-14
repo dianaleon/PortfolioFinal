@@ -34,7 +34,9 @@ public class MainActivity extends Activity implements IPortfolioListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Config.URL = "https://dl.dropboxusercontent.com/u/49247770/PortfolioApps/AppAbogados/AppData2.json";
+		
+		Config.URL = "http://appsworld.alzatis.com/apps/json/25&color=yellow";
+		//Config.URL = "https://dl.dropboxusercontent.com/u/49247770/PortfolioApps/AppAbogados/AppData2.json";
 		//Config.URL = "https://dl.dropboxusercontent.com/u/49247770/PortfolioApps/AppAbogados/AppData.json";
 	    portfolioModel = PortfolioModel.getInstance(this);
 		portfolioModel.getPortfolio(this);
